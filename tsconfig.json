@@ -1,0 +1,58 @@
+// {
+//   "compilerOptions": {
+//     "lib": ["dom", "dom.iterable", "esnext"],
+//     "allowJs": true,
+//     "skipLibCheck": true,
+//     "strict": true,
+//     "noEmit": true,
+//     "esModuleInterop": true,
+//     "module": "esnext",
+//     "moduleResolution": "bundler",
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "jsx": "preserve",
+//     "incremental": true,
+//     "plugins": [
+//       {
+//         "name": "next"
+//       }
+//     ],
+//     "paths": {
+//       "@/*": ["./src/*"]
+//     }
+//   },
+//   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+//   "exclude": ["node_modules"]
+// }
+
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"], // Includes modern DOM APIs
+    "allowJs": true, // Allows JavaScript files in the project
+    "skipLibCheck": true, // Skips type checking for third-party modules
+    "strict": true, // Enables strict type checking
+    "noEmit": true, // Prevents emitting compiled files
+    "esModuleInterop": true, // Enables interoperability between ES modules and CommonJS
+    "module": "esnext", // Specifies ESNext module syntax
+    "moduleResolution": "bundler", // Ensures compatibility with modern bundlers
+    "resolveJsonModule": true, // Allows importing JSON files
+    "isolatedModules": true, // Ensures each file is treated as a module
+    "jsx": "preserve", // Keeps JSX as-is for Next.js
+    "incremental": true, // Speeds up incremental builds
+    "plugins": [
+      {
+        "name": "next" // Enables Next.js-specific TypeScript checks
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"] // Allows aliasing for cleaner imports
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts" // Includes Next.js types
+  ],
+  "exclude": ["node_modules"] // Excludes unnecessary files
+}

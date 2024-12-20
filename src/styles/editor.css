@@ -1,0 +1,151 @@
+/* .bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.small-text {
+  font-size: 12px;
+}
+
+.normal-text {
+  font-size: 14px;
+}
+
+.large-text {
+  font-size: 18px;
+}
+
+.huge-text {
+  font-size: 24px;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+} */
+
+/* Quill Editor Styles */
+.ql-container {
+  /* min-height: 300px; */
+}
+
+.ql-editor {
+  /* min-height: 300px; */
+  /* font-size: 16px; */
+  /* line-height: 1.5; */
+}
+
+.ql-toolbar {
+  /* border-top-left-radius: 0.5rem; */
+  /* border-top-right-radius: 0.5rem; */
+  /* background-color: #f8fafc; */
+  border-color: #e2e8f0;
+}
+
+.ql-container {
+  /* border-bottom-left-radius: 0.5rem; */
+  /* border-bottom-right-radius: 0.5rem; */
+  border-color: #e2e8f0;
+}
+
+/* Toolbar button hover states */
+.ql-toolbar button:hover,
+.ql-toolbar button:focus {
+  color: #4f46e5;
+}
+
+.ql-toolbar button.ql-active {
+  color: #4f46e5;
+}
+
+/* Editor content styles */
+.ql-editor p {
+  margin-bottom: 1rem;
+}
+
+.ql-editor h1,
+.ql-editor h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.ql-editor h1 {
+  font-size: 1.875rem;
+}
+
+.ql-editor h2 {
+  font-size: 1.5rem;
+}
+
+/* Mention styles */
+.mention-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.mention-item:hover {
+  background-color: #f3f4f6;
+}
+
+.mention-title {
+  font-size: 14px;
+  color: #1f2937;
+}
+
+.ql-mention-list-container {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  width: 200px;
+  z-index: 50;
+}
+
+.ql-mention-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mention {
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin: 0 2px;
+}
+
+.mention[data-denotation-char="@"] {
+  color: #4f46e5;
+  background-color: #eff6ff;
+}
+
+.mention[data-denotation-char="#"] {
+  color: #059669;
+  background-color: #ecfdf5;
+}
+
+/* ============================================ */
+.ql-mention-list-container .ql-mention-list-container-bottom {
+  z-index: 1000000 !important;
+}
