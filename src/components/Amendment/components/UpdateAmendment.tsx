@@ -37,7 +37,7 @@ import XLSX from "../../../asset/images/xlsx.png";
 import VIDEO from "../../../asset/images/video.png";
 import WORD from "../../../asset/images/word.png";
 import Logo from "../../../asset/images/companydummylog.png";
-import EditChatModel from "@/components/Orders/components/EditChatModel";
+import EditChatModel from "@/components/common/Editor/EditChatModel";
 import FilePreviewList from "@/components/common/FilePreviewList";
 
 const UpdateAmendment = ({ amendmentId }: any) => {
@@ -212,18 +212,19 @@ const UpdateAmendment = ({ amendmentId }: any) => {
                               onClick={handleCloseModal}
                             >
                               <Cross1Icon className="h-4 w-4 text-gray-700 hover:text-gray-900" />
-                            </div>
-                            <div className="flex items-center py-2 hover:bg-slate-100">
-                              <DeleteDialoge
-                                id={editor._id}
-                                entity="updates"
-                                setIsModalOpen={setIsModalOpen}
-                                setIsCommentOpen={setIsCommentOpen}
-                                fetchAllFunction={() =>
-                                  fetchAmendmentUpdateData(amendmentId)
-                                }
-                                deleteText="Delete Update"
-                              />
+
+                              <div className="flex items-center py-2 hover:bg-slate-100">
+                                <DeleteDialoge
+                                  id={editor._id}
+                                  entity="updates"
+                                  setIsModalOpen={setIsModalOpen}
+                                  setIsCommentOpen={setIsCommentOpen}
+                                  fetchAllFunction={() =>
+                                    fetchAmendmentUpdateData(amendmentId)
+                                  }
+                                  deleteText="Delete Update"
+                                />
+                              </div>
                             </div>
                             <div className="flex items-center py-2 hover:bg-slate-100">
                               {editor.isPinned ? (
