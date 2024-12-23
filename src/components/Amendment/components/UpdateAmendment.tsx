@@ -212,19 +212,19 @@ const UpdateAmendment = ({ amendmentId }: any) => {
                               onClick={handleCloseModal}
                             >
                               <Cross1Icon className="h-4 w-4 text-gray-700 hover:text-gray-900" />
+                            </div>
 
-                              <div className="flex items-center py-2 hover:bg-slate-100">
-                                <DeleteDialoge
-                                  id={editor._id}
-                                  entity="updates"
-                                  setIsModalOpen={setIsModalOpen}
-                                  setIsCommentOpen={setIsCommentOpen}
-                                  fetchAllFunction={() =>
-                                    fetchAmendmentUpdateData(amendmentId)
-                                  }
-                                  deleteText="Delete Update"
-                                />
-                              </div>
+                            <div className="flex items-center py-2 hover:bg-slate-100">
+                              <DeleteDialoge
+                                id={editor._id}
+                                entity="updates"
+                                setIsModalOpen={setIsModalOpen}
+                                setIsCommentOpen={setIsCommentOpen}
+                                fetchAllFunction={() =>
+                                  fetchAmendmentUpdateData(amendmentId)
+                                }
+                                deleteText="Delete Update"
+                              />
                             </div>
                             <div className="flex items-center py-2 hover:bg-slate-100">
                               {editor.isPinned ? (

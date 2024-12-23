@@ -295,12 +295,25 @@ const EditChatModel = ({
     fetchUsersData();
   }, []);
 
+  // useEffect(() => {
+  //   userData?.forEach((item: any) => {
+  //     atValues.push({
+  //       id: item._id, // Use 'userId' if that's the field in userData
+  //       value: item.fullName, // Use 'username' if that's the field in userData
+  //     });
+  //   });
+  // }, [userData]);
+
   useEffect(() => {
     userData?.forEach((item: any) => {
-      atValues.push({
-        id: item._id, // Use 'userId' if that's the field in userData
-        value: item.fullName, // Use 'username' if that's the field in userData
-      });
+      if (!atValues.some((value) => value.id === item._id)) {
+        // Check if the 'id' already exists in 'atValues'
+        atValues.push({
+          id: item?._id, // Use 'userId' if that's the field in userData
+          value: item?.fullName, // Use 'username' if that's the field in userData
+          avatar: item?.avatar,
+        });
+      }
     });
   }, [userData]);
 
