@@ -77,7 +77,11 @@ const UsersContent: React.FC = () => {
   }
 
   useEffect(() => {
-    if (userData === "invalid token" || userData === "Unauthorized request") {
+    if (
+      userData === "invalid token" ||
+      userData === "Unauthorized request" ||
+      userData === "Unauthorized request: No access or refresh token"
+    ) {
       router.push("/auth/login");
     } else {
       setLoader(false);

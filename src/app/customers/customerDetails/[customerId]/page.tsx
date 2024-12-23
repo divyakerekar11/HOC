@@ -8,7 +8,6 @@ import {
 import SideBarContent from "@/components/Sidebar/SideBarContent";
 import dynamic from "next/dynamic";
 // import CustomerDetailsContent from "@/components/customers/components/CustomerDetailsContent";
-import { useParams, useRouter } from "next/navigation";
 const CustomerDetailsContent = dynamic(
   () => import("@/components/customers/components/CustomerDetailsContent"),
   { ssr: false }

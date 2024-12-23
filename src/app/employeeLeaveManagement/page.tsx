@@ -34,7 +34,6 @@ const EmployeeLeaveManagementPage: React.FC = () => {
         }
       >
         <div className="rounded-md dark:border-gray-700">
-          {/* <CustomersContent /> */}
           <EmployeeLeaveContent />
         </div>
       </div>

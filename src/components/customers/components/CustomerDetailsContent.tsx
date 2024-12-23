@@ -187,7 +187,6 @@ const CustomerDetailsContent = ({ handleUpdate }: any) => {
   };
   // Reply Function
   const ReplyClick = (replyId: string) => {
-    console.log("Clickeddededed", replyId);
     setReply((prev) => !prev);
   };
   // coments Function

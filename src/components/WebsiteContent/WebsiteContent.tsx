@@ -52,7 +52,8 @@ const WebsiteContent: React.FC = () => {
   useEffect(() => {
     if (
       websiteContentData === "invalid token" ||
-      websiteContentData === "Unauthorized request"
+      websiteContentData === "Unauthorized request" ||
+      websiteContentData === "Unauthorized request: No access or refresh token"
     ) {
       router.push("/auth/login");
     } else {

@@ -51,7 +51,8 @@ const CopywriterContent: React.FC = () => {
   useEffect(() => {
     if (
       copywriterData === "invalid token" ||
-      copywriterData === "Unauthorized request"
+      copywriterData === "Unauthorized request" ||
+      copywriterData === "Unauthorized request: No access or refresh token"
     ) {
       router.push("/auth/login");
     } else {

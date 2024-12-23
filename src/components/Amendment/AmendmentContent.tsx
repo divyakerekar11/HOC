@@ -84,7 +84,8 @@ const AmendmentContent: React.FC = () => {
   useEffect(() => {
     if (
       amendmentData === "invalid token" ||
-      amendmentData === "Unauthorized request"
+      amendmentData === "Unauthorized request" ||
+      amendmentData === "Unauthorized request: No access or refresh token"
     ) {
       router.push("/auth/login");
     } else {

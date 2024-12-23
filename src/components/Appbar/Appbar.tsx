@@ -87,9 +87,19 @@ const Appbar: React.FC<NavBarProps> = ({ toggleSider }) => {
     setOpenDropDown((prev) => !prev);
   };
 
-  const logOutAccount = () => {
-    logOutFunction("Logout Successfully !!");
-    router.push("/auth/login");
+  const logOutAccount = async () => {
+    try {
+      const response = await baseInstance.post("/users/logout");
+      if (response.status === 200) {
+        router.push("/auth/login");
+        logOutFunction("Logout Successfully !!");
+        // set({ amendmentData: response.data?.data, loading: false });
+      } else {
+        // set({ amendmentData: response.data?.message, loading: false });
+      }
+    } catch (error: any) {
+      // logOutFunction(error?.response?.data?.message);
+    }
   };
 
   const profile = () => {

@@ -85,15 +85,17 @@ const OrdersContent = () => {
   ];
 
   useEffect(() => {
-    if (orderData === "invalid token" || orderData === "Unauthorized request") {
+    if (
+      orderData === "invalid token" ||
+      orderData === "Unauthorized request" ||
+      orderData === "Unauthorized request: No access or refresh token"
+    ) {
       router.push("/auth/login");
     } else {
       setLoader(false);
       setOrderList(orderData ? orderData?.orders || [] : []);
     }
   }, [orderData, router]);
-
-  console.log("orderYear", orderYear);
 
   // Table Instance
   // const tableInstance = useReactTable({

@@ -180,7 +180,8 @@ const EmployeeLeaveContent: React.FC = () => {
   useEffect(() => {
     if (
       EmployeeLeaveData === "invalid token" ||
-      EmployeeLeaveData === "Unauthorized request"
+      EmployeeLeaveData === "Unauthorized request" ||
+      EmployeeLeaveData === "Unauthorized request: No access or refresh token"
     ) {
       router.push("/auth/login");
     } else {

@@ -70,7 +70,11 @@ const DashBoardPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (leadData === "invalid token" || allLeads === undefined) {
+    if (
+      leadData === "invalid token" ||
+      allLeads === undefined ||
+      leadData === "Unauthorized request: No access or refresh token"
+    ) {
       router.push("/auth/login");
     }
   }, [allLeads, leadData]);

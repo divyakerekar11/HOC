@@ -120,7 +120,7 @@ const UpdateSection = ({
     <div className=" border border-[#e1e8f0] px-1 mt-1 py-1 rounded-md bg-[#fff] boxShadow">
       {/* <div className="h-[64vh] rounded-md overflow-y-auto"> */}
       <ScrollArea className="h-[64vh] rounded-md ">
-        {editorData
+        {Array.isArray(editorData) && editorData
           ? editorData &&
             editorData?.map((editor: any) => {
               return (

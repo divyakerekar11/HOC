@@ -84,7 +84,8 @@ const EditLeads = ({}) => {
   useEffect(() => {
     if (
       customerData === "invalid token" ||
-      customerData === "Unauthorized request"
+      customerData === "Unauthorized request" ||
+      customerData === "Unauthorized request: No access or refresh token"
     ) {
       router.push("/auth/login");
     } else {

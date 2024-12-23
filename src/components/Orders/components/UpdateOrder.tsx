@@ -41,6 +41,18 @@ import EditChatModel from "../../common/Editor/EditChatModel";
 import QuillEditor from "@/components/customers/components/QuillEditor";
 import FilePreviewList from "@/components/common/FilePreviewList";
 
+const Example = () => {
+  const content = "<ol><li>wq</li><li>ad</li><li>dsad</li></ol>";
+
+  return (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: content,
+      }}
+    />
+  );
+};
+
 const UpdateOrder = ({ orderId }: any) => {
   const [open, setOpen] = useState<boolean>(false);
 
