@@ -96,8 +96,8 @@ const DashBoardPage: React.FC = () => {
             <div
               className={
                 toggleWidth
-                  ? `text-xl font-semibold absolute top-[-40px]`
-                  : `text-xl font-semibold absolute top-[-40px]`
+                  ? `text-[1rem] font-semibold absolute top-[-30px]`
+                  : `text-[1rem] font-semibold absolute top-[-30px]`
               }
             >
               Dashboard

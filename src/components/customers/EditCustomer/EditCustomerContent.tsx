@@ -313,13 +313,11 @@ const EditCustomerContent = () => {
     },
   });
 
-  console.log("customerDetails", customerDetails);
-
   const { handleChange, handleBlur, handleSubmit, values, touched, errors } =
     formik;
   return (
     <div className="px-4 py-0 relative">
-      <div className="text-[1rem] font-semibold absolute top-[-35px]">
+      <div className="text-[1rem] font-semibold absolute top-[-30px]">
         {customerDetails?.customerNo}
         {" - "}
         {customerDetails?.companyName}

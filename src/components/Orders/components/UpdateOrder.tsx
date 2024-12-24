@@ -270,8 +270,15 @@ const UpdateOrder = ({ orderId }: any) => {
                       )}
                     </div>
 
-                    <div
+                    {/* <div
                       className="leading-relaxed mb-1 text-[0.8rem] mt-2"
+                      dangerouslySetInnerHTML={{
+                        __html: editor?.content ? editor?.content : "",
+                      }}
+                    /> */}
+
+                    <div
+                      className="leading-relaxed mb-1 text-[0.8rem] mt-2 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mb-1 [&_li]:leading-relaxed"
                       dangerouslySetInnerHTML={{
                         __html: editor?.content ? editor?.content : "",
                       }}
