@@ -24,7 +24,8 @@ import {
   successToastingFunction,
 } from "@/common/commonFunctions";
 
-import QuillEdior from "@/components/customers/components/QuillEditor";
+// import QuillEdior from "@/components/customers/components/QuillEditor";
+import QuillEdior from "@/components/common/Editor/QuillEditor";
 // const QuillEdior = dynamic(() => import('@/components/customers/components/QuillEditor'), { ssr: false });
 
 import { useEditorStore } from "@/Store/EditorStore";

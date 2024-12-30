@@ -8,6 +8,7 @@ import {
   DeletedUserUIconSVG,
   LikeDarkUIconSVG,
   LikeUIconSVG,
+  ReplyDarkUIconSVG,
   ReplyUIconSVG,
   ViewsUIconSVG,
 } from "@/utils/SVGs/SVGs";
@@ -26,7 +27,7 @@ import {
   successToastingFunction,
 } from "@/common/commonFunctions";
 
-import QuillEdior from "@/components/customers/components/QuillEditor";
+import QuillEdior from "@/components/common/Editor/QuillEditor";
 
 import { useEditorStore } from "@/Store/EditorStore";
 
@@ -41,8 +42,6 @@ import EditChatModel from "@/components/common/Editor/EditChatModel";
 import FilePreviewList from "@/components/common/FilePreviewList";
 
 const UpdateAmendment = ({ amendmentId }: any) => {
-  const [open, setOpen] = useState<boolean>(false);
-
   const { fetchAmendmentUpdateData, amendmentUpdateData }: any =
     useEditorStore();
 
@@ -59,6 +58,11 @@ const UpdateAmendment = ({ amendmentId }: any) => {
   const [isOpenReplyModel, setIsOpenReplyModel] = useState(false);
   const [reaplyId, setReplyId] = useState<string | null>(null);
   const [like, setLike] = React.useState(false);
+  const [openQuill, setOpenQuill] = useState(false);
+
+  const handleOpenQuillEditor = () => {
+    setOpenQuill((prevOpen) => !prevOpen);
+  };
 
   const [commentID, setCommentID] = useState<string | null>(null);
   const stripHtmlTags = (htmlString: string) => {
@@ -301,17 +305,19 @@ const UpdateAmendment = ({ amendmentId }: any) => {
                         >
                           <span
                             className={`${
-                              isCommentOpen ? "text-[#3a5894] font-bold" : ""
+                              isCommentOpen && commentID === editor._id
+                                ? "text-[#3a5894] font-bold"
+                                : ""
                             }`}
                           >
                             Reply
                           </span>
-                          <ReplyUIconSVG />
-                          {/* {isCommentOpen ? (
-                            <CommentsDarkUIconSVG />
+
+                          {isCommentOpen && commentID === editor._id ? (
+                            <ReplyDarkUIconSVG />
                           ) : (
-                            <CommentsUIconSVG />
-                          )} */}
+                            <ReplyUIconSVG />
+                          )}
                         </div>
                       </div>
                     </div>
@@ -327,38 +333,48 @@ const UpdateAmendment = ({ amendmentId }: any) => {
 
               {isCommentOpen && commentID === editor._id && (
                 <>
-                  {editor.replies.length === 0 &&
-                    editor.replies.constructor === Array && (
-                      <div className="pb-3 pr-4 pl-4">
-                        <QuillEdior
-                          leadId={""}
-                          amendmentId={amendmentId}
-                          updateId={editor._id}
-                          indicatorText="reply"
-                          customerId=""
-                          orderId=""
-                          technicalId={""}
-                          setOpenQuill={() => {}}
-                          setIsOpenReplyModel={setIsOpenReplyModel}
-                          handleEdit={""}
-                          copywriterId={""}
-                          productFlowId={""}
-                          websiteContentId={""}
-                        />
-                      </div>
-                    )}
+                  {editor?.replies ? (
+                    <div className="ml-[2.5rem] mr-[4.5rem]">
+                      <p
+                        className="w-full text-[0.8rem] text-gray-500 rounded-md border cursor-pointer border-stroke bg-transparent mx-[16px] my-2 py-2 pl-3 pr-10  outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        onClick={handleOpenQuillEditor}
+                      >
+                        Click here to write a reply...
+                      </p>
 
-                  {/* reply Data list */}
+                      {openQuill && (
+                        <div className="pb-3 pr-4 pl-4">
+                          <QuillEdior
+                            productFlowId={""}
+                            amendmentId={amendmentId}
+                            leadId={""}
+                            updateId={editor._id}
+                            indicatorText="reply"
+                            customerId=""
+                            orderId=""
+                            technicalId={""}
+                            setOpenQuill={setOpenQuill}
+                            setIsOpenReplyModel={setIsOpenReplyModel}
+                            handleEdit={""}
+                            copywriterId={""}
+                            websiteContentId={""}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    "No Comment added"
+                  )}
                   {editor?.replies ? (
                     <div>
                       {[...(editor?.replies || [])]
                         .reverse()
                         .map((data: any) => (
                           <section
-                            className="text-gray-600 body-font overflow-hidden  my-2 rounded-md "
+                            className="text-gray-600 body-font overflow-hidden  my-2 rounded "
                             key={data?._id}
                           >
-                            <div className="container px-5 py-2 mx-auto bg-gray-100 border rounded-md w-[90%]">
+                            <div className="container px-5 py-2 mx-auto bg-gray-100 border rounded w-[90%] mt-2">
                               <div className="flex flex-wrap -m-12">
                                 <div className="p-12 md:w-full flex flex-col items-start">
                                   <div className="flex items-center justify-between w-full border-b-2 border-gray-100">
@@ -389,10 +405,10 @@ const UpdateAmendment = ({ amendmentId }: any) => {
                                       <DeleteDialoge
                                         id={data._id}
                                         entity="updates/replies"
-                                        setIsModalOpen={setIsModalOpen}
                                         setIsOpenReplyModel={
                                           setIsOpenReplyModel
                                         }
+                                        setIsModalOpen={setIsModalOpen}
                                         fetchAllFunction={() =>
                                           fetchAmendmentUpdateData(amendmentId)
                                         }
@@ -445,20 +461,28 @@ const UpdateAmendment = ({ amendmentId }: any) => {
                                         </span>
                                         Likes
                                       </div> */}
+
                                       <div
                                         className="text-[0.8rem]  border-r-2 pr-2 border-gray-200 flex gap-2 mt-1 items-center cursor-pointer"
                                         onClick={() => ReplyClick(data._id)}
                                       >
                                         <span
                                           className={`${
-                                            isOpenReplyModel
+                                            isOpenReplyModel &&
+                                            reaplyId === data._id
                                               ? "text-[#3a5894] font-bold"
                                               : ""
                                           }`}
                                         >
                                           Reply
                                         </span>
-                                        <ReplyUIconSVG />
+
+                                        {isOpenReplyModel &&
+                                        reaplyId === data._id ? (
+                                          <ReplyDarkUIconSVG />
+                                        ) : (
+                                          <ReplyUIconSVG />
+                                        )}
                                       </div>
 
                                       <div className="text-[0.8rem] flex gap-2 mt-1 items-center cursor-pointer">
@@ -484,9 +508,10 @@ const UpdateAmendment = ({ amendmentId }: any) => {
                                 }}
                               >
                                 <QuillEdior
+                                  productFlowId={""}
                                   setOpenQuill={() => {}}
                                   leadId={""}
-                                  productFlowId=""
+                                  amendmentId={amendmentId}
                                   updateId={editor._id}
                                   indicatorText="reply"
                                   customerId={""}
@@ -494,7 +519,6 @@ const UpdateAmendment = ({ amendmentId }: any) => {
                                   orderId={""}
                                   technicalId={""}
                                   handleEdit={""}
-                                  amendmentId={amendmentId}
                                   copywriterId={""}
                                   websiteContentId={""}
                                 />

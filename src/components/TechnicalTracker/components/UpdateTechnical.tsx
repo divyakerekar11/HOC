@@ -25,7 +25,8 @@ import {
   successToastingFunction,
 } from "@/common/commonFunctions";
 
-import QuillEditor from "@/components/customers/components/QuillEditor";
+// import QuillEditor from "@/components/customers/components/QuillEditor";
+import QuillEditor from "@/components/common/Editor/QuillEditor";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useEditorStore } from "@/Store/EditorStore";

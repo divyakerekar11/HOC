@@ -21,7 +21,8 @@ import {
   successToastingFunction,
 } from "@/common/commonFunctions";
 
-import QuillEditor from "@/components/customers/components/QuillEditor";
+// import QuillEditor from "@/components/customers/components/QuillEditor";
+import QuillEditor from "@/components/common/Editor/QuillEditor";
 import { useEditorStore } from "@/Store/EditorStore";
 import { useOrderStore } from "@/Store/OrderStore";
 import DeleteDialoge from "@/components/Orders/components/DeleteDialoge";
