@@ -115,8 +115,10 @@ const EditCustomerContent = () => {
   // Function when Authorization failed
   useEffect(() => {
     if (
-      userData === "invalid token" ||
-      userData === "Unauthorized request" ||
+      userData === "Invalid refresh token" ||
+      userData === "User not found" ||
+      userData === "Invalid User Access Token" ||
+      userData === "Invalid access token" ||
       userData === "Unauthorized request: No access or refresh token"
     ) {
       router.push("/auth/login");

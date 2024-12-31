@@ -84,8 +84,10 @@ const LeadsContent: React.FC = () => {
 
   useEffect(() => {
     if (
-      leadData === "invalid token" ||
-      leadData === "Unauthorized request" ||
+      leadData === "Invalid refresh token" ||
+      leadData === "User not found" ||
+      leadData === "Invalid User Access Token" ||
+      leadData === "Invalid access token" ||
       leadData === "Unauthorized request: No access or refresh token"
     ) {
       router.push("/auth/login");

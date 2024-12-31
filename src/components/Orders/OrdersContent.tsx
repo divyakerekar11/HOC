@@ -86,8 +86,10 @@ const OrdersContent = () => {
 
   useEffect(() => {
     if (
-      orderData === "invalid token" ||
-      orderData === "Unauthorized request" ||
+      orderData === "Invalid refresh token" ||
+      orderData === "User not found" ||
+      orderData === "Invalid User Access Token" ||
+      orderData === "Invalid access token" ||
       orderData === "Unauthorized request: No access or refresh token"
     ) {
       router.push("/auth/login");

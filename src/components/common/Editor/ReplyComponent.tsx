@@ -16,7 +16,7 @@ const ReplyComponent: React.FC<ReplyComponentProps> = ({
 }) => {
   return (
     <div
-      className="text-[0.8rem] border-r-2 pr-2 border-gray-200 flex gap-2 mt-1 items-center cursor-pointer"
+      className="text-[0.8rem] pr-2 flex gap-2 mt-1 items-center cursor-pointer"
       onClick={() => onReplyClick(dataId)}
     >
       <span
