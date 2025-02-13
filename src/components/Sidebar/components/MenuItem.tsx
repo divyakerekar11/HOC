@@ -36,10 +36,10 @@ const MenueItem = (props: any) => {
   //   setClickedTitleName(label);
   //   setOpen(label);
   // }
-  const handleMenuItemClick = (e: React.MouseEvent) => {
-    window.scrollTo(0, 0); // Scroll to the top
-    setClickedTitleName(label);
-  };
+  // const handleMenuItemClick = (e: React.MouseEvent) => {
+  //   window.scrollTo(0, 0); // Scroll to the top
+  //   setClickedTitleName(label);
+  // };
   
   return (
     <li
@@ -48,7 +48,9 @@ const MenueItem = (props: any) => {
     >
       <div className="relative">
         <Link href={href} className="flex justify-center">
-          <button onClick={handleMenuItemClick}
+          {/* <button onClick={handleMenuItemClick}
+           */}
+            <button
             type="button"
             // className={`${
             //   isActive
