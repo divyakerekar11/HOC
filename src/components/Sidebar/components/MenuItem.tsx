@@ -40,22 +40,19 @@ const MenueItem = (props: any) => {
   //   setOpen(label);
   // }
   const handleMenuItemClick = (e: React.MouseEvent) => {
-    window.scrollTo(0, 0); // Scroll to the top
+
     setClickedTitleName(label);
   };
   useEffect(() => {
     if (isActive && menuItemRef.current) {
+
       menuItemRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "center", // This will scroll the element to the center of the viewport
+        block: "center", 
       });
-  
-      // If you want to scroll the window to the top, you can do it separately:
-      window.scrollTo(0, 0); // This will scroll the window to the top
-     
     }
-    
-  }, [isActive]);
+  }, [isActive]);  
+  
   return (
     <li
       ref={menuItemRef}
