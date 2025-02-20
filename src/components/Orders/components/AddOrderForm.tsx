@@ -674,7 +674,7 @@ const AddOrderForm = ({ fetchAllOrdersData }: any) => {
                 </label>
                 <div className="relative">
                   {/* {customerData?.customers?.length > 0 && ( */}
-                  <AsyncPaginate
+                  {/* <AsyncPaginate
                     loadOptions={loadOptions} // Function to load customer options asynchronously
                     closeMenuOnSelect={true} // Close the dropdown when an option is selected
                     isClearable={true} // Make the dropdown clearable
@@ -707,10 +707,10 @@ const AddOrderForm = ({ fetchAllOrdersData }: any) => {
                       });
                     }}
                     placeholder="Select a Company"
-                  />
+                  /> */}
 
                   {/* )} */}
-                  {/* {customerData?.customers?.length > 0 && (
+                  {customerData?.customers?.length > 0 && (
                     <SelectReactSelect
                       closeMenuOnSelect={true}
                       isClearable={true}
@@ -748,7 +748,7 @@ const AddOrderForm = ({ fetchAllOrdersData }: any) => {
                       }}
                       placeholder="Select a Company"
                     />
-                  )} */}
+                  )}
 
                   {touched.customerName && errors.customerName ? (
                     <div className="text-red-500">{errors?.customerName}</div>
