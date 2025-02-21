@@ -551,28 +551,28 @@ const AddOrderForm = ({ fetchAllOrdersData }: any) => {
   //   }
   // };
 
-  const handleCustomerChange = (selectedOption: { value: string }) => {
-    const selectedCustomerId = selectedOption?.value || "";
+  // const handleCustomerChange = (selectedOption: { value: string }) => {
+  //   const selectedCustomerId = selectedOption?.value || "";
 
-    // Find the selected customer in the fetched options
-    const selectedCustomer = customerOptions.find(
-      (customer) => customer._id === selectedCustomerId // Use '_id' for matching
-    );
+  //   // Find the selected customer in the fetched options
+  //   const selectedCustomer = customerOptions.find(
+  //     (customer) => customer._id === selectedCustomerId // Use '_id' for matching
+  //   );
 
-    if (selectedCustomer) {
-      formik.setValues({
-        ...formik.values,
-        town: selectedCustomer.town || "", // Town
-        county: selectedCustomer.county || "", // County
-        postcode: selectedCustomer.postcode || "", // Postcode
-        customerEmail: selectedCustomer.customerEmail || "", // Email
-        streetNoName: selectedCustomer.streetNoName || "", // Street name/number
-        customerName: selectedCustomer.companyName || "", // Company Name as Customer Name
-      });
+  //   if (selectedCustomer) {
+  //     formik.setValues({
+  //       ...formik.values,
+  //       town: selectedCustomer.town || "", // Town
+  //       county: selectedCustomer.county || "", // County
+  //       postcode: selectedCustomer.postcode || "", // Postcode
+  //       customerEmail: selectedCustomer.customerEmail || "", // Email
+  //       streetNoName: selectedCustomer.streetNoName || "", // Street name/number
+  //       customerName: selectedCustomer.companyName || "", // Company Name as Customer Name
+  //     });
 
-      setSelectedCustomerId(selectedCustomerId); // Optionally store selected ID in local state
-    }
-  };
+  //     setSelectedCustomerId(selectedCustomerId); // Optionally store selected ID in local state
+  //   }
+  // };
 
   return (
     <div className="p-4 relative">
