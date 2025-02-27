@@ -249,13 +249,13 @@ const Appbar: React.FC<NavBarProps> = ({ toggleSider }) => {
               <CardContent className="grid gap-2">
                 <div className="h-[500px]">
                   <Tabs defaultValue="All" className="w-[700px] ">
-                    <TabsList className="grid w-full grid-cols-3 bg-[#ffffff] boxShadow">
+                    {/* <TabsList className="grid w-full grid-cols-3 bg-[#ffffff] boxShadow">
                       <TabsTrigger value="All">All</TabsTrigger>
                       <TabsTrigger value="Mentioned">Mentioned</TabsTrigger>
                       <TabsTrigger value="Assigned to me">
                         Assigned to me
                       </TabsTrigger>
-                    </TabsList>
+                    </TabsList> */}
 
                     <TabsContent value="All">
                       <Card>
@@ -281,7 +281,7 @@ const Appbar: React.FC<NavBarProps> = ({ toggleSider }) => {
                       </Card>
                     </TabsContent>
 
-                    <TabsContent value="Mentioned">
+                    {/* <TabsContent value="Mentioned">
                       <Card>
                         <CardContent className="overflow-y-auto text-[0.8rem] py-2 px-5 my-2">
                           {notificationData?.notifications?.filter(
@@ -339,7 +339,7 @@ const Appbar: React.FC<NavBarProps> = ({ toggleSider }) => {
                           )}
                         </CardContent>
                       </Card>
-                    </TabsContent>
+                    </TabsContent> */}
                   </Tabs>
                 </div>
               </CardContent>
