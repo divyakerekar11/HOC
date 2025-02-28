@@ -66,6 +66,7 @@ const InboxContent: React.FC = () => {
 
         if (itemType === "Amendment") {
           router.push(`/amendment`);
+          
         } else if (itemType === "Customer") {
           router.push(`/customers`);
         } else if (itemType === "Order") {
@@ -208,6 +209,35 @@ const InboxContent: React.FC = () => {
     </TableRow> */}
         </TableFooter>
       </Table>
+
+
+      {/* const [selectedNotification, setSelectedNotification] = useState<any>(null);
+console.log("notificationSingleData",notificationSingleData)
+const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+useEffect(() => {
+  if (notificationTriggered && notificationSingleData) {
+    const { itemType, item, updateId } = notificationSingleData;
+    
+    setSelectedNotification(notificationSingleData); // Store the selected notification
+
+    // Check if the itemType is "Amendment" to open the sidebar
+    if (itemType === "Amendment" ) {
+      // router.push(`/amendment?id=${updateId}`);
+      setIsSidebarOpen(true); // Open the sidebar
+    } else {
+      // Handle other item types
+      if (itemType === "Customer") router.push("/customers");
+      else if (itemType === "Order") router.push("/orders");
+      else if (itemType === "Lead") router.push("/leads");
+      else if (itemType === "NewWebsiteContent") router.push("/websiteContent");
+      else if (itemType === "CopywriterTracker") router.push("/copywriter");
+      else if (itemType === "TechnicalTracker") router.push("/technical");
+      else if (itemType === "ProductFlow") router.push("/productFlow");
+    }
+
+    setNotificationTriggered(false); // Reset the trigger after processing
+  }
+}, [notificationTriggered, notificationSingleData]); */}
 
       <div className="flex justify-end mr-10 items-start gap-5">
         <div className="flex justify-end items-center gap-2 mt-2">
