@@ -24,6 +24,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import AddDialoge from "./AddDialoge";
 const UserPic = User.src;
 
 const InboxContent: React.FC = () => {
@@ -61,15 +62,14 @@ const InboxContent: React.FC = () => {
 
         const queryData = { id: notificationSingleData?.item };
         const queryString = new URLSearchParams(queryData).toString();
-        const idValue = queryString.split("=")[1]
-
+        const idValue = queryString.split("=")[1];
 
         if (itemType === "Amendment") {
           router.push(`/amendment?id=${notificationSingleData?.item}`);
           // router.push(`/amendment`);
-          
         } else if (itemType === "Customer") {
           router.push(`/customers`);
+          router.push(`/customers?id=${notificationSingleData?.item}`);
         } else if (itemType === "Order") {
           router.push(`/orders`);
         } else if (itemType === "Lead") {
@@ -83,7 +83,6 @@ const InboxContent: React.FC = () => {
         } else if (itemType === "ProductFlow") {
           router.push(`/productFlow`);
         }
-
       }
 
       setNotificationTriggered(false);
@@ -111,6 +110,13 @@ const InboxContent: React.FC = () => {
     router.push(`${pathname}?${params.toString()}`);
   };
   return (
+    <>
+       <div className="md:flex justify-center sm:justify-end my-2">
+    
+        <AddDialoge getAllTechnical={function (): void {
+          throw new Error("Function not implemented.");
+        } } />
+      </div>
     <div className="px-4 py-0 relative">
       <Table className="shadow-md rounded-lg border border-gray-300 ">
         <TableHeader>
@@ -210,9 +216,6 @@ const InboxContent: React.FC = () => {
     </TableRow> */}
         </TableFooter>
       </Table>
-
-
-     
 
       <div className="flex justify-end mr-10 items-start gap-5">
         <div className="flex justify-end items-center gap-2 mt-2">
@@ -346,22 +349,11 @@ const InboxContent: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
 export default InboxContent;
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React, { useEffect, useMemo, useState } from "react";
 // import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -431,10 +423,9 @@ export default InboxContent;
 //   //       const queryString = new URLSearchParams(queryData).toString();
 //   //       const idValue = queryString.split("=")[1]
 
-
 //   //       if (itemType === "Amendment") {
 //   //         router.push(`/amendment`);
-          
+
 //   //       } else if (itemType === "Customer") {
 //   //         router.push(`/customers`);
 //   //       } else if (itemType === "Order") {
@@ -457,10 +448,6 @@ export default InboxContent;
 //   //   }
 //   // }, [notificationTriggered, notificationSingleData]);
 
-
-
-
-
 //  const [selectedNotification, setSelectedNotification] = useState<any>(null);
 // // console.log("notificationSingleData",notificationSingleData)
 // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -469,11 +456,11 @@ export default InboxContent;
 //     if (notificationTriggered && notificationSingleData) {
 //       const { itemType, item, updateId } = notificationSingleData;
 //       setSelectedNotification(notificationSingleData); // Store the selected notification
-  
+
 //       // Handle "Amendment" type
 //       if (itemType === "Amendment") {
 //         setAmendmentId(item); // Store the amendment ID
-  
+
 //         // Navigate to the amendment page with the ID, and add a query parameter to trigger side drawer
 //         router.push(`/amendment?id=${item}`);
 //       } else {
@@ -486,15 +473,14 @@ export default InboxContent;
 //         else if (itemType === "TechnicalTracker") router.push("/technical");
 //         else if (itemType === "ProductFlow") router.push("/productFlow");
 //       }
-  
+
 //       setNotificationTriggered(false); // Reset notification triggered flag
 //     }
 //   }, [notificationTriggered, notificationSingleData]);
-  
+
 //   // Inside your SideDrawer or the relevant component page where the side drawer is used
 //   const [openSideDrawer, setOpenSideDrawer] = useState(false);
 
-  
 //   // useEffect(() => {
 //   //   // Make sure `router.query` is not undefined before accessing `openSideDrawer`
 //   //   if (router.query && router.query.openSideDrawer === "true") {
@@ -524,10 +510,10 @@ export default InboxContent;
 //   return (
 //     <div className="px-4 py-0 relative">
 //       {openSideDrawer && (
-//       <SideDrawer 
+//       <SideDrawer
 //       openSideDrawer2 ={true}
-//         // orderId={orderId} 
-//         amendmentId={amendmentId} 
+//         // orderId={orderId}
+//         amendmentId={amendmentId}
 //         // length={length}
 //         // setIsOpenReplyModel={setIsOpenReplyModel}
 //         // customerId={customerId}
@@ -642,9 +628,6 @@ export default InboxContent;
 //       {/* {isSidebarOpen && amendmentId && (
 //         <SideDrawer amendmentId={amendmentId} isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 //       )} */}
-
-
-     
 
 //       <div className="flex justify-end mr-10 items-start gap-5">
 //         <div className="flex justify-end items-center gap-2 mt-2">
@@ -782,4 +765,3 @@ export default InboxContent;
 // };
 
 // export default InboxContent;
-
