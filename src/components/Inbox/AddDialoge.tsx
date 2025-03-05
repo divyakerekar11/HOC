@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Button } from "@/components/ui/button";
 import AllForm from "./AllForm";
 
-const AddDialoge = ({ getAllTechnical }: { getAllTechnical: () => void }) => {
+const AddDialoge = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
@@ -24,7 +24,7 @@ const AddDialoge = ({ getAllTechnical }: { getAllTechnical: () => void }) => {
         <DialogHeader>
           <DialogTitle>New Add</DialogTitle>
         </DialogHeader>
-        <AllForm setOpen={setOpen} getAllTechnical={getAllTechnical} />
+        <AllForm setOpen={setOpen} />
       </DialogContent>
     </Dialog>
   );
