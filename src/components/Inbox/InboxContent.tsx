@@ -111,24 +111,24 @@ const InboxContent: React.FC = () => {
     fetchNotificationData();
   }, []);
 
-  useEffect(() => {
-    // if (
-    //   notificationData === "Invalid refresh token" ||
-    //   notificationData === "User not found" ||
-    //   notificationData === "Invalid User Access Token" ||
-    //   notificationData === "Invalid access token" ||
-    //   notificationData === "Unauthorized request: No access or refresh token"
-    // ) {
-    //   router.push("/auth/login");
-    // } else {
-    // setLoader(false);
-    setAllCopywriter(
-      notificationData?.notifications
-        ? notificationData.notifications || []
-        : []
-    );
-    // }
-  }, [notificationData, router]);
+  // useEffect(() => {
+  //   // if (
+  //   //   notificationData === "Invalid refresh token" ||
+  //   //   notificationData === "User not found" ||
+  //   //   notificationData === "Invalid User Access Token" ||
+  //   //   notificationData === "Invalid access token" ||
+  //   //   notificationData === "Unauthorized request: No access or refresh token"
+  //   // ) {
+  //   //   router.push("/auth/login");
+  //   // } else {
+  //   // setLoader(false);
+  //   setNotificationList(
+  //     notificationData?.notifications
+  //       ? notificationData.notifications || []
+  //       : []
+  //   );
+  //   // }
+  // }, [notificationData, router]);
   const searchParams = useSearchParams();
   const queryParams = searchParams.get("id");
   const pathname = usePathname();
@@ -139,7 +139,7 @@ const InboxContent: React.FC = () => {
   const [totalPages, setTotalPages] = useState(1);
   const onPageChange = (newPage: number, newLimit: number) => {
     setPage(newPage);
-    const params = new URLSearchParams(searchParams.toString()); // ✅ Convert to string first
+    const params = new URLSearchParams(searchParams.toString());
 
     params.set("page", newPage.toString());
     params.set("limit", newLimit.toString());
@@ -149,15 +149,14 @@ const InboxContent: React.FC = () => {
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
-  const [allCopywriter, setAllCopywriter] = useState<any>([]);
-  const data = useMemo(() => allCopywriter, [allCopywriter]);
+  const [notificationList, setNotificationList] = useState<any>([]);
+  const data = useMemo(() => notificationList, [notificationList]);
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [filtering, setFiltering] = React.useState("");
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );
 
-  console.log("allCopywriter", allCopywriter);
   const tableInstance = useReactTable({
     data,
     columns,
@@ -187,7 +186,12 @@ const InboxContent: React.FC = () => {
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
   });
-
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [selectedNotification, setSelectedNotification] = useState<any>(null);
+  const handleRowClick = (notification: any) => {
+    setSelectedNotification(notification);
+    setIsDrawerOpen(true);
+  };
   return (
     <>
       <div className="md:flex justify-center sm:justify-end my-2">
@@ -227,9 +231,10 @@ const InboxContent: React.FC = () => {
               notificationData.notifications.map((notification: any) => (
                 <TableRow
                   key={notification._id}
-                  onClick={() =>
-                    singleNotificationfecthHandler(notification?._id)
-                  }
+                  // onClick={() =>
+                  //   singleNotificationfecthHandler(notification?._id)
+                  // }
+                  onClick={() => handleRowClick(notification)}
                   className={`${
                     notification?.isRead
                       ? "bg-white text-gray-700 hover:bg-gray-50"
@@ -333,6 +338,49 @@ const InboxContent: React.FC = () => {
 
           <TableFooter></TableFooter>
         </Table>
+
+        {isDrawerOpen && selectedNotification && (
+  <SideDrawer
+    length={selectedNotification?.updates?.length || 0}
+    amendmentId={
+      selectedNotification.itemType === "Amendment"
+        ? selectedNotification.item?._id
+        : undefined
+    }
+    technicalId={
+      selectedNotification.itemType === "TechnicalTracker"
+        ? selectedNotification.item?._id
+        : undefined
+    }
+    orderId={
+      selectedNotification.itemType === "Order"
+        ? selectedNotification.item?._id
+        : undefined
+    }
+    leadId={
+      selectedNotification.itemType === "Lead"
+        ? selectedNotification.item?._id
+        : undefined
+    }
+    productFlowId={
+      selectedNotification.itemType === "ProductFlow"
+        ? selectedNotification.item?._id
+        : undefined
+    }
+    websiteContentId={
+      selectedNotification.itemType === "WebsiteContent"
+        ? selectedNotification.item?._id
+        : undefined
+    }
+    copywriterId={
+      selectedNotification.itemType === "Copywriter"
+        ? selectedNotification.item?._id
+        : undefined
+    }
+    onClose={() => setIsDrawerOpen(false)} // Close handler for the SideDrawer
+  />
+)}
+
       </div>
     </>
   );

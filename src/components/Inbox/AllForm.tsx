@@ -693,127 +693,7 @@ const AllForm = ({
   // Extract all URLs into an array
   const updatedUrls = value?.match(urlRegex) || [];
 
-  // const handleAddData = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   if ((value !== "" && value !== "<p><br></p>") || images.length > 0) {
-  //     try {
-  //       setIsLoading(true);
-  //       const formData = new FormData();
-
-  //       formData.append("content", value);
-
-  //       updatedUrls?.forEach((image) => formData.append("files[]", image));
-
-  //       mentionedUserIds.forEach((mentionId) =>
-  //         formData.append("mentions", mentionId)
-  //       );
-
-  //       const requests = [];
-
-  //       if (indicatorText === "post") {
-  //         requests.push(
-  //           orderId && baseInstance.post(`/updates/order/${orderId}`, formData),
-  //           productFlowId &&
-  //             baseInstance.post(
-  //               `/updates/productflow/${productFlowId}`,
-  //               formData
-  //             ),
-  //           customerId &&
-  //             baseInstance.post(`/updates/customer/${customerId}`, formData),
-  //           leadId && baseInstance.post(`/updates/lead/${leadId}`, formData),
-  //           technicalId &&
-  //             baseInstance.post(
-  //               `/updates/technicaltracker/${technicalId}`,
-  //               formData
-  //             ),
-  //           copywriterId &&
-  //             baseInstance.post(
-  //               `/updates/copywritertracker/${copywriterId}`,
-  //               formData
-  //             ),
-  //           websiteContentId &&
-  //             baseInstance.post(
-  //               `/updates/newwebsitecontent/${websiteContentId}`,
-  //               formData
-  //             ),
-  //           amendmentId &&
-  //             baseInstance.post(`/updates/amendment/${amendmentId}`, formData)
-  //         );
-  //       }
-
-  //       if (indicatorText === "reply") {
-  //         requests.push(
-  //           baseInstance.post(`/updates/update/reply/${updateId}`, formData)
-  //         );
-  //       }
-
-  //       const responses = await Promise.all(requests.filter(Boolean));
-
-  //       // Helper function to handle type checking and function calls
-  //       const callIfValidString = (
-  //         id: string | undefined | string[],
-  //         fn: (id: string) => void,
-  //         idName: string
-  //       ) => {
-  //         if (typeof id === "string") {
-  //           fn(id);
-  //         } else {
-  //           console.error(`Invalid ${idName}:`, id);
-  //         }
-  //       };
-
-  //       responses.forEach((response: any) => {
-  //         if (response.status === 201) {
-  //           successToastingFunction(response?.data?.message);
-
-  //           // Use the helper function to reduce repetition
-  //           callIfValidString(customerId, fetchEditorData, "customerId");
-  //           callIfValidString(customerId, fetchacData, "customerId");
-  //           callIfValidString(customerId, fetchFileData, "customerId");
-
-  //           callIfValidString(orderId, fetchOrderEditorData, "orderId");
-  //           callIfValidString(leadId, fetchLeadsEditorData, "leadId");
-  //           callIfValidString(
-  //             technicalId,
-  //             fetchTechnicalUpdateData,
-  //             "technicalId"
-  //           );
-  //           callIfValidString(
-  //             copywriterId,
-  //             fetchCopywriterUpdateData,
-  //             "copywriterId"
-  //           );
-  //           callIfValidString(
-  //             amendmentId,
-  //             fetchAmendmentUpdateData,
-  //             "amendmentId"
-  //           );
-  //           callIfValidString(
-  //             productFlowId,
-  //             fetchProductFlowUpdateData,
-  //             "productFlowId"
-  //           );
-  //           callIfValidString(
-  //             websiteContentId,
-  //             fetchWebsiteContentUpdateData,
-  //             "websiteContentId"
-  //           );
-
-  //           setIsOpenReplyModel(false);
-  //           setOpenQuill(false);
-  //           handleClear();
-  //         }
-  //       });
-  //     } catch (error) {
-  //       errorToastingFunction(error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   } else {
-  //     errorToastingFunction("Please enter text or upload an image to submit.");
-  //   }
-  // };
-
+  
   useEffect(() => {
     return () => {
       Object.values(fileURLs).forEach((url) => {
@@ -825,14 +705,16 @@ const AllForm = ({
   const animatedComponents = makeAnimated();
   const [statusValue, setStatusValue] = React.useState("Amendment");
 
-  const statusOptions = [
+  const contentOptions = [
     { label: "Amendment", value: "Amendment" },
     { label: "Technical Tracker", value: "Technical" },
-    { label: "Product Flow", value: "Product Flow" },
+    // { label: "Product Flow", value: "Product Flow" },
     { label: "Copy Writer Tracker", value: "Copy Writer Tracker" },
     // { label: "New Website Content", value: "New Website Content" },
   ];
-  const [dateComplete, setDateComplete] = useState<Date | undefined>(undefined);
+  const [dateComplete, setDateComplete] = useState<Date | undefined>(
+    undefined
+  );
   const [datePhase1Instructed, setDatePhase1Instructed] = useState<
     Date | undefined
   >(undefined);
@@ -942,8 +824,6 @@ const AllForm = ({
   const handleStatusChange = (selectedOption: any) => {
     const selectedStatus = selectedOption?.value || "Amendment";
     setStatusValue(selectedStatus);
-
-    // Setting subject based on selected status
     if (selectedStatus === "Amendment") {
       formik.setFieldValue("subject", "Amendment");
     } else if (selectedStatus === "Technical") {
@@ -951,13 +831,12 @@ const AllForm = ({
     } else if (selectedStatus === "Product Flow") {
       formik.setFieldValue("subject", "ProductFlow");
     } else if (selectedStatus === "Copy Writer Tracker") {
-      formik.setFieldValue("subject", "CopyWriterTracker");
+      formik.setFieldValue("subject", "CopywriterTracker");
     } else {
       formik.setFieldValue("subject", selectedStatus);
     }
 
-    // // Always update status too
-    // formik.setFieldValue("status", selectedStatus);
+  
   };
 
   const handleMonthChange2 = (
@@ -1074,8 +953,8 @@ const AllForm = ({
           className="text-[0.8rem] boxShadow"
           closeMenuOnSelect={true}
           components={animatedComponents}
-          options={statusOptions}
-          value={statusOptions.find((option) => option.value === statusValue)}
+          options={contentOptions}
+          value={contentOptions.find((option) => option.value === statusValue)}
           onChange={handleStatusChange}
           placeholder="Select a Status"
         />
@@ -1149,7 +1028,7 @@ const AllForm = ({
             </div>
 
             {/* Button Section */}
-            <div className="flex justify-start gap-2 items-center update-btn">
+            <div className="flex justify-end gap-2 items-center update-btn">
               <div onClick={imageHandler} className="w-fit cursor-pointer">
                 <TooltipCommon text="Add Files">
                   <div className="hover:bg-gray-100 px-2 py-1">
