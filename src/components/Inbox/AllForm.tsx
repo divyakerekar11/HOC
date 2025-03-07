@@ -289,9 +289,10 @@ const AllForm = ({
 
   const contentOptions = [
     { label: "Amendment", value: "Amendment" },
-    { label: "Technical Tracker", value: "Technical" },
+    { label: "Technical", value: "Technical" },
     // { label: "Product Flow", value: "Product Flow" },
-    { label: "Copy Writer Tracker", value: "Copy Writer Tracker" },
+    { label: "Copy Writer", value: "Copy Writer Tracker" },
+    { label: "Others", value: "Others" },
     // { label: "New Website Content", value: "New Website Content" },
   ];
   const [dateComplete, setDateComplete] = useState<Date | undefined>(undefined);
@@ -931,7 +932,7 @@ const AllForm = ({
             </div>
 
             {/* timeTakenMinutes */}
-            <div className="mb-3 w-full">
+            {/* <div className="mb-3 w-full">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
                 Time Taken Minutes
               </label>
@@ -947,7 +948,7 @@ const AllForm = ({
                   className="w-full  border border-stroke bg-transparent py-2 pl-3 pr-10  outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 />
               </div>
-            </div>
+            </div> */}
 
             {/* <div className="mb-3">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -982,7 +983,7 @@ const AllForm = ({
               </div>
             </div> */}
             {/* priority */}
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
                 Priority
               </label>
@@ -1010,9 +1011,9 @@ const AllForm = ({
                   </SelectContent>
                 </Select>
               </div>
-            </div>
+            </div> */}
             {/* status */}
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
                 Status
               </label>
@@ -1025,7 +1026,7 @@ const AllForm = ({
                   name="status"
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a priority" />
+                    <SelectValue placeholder="Select a status" />
                   </SelectTrigger>
 
                   <SelectContent>
@@ -1044,9 +1045,9 @@ const AllForm = ({
                   <div className="text-red-500">{errors.status}</div>
                 ) : null}
               </div>
-            </div>
+            </div> */}
 
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
                 Technical Task
               </label>
@@ -1059,7 +1060,7 @@ const AllForm = ({
                   name="technicalTask"
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a priority" />
+                    <SelectValue placeholder="Select a technical task" />
                   </SelectTrigger>
 
                   <SelectContent>
@@ -1090,8 +1091,36 @@ const AllForm = ({
                   </SelectContent>
                 </Select>
               </div>
+            </div> */}
+            <div className="mb-3">
+              <label className="mb-2.5 block font-medium text-black dark:text-white">
+                Priority
+              </label>
+              <div className="relative">
+                <Select
+                  onValueChange={(value: any) =>
+                    formik.setFieldValue("priority", value)
+                  }
+                  // onBlur={formik.handleBlur}
+                  value={formik.values.priority}
+                  name="priority"
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a Priority" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Select</SelectLabel>
+                      <SelectItem value="Standard">Standard</SelectItem>
+                      <SelectItem value="Urgent">Urgent</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+                {touched.priority && errors.priority ? (
+                  <div className="text-red-500">{errors.priority}</div>
+                ) : null}
+              </div>
             </div>
-
             <div className="mb-3">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
                 Update
@@ -1895,6 +1924,312 @@ const AllForm = ({
                   </Popover>
                 </div>
               </div>
+            </div>
+
+            <div className="mb-3">
+              <label className="mb-2.5 block font-medium text-black dark:text-white">
+                Update
+              </label>
+              <div className="relative">
+                <div>
+                  <ReactQuill
+                    ref={quillRef}
+                    theme={options.theme}
+                    modules={options.modules}
+                    value={value}
+                    onChange={(value, _, __, editor) => {
+                      handleChanges(value, editor);
+                    }}
+                    onChangeSelection={updateMentionedUserIds}
+                    placeholder={options.placeholder}
+                  />
+                </div>
+                <div className="flex justify-end gap-2 items-center update-btn">
+                  <div onClick={imageHandler} className="w-fit cursor-pointer">
+                    <TooltipCommon text="Add Files">
+                      <div className="hover:bg-gray-100 px-2 py-1">
+                        <AddFilesDarkUIconSVG />
+                      </div>
+                    </TooltipCommon>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-3">
+              <Button
+                type="submit"
+                value="Sign In"
+                className="cursor-pointer border border-primary bg-primary px-4 py-1 text-white transition hover:bg-opacity-90"
+              >
+                {isUserValid ? (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  "Submit"
+                )}
+              </Button>
+            </div>
+          </form>
+        </ScrollArea>
+      )}
+
+      {statusValue === "Others" && (
+        <ScrollArea className="h-[30rem] px-3 py-3">
+          <form
+            onSubmit={handleSubmit}
+            className="border p-6 text-[0.8rem] bg-[#fff]"
+          >
+            <div className="mb-3 mt-1">
+              <label className="mb-2.5 block font-medium text-black dark:text-white">
+                Select Company <span style={{ opacity: "0.5" }}> * </span>
+              </label>
+              <div className="relative">
+                {!customerData?.customers ? (
+                  <div className="flex justify-start">
+                    <LoaderIconSVG />
+                    <span className="px-2">Loading...</span>
+                  </div>
+                ) : (
+                  <SelectReactSelect
+                    closeMenuOnSelect={true}
+                    isClearable={true}
+                    options={customerData.customers.map((customer: any) => ({
+                      value: customer._id,
+                      label: customer.companyName,
+                    }))}
+                    onChange={(selectedOption: { value: any } | null) => {
+                      setSelectedCustomerId(
+                        selectedOption ? selectedOption.value : null
+                      );
+                    }}
+                    placeholder="Select a Company"
+                  />
+                )}
+                {/* )}  */}
+              </div>
+            </div>
+
+            <div className="mb-3 w-full">
+              <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white ">
+                Assigned To
+              </label>
+              <div className="relative">
+                {!userLoading && userData?.length === 0 ? (
+                  <div className="flex justify-start">
+                    <LoaderIconSVG />
+                    <span className="px-2">Loading...</span>
+                  </div>
+                ) : (
+                  <SelectReactSelect
+                    name="mentions"
+                    isMulti
+                    closeMenuOnSelect={false}
+                    isClearable={true}
+                    options={userData?.map(
+                      (user: { _id: any; fullName: any }) => ({
+                        value: user?._id,
+                        label: user?.fullName,
+                      })
+                    )}
+                    onChange={(selectedOptions) => {
+                      formik.setFieldValue(
+                        "mentions",
+                        selectedOptions
+                          ? selectedOptions.map((option) => option.value)
+                          : []
+                      );
+                    }}
+                    value={
+                      formik.values.mentions
+                        ? userData
+                            .filter((user: { _id: string }) =>
+                              formik.values.mentions.includes(user._id)
+                            )
+                            .map((user: { _id: any; fullName: any }) => ({
+                              value: user._id,
+                              label: user.fullName,
+                            }))
+                        : []
+                    }
+                  />
+                )}
+              </div>
+            </div>
+
+            {/* Current Date  */}
+            {/* <div className="mb-3">
+              <label className="mb-2.5 block font-medium text-black dark:text-white">
+                Current Date
+              </label>
+              <div className="relative">
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant={"outline"}
+                      className={cn(
+                        "w-[250px] justify-start text-left font-normal",
+                        !date && "text-muted-foreground"
+                      )}
+                    >
+                      <CalendarIcon className="mr-2 h-4 w-4" />
+                      {date && date.toISOString() !== "1970-01-01T00:00:00.000Z"
+                        ? format(date, "dd-MM-yyyy")
+                        : "Pick a date"}
+                    </Button>
+                  </PopoverTrigger>
+
+                  <PopoverContent className="w-auto p-0">
+                    <div className="flex justify-between p-2">
+                      <Select
+                        onValueChange={(month) => handleMonthChange(month)}
+                        value={months[currentMonthDate]}
+                      >
+                        <SelectTrigger className="w-[110px] pointer-events-auto">
+                          <SelectValue placeholder="Month" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {months.map((month) => (
+                            <SelectItem key={month} value={month}>
+                              {month}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+
+                      <Select
+                        onValueChange={(year) => handleYearChange(year)}
+                        value={currentYearDate.toString()}
+                      >
+                        <SelectTrigger className="w-[110px] pointer-events-auto">
+                          <SelectValue placeholder="Year" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {years.map((year) => (
+                            <SelectItem key={year} value={year.toString()}>
+                              {year}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="calendar-container">
+                      <Calendar
+                        className={cn(" pointer-events-auto")}
+                        mode="single"
+                        selected={date}
+                        onSelect={handleSelectDate}
+                        initialFocus
+                        month={date}
+                        onMonthChange={(date) => setDate(date)}
+                      />
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              </div>
+            </div> */}
+            {/*   Priority */}
+            <div className="mb-3">
+              <label className="mb-2.5 block font-medium text-black dark:text-white">
+                Priority
+              </label>
+              <div className="relative">
+                <Select
+                  onValueChange={(value: any) =>
+                    formik.setFieldValue("priority", value)
+                  }
+                  // onBlur={formik.handleBlur}
+                  value={formik.values.priority}
+                  name="priority"
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a Priority" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Select</SelectLabel>
+                      <SelectItem value="Standard">Standard</SelectItem>
+                      <SelectItem value="Urgent">Urgent</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+                {touched.priority && errors.priority ? (
+                  <div className="text-red-500">{errors.priority}</div>
+                ) : null}
+              </div>
+            </div>
+            <div className="lg:flex gap-5">
+              <div className="mb-3  w-[50%]">
+                <label className="mb-2.5 block font-medium text-black dark:text-white">
+                  Customer Status
+                </label>
+                <div className="relative">
+                  <Select
+                    onValueChange={(value: any) =>
+                      formik.setFieldValue("customer_status", value)
+                    }
+                    // onBlur={formik.handleBlur}
+                    value={formik.values.customer_status}
+                    // id="userRoles"
+                    name="customer_status"
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select Customer Status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>Select</SelectLabel>
+                        <SelectItem value="Live Site">Live Site</SelectItem>
+                        <SelectItem value="Demo Link">Demo Link</SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                  {touched.customer_status && errors.customer_status ? (
+                    <div className="text-red-500">{errors.customer_status}</div>
+                  ) : null}
+                </div>
+              </div>
+              {formik.values.customer_status === "Live Site" && (
+                <>
+                  <div className="mb-3  w-[50%]">
+                    <label className="mb-2.5 block font-medium text-black dark:text-white">
+                      live Url
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.liveUrl}
+                        id="liveUrl"
+                        name="liveUrl"
+                        placeholder="Enter Url "
+                        className="w-full  border border-stroke bg-transparent py-2 pl-3 pr-10  outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
+              {formik.values.customer_status === "Demo Link" && (
+                <>
+                  <div className="mb-3  w-[50%]">
+                    <label className="mb-2.5 block font-medium text-black dark:text-white">
+                      Demo Url
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.demoUrl}
+                        id="demoUrl"
+                        name="demoUrl"
+                        placeholder="Enter Url"
+                        className="w-full  border border-stroke bg-transparent py-2 pl-3 pr-10  outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      />
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
 
             <div className="mb-3">

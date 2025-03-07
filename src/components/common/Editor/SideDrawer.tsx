@@ -253,9 +253,9 @@ export default function SideDrawer({
                             <TabsTrigger value="updates" className="bg-[#fff]">
                               Updates
                             </TabsTrigger>
-                            <TabsTrigger value="files" className="bg-[#fff]">
+                            {/* <TabsTrigger value="files" className="bg-[#fff]">
                               Files
-                            </TabsTrigger>
+                            </TabsTrigger> */}
                             {/* <TabsTrigger value="invoices" className="bg-[#fff]">
                               Invoices
                             </TabsTrigger> */}
