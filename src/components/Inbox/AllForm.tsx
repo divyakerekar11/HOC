@@ -292,7 +292,7 @@ const AllForm = ({
     { label: "Technical", value: "Technical" },
     // { label: "Product Flow", value: "Product Flow" },
     { label: "Copy Writer", value: "Copy Writer Tracker" },
-    { label: "Others", value: "Others" },
+    { label: "Other", value: "Other" },
     // { label: "New Website Content", value: "New Website Content" },
   ];
   const [dateComplete, setDateComplete] = useState<Date | undefined>(undefined);
@@ -771,7 +771,7 @@ const AllForm = ({
                         value={values.liveUrl}
                         id="liveUrl"
                         name="liveUrl"
-                        placeholder="Enter Url "
+                        placeholder="Enter Url"
                         className="w-full  border border-stroke bg-transparent py-2 pl-3 pr-10  outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
                     </div>
@@ -1973,7 +1973,7 @@ const AllForm = ({
         </ScrollArea>
       )}
 
-      {statusValue === "Others" && (
+      {statusValue === "Other" && (
         <ScrollArea className="h-[30rem] px-3 py-3">
           <form
             onSubmit={handleSubmit}
