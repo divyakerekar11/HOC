@@ -140,6 +140,9 @@ export default function SideDrawer({
           baseInstance.get(`/files/productflow/${productFlowId}`),
         copywriterId &&
           baseInstance.get(`/files/copywritertracker/${copywriterId}`),
+          userId &&
+          baseInstance.get(`/files/user/${userId}`),
+          
 
       ].filter(Boolean) as Promise<any>[];
 
@@ -277,6 +280,7 @@ export default function SideDrawer({
                                     <QuillEditor
                                       amendmentId={amendmentId || ""}
                                       orderId={orderId || ""}
+                                      userId={userId || ""}
                                       customerId={customerId||""}
                                       indicatorText="post"
                                       technicalId={technicalId || ""}
@@ -289,6 +293,7 @@ export default function SideDrawer({
                                       copywriterId={copywriterId || ""}
                                       websiteContentId={websiteContentId || ""}
                                       quillSize="size"
+                               
                                       // text=""
                                     />
                                   </div>

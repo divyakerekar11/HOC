@@ -69,23 +69,7 @@ export const useEditorStore = create<EditorState & EditorActions>()(
     userUpdateData:[],
     loading: false,
 
-    fetchEditorData: async (customerId: string) => {
-      if (customerId) {
-        set({ loading: true });
-        try {
-          const response = await baseInstance.get(
-            `/updates/customer/${customerId}`
-          );
-          if (response.status === 200) {
-            set({ editorData: response?.data?.data?.updates, loading: false });
-          } else {
-            set({ editorData: response.data?.message, loading: false });
-          }
-        } catch (error: any) {
-          set({ editorData: error?.response?.data?.message, loading: false });
-        }
-      }
-    },
+
 
 
     fetchacData: async (customerId: string) => {
@@ -105,6 +89,26 @@ export const useEditorStore = create<EditorState & EditorActions>()(
         }
       }
     },
+    fetchEditorData: async (customerId: string) => {
+      if (customerId) {
+        set({ loading: true });
+        try {
+          const response = await baseInstance.get(
+            `/updates/customer/${customerId}`
+          );
+          if (response.status === 200) {
+            set({ editorData: response?.data?.data?.updates, loading: false });
+          } else {
+            set({ editorData: response.data?.message, loading: false });
+          }
+        } catch (error: any) {
+          set({ editorData: error?.response?.data?.message, loading: false });
+        }
+      }
+    },
+
+
+
 
     fetchCutomerFileData: async (customerId: string) => {
       if (customerId) {
