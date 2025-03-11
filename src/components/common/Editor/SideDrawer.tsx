@@ -162,7 +162,6 @@ export default function SideDrawer({
     // Use URL object or regex to get the last part of the URL
     const fileName = url?.substring(url?.lastIndexOf("/") + 1); // Extract "invoice_673edc24dac60450788b3a5f.pdf"
     const invoiceName = fileName?.split(".")[0]; // Extract "invoice_673edc24dac60450788b3a5f"
-    console.log("invoiceName", invoiceName);
     return invoiceName;
   };
 
@@ -267,7 +266,6 @@ export default function SideDrawer({
                                 </p>
                                 {openQuill && (
                                   <div className="space-y-1 ">
-                                    
                                     <QuillEditor
                                       amendmentId={amendmentId || ""}
                                       orderId={orderId || ""}
