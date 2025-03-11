@@ -97,7 +97,7 @@ export default function SideDrawer({
   technicalId,
   copywriterId,
   websiteContentId,
-  invoice,userId
+  invoice,userId,custID,cust
 }: any) {
   const {
     fetchOrderEditorData,
@@ -111,7 +111,7 @@ export default function SideDrawer({
     fetchCopywriterUpdateData,
     fetchProductFlowUpdateData,
     fetchWebsiteContentUpdateData,
-    copywriterUpdateData,fetchEditorData
+    copywriterUpdateData,fetchEditorData,fetchacData
   }: any = useEditorStore();
 
   const [open, setOpen] = useState<boolean>(false);
@@ -168,7 +168,6 @@ export default function SideDrawer({
     // Use URL object or regex to get the last part of the URL
     const fileName = url?.substring(url?.lastIndexOf("/") + 1); // Extract "invoice_673edc24dac60450788b3a5f.pdf"
     const invoiceName = fileName?.split(".")[0]; // Extract "invoice_673edc24dac60450788b3a5f"
-    console.log("invoiceName", invoiceName);
     return invoiceName;
   };
 
@@ -180,7 +179,7 @@ export default function SideDrawer({
         technicalId ||
         amendmentId ||
         productFlowId ||
-        websiteContentId || userId||
+        websiteContentId || userId|| cust||
         copywriterId)
     ) {
       fetchLeadsEditorData(leadId);
@@ -192,6 +191,7 @@ export default function SideDrawer({
       fetchProductFlowUpdateData(productFlowId);
       fetchWebsiteContentUpdateData(websiteContentId);
       fetchEditorData(customerId)
+      fetchacData(cust)
       
 
       getUpdateFiles();
@@ -199,13 +199,15 @@ export default function SideDrawer({
   }, [
     open,
     orderId,userId,
-    leadId,
+    leadId,cust,
     technicalId,
     amendmentId,
     copywriterId,
     websiteContentId,
     productFlowId,
   ]);
+
+  
 
   return (
     <>
@@ -276,7 +278,6 @@ export default function SideDrawer({
                                 </p>
                                 {openQuill && (
                                   <div className="space-y-1 ">
-                                    
                                     <QuillEditor
                                       amendmentId={amendmentId || ""}
                                       orderId={orderId || ""}
@@ -293,6 +294,8 @@ export default function SideDrawer({
                                       copywriterId={copywriterId || ""}
                                       websiteContentId={websiteContentId || ""}
                                       quillSize="size"
+                                     
+                                      cust={cust}
                                
                                       // text=""
                                     />

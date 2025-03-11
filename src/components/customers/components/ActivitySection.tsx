@@ -77,6 +77,7 @@ const ActivitySection = ({ activityDetails }: any) => {
                           length={
                             activity?.relatedEntityId?.updates?.length || 0
                           }
+                          cust={activity?.customerId?._id}
                           {...{
                             amendmentId:
                               activity.relatedEntity === "Amendment"

@@ -42,7 +42,7 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
   websiteContentId,
   userId,
   text,
-  quillSize
+  quillSize,cust
 }) => {
 
   const [value, setValue] = useState<string>("");
@@ -271,11 +271,13 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
 
         responses.forEach((response: any) => {
           if (response.status === 201) {
+            
             successToastingFunction(response?.data?.message);
 
             // Use the helper function to reduce repetition
             callIfValidString(customerId, fetchEditorData, "customerId");
             callIfValidString(customerId, fetchacData, "fetchacData");
+            callIfValidString(cust, fetchacData, "fetchacData");
             callIfValidString(customerId, fetchFileData, "customerId");
 
             callIfValidString(orderId, fetchOrderEditorData, "orderId");
@@ -306,7 +308,7 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
               fetchWebsiteContentUpdateData,
               "websiteContentId"
             );
-            console.log("customerId before API call:", customerId);
+           
             // fetchacData(customerId);
             
             setIsOpenReplyModel(false);

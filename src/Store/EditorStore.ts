@@ -73,6 +73,7 @@ export const useEditorStore = create<EditorState & EditorActions>()(
 
 
     fetchacData: async (customerId: string) => {
+      console.log(customerId,"fsjhdfhhdjfhk")
       if (customerId) {
         set({ loading: true });
         try {
