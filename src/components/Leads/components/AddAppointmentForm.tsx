@@ -282,7 +282,7 @@ const AddAppointmentForm: React.FC<AddAppointmentFormProps> = ({
         {/*  Date  */}
         <div className="mb-3">
           <label className="mb-2.5 block font-medium text-black dark:text-white">
-          Appointment Date
+            Appointment Date
           </label>
           <div className="relative">
             <Popover>

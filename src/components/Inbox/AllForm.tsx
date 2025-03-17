@@ -92,15 +92,15 @@ const AllForm = ({
     setDate(selectedDate);
   };
 
-  useEffect(() => {
-    fetchUsersData();
-  }, []);
+  // useEffect(() => {
+  //   fetchUsersData();
+  // }, []);
 
   const [isCustomerValid, setIsCustomerValid] = useState(false);
 
-  useEffect(() => {
-    fetchAllCustomerData();
-  }, []);
+  // useEffect(() => {
+  //   fetchAllCustomerData();
+  // }, []);
 
   const startYear = getYear(new Date()) - 100;
   const endYear = getYear(new Date()) + 100;
@@ -159,10 +159,9 @@ const AllForm = ({
   useEffect(() => {
     userData?.forEach((item: any) => {
       if (!atValues.some((value) => value.id === item._id)) {
-        // Check if the 'id' already exists in 'atValues'
         atValues.push({
-          id: item?._id, // Use 'userId' if that's the field in userData
-          value: item?.fullName, // Use 'username' if that's the field in userData
+          id: item?._id,
+          value: item?.fullName,
           avatar: item?.avatar,
         });
       }

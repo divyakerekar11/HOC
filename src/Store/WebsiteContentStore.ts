@@ -49,7 +49,12 @@ export type WebsiteContentState = {
 };
 
 export type WebsiteContentActions = {
-  fetchWebsiteContentData: () => void;
+  fetchWebsiteContentData: ({
+    page,
+    limit,
+    searchInput,
+    filters,
+  }: any) => Promise<void>;
   addWebsiteContentData: (data: any, customerId: string) => void;
 };
 
@@ -60,17 +65,31 @@ export const useWebsiteContentStore = create<
     websiteContentData: [],
     loading: false,
 
-    fetchWebsiteContentData: async () => {
+    fetchWebsiteContentData: async (params) => {
       set({ loading: true });
+      const {
+        page = 1,
+        limit = 20,
+        searchInput = "",
+        filters = [],
+      } = params || {};
+
       try {
-        const response = await baseInstance.get("/newwebsite");
+        const queryParams = new URLSearchParams();
+        if (page) queryParams.append("page", String(page));
+        if (limit) queryParams.append("limit", String(limit));
+        if (searchInput) queryParams.append("search", searchInput);
+        if (filters)
+          queryParams.append("typeOfCustomer", filters?.typeOfCustomer);
+
+        const response = await baseInstance.get(
+          `/newwebsite?${queryParams.toString()}`
+        );
+
         if (response.status === 200) {
-          set({
-            websiteContentData: response.data?.data?.newWebsiteContent,
-            loading: false,
-          });
+          set({ websiteContentData: response?.data?.data, loading: false });
         } else {
-          set({ websiteContentData: response.data?.message, loading: false });
+          set({ websiteContentData: response?.data?.message, loading: false });
         }
       } catch (error: any) {
         logOutFunction(error?.response?.data?.message);

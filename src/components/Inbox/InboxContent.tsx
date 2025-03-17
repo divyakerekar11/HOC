@@ -158,9 +158,6 @@ const InboxContent: React.FC = () => {
     []
   );
 
-
-
-
   const tableInstance = useReactTable({
     data,
     columns,

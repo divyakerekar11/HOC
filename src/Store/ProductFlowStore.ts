@@ -30,7 +30,12 @@ productFlowData: ProductFlowDataType[] | any;
 };
 
 export type ProductFlowActions = {
-  fetchProductFlowData: () => void;
+  fetchProductFlowData: ({
+    page,
+    limit,
+    searchInput,
+    filters,
+  }: any) => Promise<void>;
   addProductFlowData: (data: any, customerId: string) => void;
 };
 
@@ -39,10 +44,26 @@ export const useProductflowStore = create<ProductFlowState & ProductFlowActions>
     productFlowData: [],
     loading: false,
 
-    fetchProductFlowData: async () => {
+    fetchProductFlowData: async (params) => {
       set({ loading: true });
+      const {
+        page = 1,
+        limit = 20,
+        searchInput = "",
+        filters = [],
+      } = params || {};
+
       try {
-        const response = await baseInstance.get("/productflows");
+        const queryParams = new URLSearchParams();
+        if (page) queryParams.append("page", String(page));
+        if (limit) queryParams.append("limit", String(limit));
+        if (searchInput) queryParams.append("search", searchInput);
+        if (filters) queryParams.append("currentStage", filters?.currentStage);
+
+        const response = await baseInstance.get(
+          `/productflows?${queryParams.toString()}`
+        );
+   
         if (response.status === 200) {
           set({ productFlowData: response.data?.data?.productFlows, loading: false });
         } else {

@@ -42,6 +42,7 @@ import {
 import { LoaderIconSVG } from "@/utils/SVGs/SVGs";
 import { useUserStore } from "@/Store/UserStore";
 import { useCustomerStore } from "@/Store/CustomerStore";
+import { AsyncPaginate } from "react-select-async-paginate";
 // interface AddCustomerFormProps {
 //   setOpen: (newValue: boolean | ((prevCount: boolean) => boolean)) => void;
 //   getMyCustomerData: () => void;
@@ -92,7 +93,6 @@ const AddCustomerForm: React.FC = () => {
     setRole(storedRole);
   }, []);
 
- 
   useEffect(() => {
     fetchUsersData();
   }, []);
@@ -230,104 +230,117 @@ const AddCustomerForm: React.FC = () => {
   const { handleChange, handleBlur, handleSubmit, values, touched, errors } =
     formik;
 
+  const startYear = getYear(new Date()) - 100;
+  const endYear = getYear(new Date()) + 100;
 
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
-      const startYear = getYear(new Date()) - 100;
-      const endYear = getYear(new Date()) + 100;
-    
-      const months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ];
-    
-      const years = Array.from(
-        { length: endYear - startYear + 1 },
-        (_, i) => startYear + i
+  const years = Array.from(
+    { length: endYear - startYear + 1 },
+    (_, i) => startYear + i
+  );
+  // Function to handle month change
+  const handleMonthChange = (month: string) => {
+    if (date) {
+      const newDate = setMonth(date, months.indexOf(month));
+      setDate(newDate);
+    } else {
+      const newDate = setMonth(new Date(), months.indexOf(month));
+      setDate(newDate);
+    }
+  };
+
+  // Function to handle year change
+  const handleYearChange = (year: string) => {
+    if (date) {
+      const newDate = setYear(date, parseInt(year));
+      setDate(newDate);
+    } else {
+      const newDate = setYear(new Date(), parseInt(year));
+      setDate(newDate);
+    }
+  };
+
+  const handleDateSelect = (selectedDate: Date | undefined) => {
+    if (selectedDate) {
+      setDate(selectedDate);
+    }
+  };
+
+  const currentMonth = date ? getMonth(date) : getMonth(new Date());
+  const currentYear = date ? getYear(date) : getYear(new Date());
+
+  const [userOptions, setUserOptions] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const loadUserOptions = async (
+    search: any,
+    loadedOptions: any,
+    { page }: any
+  ) => {
+    const currentPageNumber = page || currentPage;
+    setCurrentPage(currentPageNumber + 1);
+
+    try {
+      setLoading(true);
+
+      const params: Record<string, any> = {
+        page: currentPageNumber,
+        limit: 20,
+        ...(search && { search: search }),
+      };
+
+      const response = await baseInstance.get("/users", { params });
+      const users = response.data?.data?.users || [];
+
+      // Transform the response data
+      const transformedData = users.map(
+        (user: { _id: any; fullName: any }) => ({
+          value: user._id,
+          label: user.fullName,
+        })
       );
-      // Function to handle month change
-      const handleMonthChange = (month: string) => {
-        if (date) {
-          const newDate = setMonth(date, months.indexOf(month));
-          setDate(newDate);
-        } else {
-          const newDate = setMonth(new Date(), months.indexOf(month));
-          setDate(newDate);
-        }
-      };
-    
-      // Function to handle year change
-      const handleYearChange = (year: string) => {
-        if (date) {
-          const newDate = setYear(date, parseInt(year));
-          setDate(newDate);
-        } else {
-          const newDate = setYear(new Date(), parseInt(year));
-          setDate(newDate);
-        }
-      };
-    
-      const handleDateSelect = (selectedDate: Date | undefined) => {
-        if (selectedDate) {
-          setDate(selectedDate);
-        }
-      };
 
-  
-      const currentMonth = date
-        ? getMonth(date)
-        : getMonth(new Date());
-      const currentYear = date
-        ? getYear(date)
-        : getYear(new Date());
+      // Merge options for infinite scroll
+      const combinedOptions =
+        currentPageNumber === 1
+          ? transformedData
+          : [...(loadedOptions?.options || []), ...transformedData];
+
+      const hasMore = response.data?.data?.hasMore ?? false;
+
+      setUserOptions(users);
+
+      return {
+        options: combinedOptions,
+        hasMore,
+        additional: { page: currentPageNumber + 1 },
+      };
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      return { options: [], hasMore: false };
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <ScrollArea className=" p-7 w-full lg:w-[70%] border my-5 h-[90vh] bg-[#fff] boxShadow">
       <form onSubmit={handleSubmit} className="text-[0.8rem] bg-[#fff]">
         <div className="mb-3 lg:flex gap-3">
-          {/* User List */}
-          {/* <div className="w-full mb-2 lg:mb-0">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
-              Assigned User
-            </label>
-            <div className="relative">
-              {!userLoading && userData.length === 0 ? (
-                <div className="flex justify-start">
-                  <LoaderIconSVG />
-                  <span className="px-2">Loading...</span>
-                </div>
-              ) : (
-                <SelectReactSelect
-                  closeMenuOnSelect={true}
-                  isClearable={true}
-                  options={userData.map(
-                    (user: { _id: any; fullName: any }) => ({
-                      value: user._id,
-                      label: user.fullName,
-                    })
-                  )}
-                  onChange={(selectedOption: any) => {
-                    formik.setFieldValue(
-                      "selectedUserId",
-                      selectedOption ? selectedOption.value : ""
-                    );
-                  }}
-                  placeholder="Select a User"
-                  className="text-[0.8rem] border-gray-300"
-                  classNamePrefix="react-select-custom-styling text-[0.8rem] border-gray-300"
-                />
-              )}
-            </div>
-          </div> */}
           {/* Assigned User */}
           {role !== "salesman" ? (
             <div className="mb-3 w-full">
@@ -335,7 +348,7 @@ const AddCustomerForm: React.FC = () => {
                 Assigned User
               </label>
               <div className="relative">
-                {!userLoading && userData?.length === 0 ? (
+                {/* {!userLoading && userData?.length === 0 ? (
                   <div className="flex justify-start">
                     <LoaderIconSVG />
                     <span className="px-2">Loading...</span>
@@ -360,7 +373,66 @@ const AddCustomerForm: React.FC = () => {
                     }}
                     placeholder="Select a User"
                   />
-                )}
+                )} */}
+                <AsyncPaginate
+                  className="react-select-custom-styling__container"
+                  classNamePrefix="react-select-custom-styling"
+                  value={
+                    formik.values.selectedUserId
+                      ? userOptions
+                          .filter(
+                            (user: { _id: any }) =>
+                              user._id === formik.values.selectedUserId
+                          )
+                          .map((user: any) => ({
+                            value: user._id,
+                            label: user.fullName,
+                          }))[0] 
+                      : null
+                  }
+                  loadOptions={loadUserOptions}
+                  onChange={(
+                    selectedOption: { value: any; label: string } | null
+                  ) => {
+                    formik.setFieldValue(
+                      "selectedUserId",
+                      selectedOption?.value || ""
+                    ); 
+                  }}
+                  additional={{ page: 1 }}
+                  placeholder="Select User"
+                  debounceTimeout={300}
+                  noOptionsMessage={({ inputValue }) =>
+                    inputValue
+                      ? `No users found for "${inputValue}"`
+                      : "No users found"
+                  }
+                  isLoading={loading}
+                  styles={{
+                    option: (provided, state) => ({
+                      ...provided,
+                      backgroundColor: state.isSelected ? "#007bff" : "white",
+                      cursor: "pointer",
+                      color: state.isSelected ? "white" : "black",
+                      ":hover": {
+                        backgroundColor: state.isSelected
+                          ? "#007bff"
+                          : "#f1f3f5",
+                      },
+                    }),
+                    singleValue: (provided) => ({
+                      ...provided,
+                      color: "black",
+                    }),
+                    menuList: (provided, state) => ({
+                      ...provided,
+                      maxHeight: state.options.length * 28,
+                      overflowY: "auto",
+                    }),
+                  }}
+                />
+
+                {/* Formik error handling for selectedUserId */}
                 {formik.touched.selectedUserId &&
                 formik.errors.selectedUserId ? (
                   <div className="text-red-500">
@@ -842,70 +914,68 @@ const AddCustomerForm: React.FC = () => {
             Live Date
           </label>
           <div className="relative">
-              <Popover>
-                              <PopoverTrigger asChild>
-                                <Button
-                                  variant={"outline"}
-                                  className={cn(
-                                    "w-[250px] justify-start text-left font-normal",
-                                    !date && "text-muted-foreground"
-                                  )}
-                                >
-                                  <CalendarIcon className="mr-2 h-4 w-4" />
-                                  {date &&
-                                  date.toISOString() !== "1970-01-01T00:00:00.000Z"
-                                    ? format(date, "dd-MM-yyyy")
-                                    : "Pick a date"}
-                                </Button>
-                              </PopoverTrigger>
-            
-                              <PopoverContent className="w-auto p-0">
-                                <div className="flex justify-between p-2">
-                                  <Select
-                                    onValueChange={(month) => handleMonthChange(month)}
-                                    value={months[currentMonth]}
-                                  >
-                                    <SelectTrigger className="w-[110px]">
-                                      <SelectValue placeholder="Month" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                      {months.map((month) => (
-                                        <SelectItem key={month} value={month}>
-                                          {month}
-                                        </SelectItem>
-                                      ))}
-                                    </SelectContent>
-                                  </Select>
-            
-                                  <Select
-                                    onValueChange={(year) => handleYearChange(year)}
-                                    value={currentYear.toString()}
-                                  >
-                                    <SelectTrigger className="w-[110px]">
-                                      <SelectValue placeholder="Year" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                      {years.map((year) => (
-                                        <SelectItem key={year} value={year.toString()}>
-                                          {year}
-                                        </SelectItem>
-                                      ))}
-                                    </SelectContent>
-                                  </Select>
-                                </div>
-                                <div className="calendar-container">
-                                <Calendar
-                                  mode="single"
-                                  selected={date}
-                                  onSelect={handleDateSelect}
-                                  
-                                  initialFocus
-                                  month={date}
-                                  onMonthChange={(date) => setDate(date)}
-                                />
-                                </div>
-                              </PopoverContent>
-                            </Popover>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button
+                  variant={"outline"}
+                  className={cn(
+                    "w-[250px] justify-start text-left font-normal",
+                    !date && "text-muted-foreground"
+                  )}
+                >
+                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  {date && date.toISOString() !== "1970-01-01T00:00:00.000Z"
+                    ? format(date, "dd-MM-yyyy")
+                    : "Pick a date"}
+                </Button>
+              </PopoverTrigger>
+
+              <PopoverContent className="w-auto p-0">
+                <div className="flex justify-between p-2">
+                  <Select
+                    onValueChange={(month) => handleMonthChange(month)}
+                    value={months[currentMonth]}
+                  >
+                    <SelectTrigger className="w-[110px]">
+                      <SelectValue placeholder="Month" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {months.map((month) => (
+                        <SelectItem key={month} value={month}>
+                          {month}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+
+                  <Select
+                    onValueChange={(year) => handleYearChange(year)}
+                    value={currentYear.toString()}
+                  >
+                    <SelectTrigger className="w-[110px]">
+                      <SelectValue placeholder="Year" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {years.map((year) => (
+                        <SelectItem key={year} value={year.toString()}>
+                          {year}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="calendar-container">
+                  <Calendar
+                    mode="single"
+                    selected={date}
+                    onSelect={handleDateSelect}
+                    initialFocus
+                    month={date}
+                    onMonthChange={(date) => setDate(date)}
+                  />
+                </div>
+              </PopoverContent>
+            </Popover>
             {/* <Popover>
               <PopoverTrigger asChild>
                 <Button

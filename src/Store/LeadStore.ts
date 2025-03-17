@@ -27,7 +27,12 @@ export type LeadState = {
 };
 
 export type LeadActions = {
-  fetchAllLeadData: () => Promise<void>;
+fetchAllLeadData: ({
+    page,
+    limit,
+    searchInput,
+    filters,
+  }: any) => Promise<void>;
   fetchMyLeadData: () => Promise<void>;
   addLeadData: (formData: any) => Promise<void>;
 };
@@ -37,10 +42,25 @@ export const useLeadStore = create<LeadState & LeadActions>()(
     leadData: [],
     loading: false,
     addedLead: {},
-    fetchAllLeadData: async () => {
-      set({ loading: true });
-      try {
-        const response = await baseInstance.get("/leads");
+    fetchAllLeadData: async (params) => {
+        set({ loading: true });
+        const {
+          page = 1,
+          limit = 20,
+          searchInput = "",
+          filters = [],
+        } = params || {};
+  
+        try {
+          const queryParams = new URLSearchParams();
+          if (page) queryParams.append("page", String(page));
+          if (limit) queryParams.append("limit", String(limit));
+          if (searchInput) queryParams.append("search", searchInput);
+          if (filters) queryParams.append("outcome", filters?.outcome);
+  
+          const response = await baseInstance.get(
+            `/leads?${queryParams.toString()}`
+          );
         if (response.status === 200) {
           set({ leadData: response?.data?.data, loading: false });
         } else {

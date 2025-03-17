@@ -11,11 +11,18 @@ import {
 import { Button } from "@/components/ui/button";
 import AddTechnicalForm from "./AddTechnicalForm";
 
-const AddTechnicalDialoge = ({
-  getAllTechnical,
-}: {
-  getAllTechnical: () => void;
-}) => {
+type FetchTechnicalDataParams = {
+  page?: number;
+  limit?: number;
+  searchInput?: string;
+  filters?: { status?: string }[];
+};
+
+interface AddTechnicalDialogeProps {
+  getAllTechnical: (params: FetchTechnicalDataParams) => Promise<void>;
+}
+
+const AddTechnicalDialoge = ({ getAllTechnical }: AddTechnicalDialogeProps) => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (

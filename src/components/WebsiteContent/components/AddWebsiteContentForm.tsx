@@ -171,13 +171,13 @@ const AddWebsiteContentForm = ({}: any) => {
         };
 
         await addWebsiteContentData(data, selectedCustomerId);
-        if (
-          Array.isArray(websiteContentData) &&
-          websiteContentData.length !== 0
-        ) {
-          router.push("/websiteContent");
-          await fetchWebsiteContentData();
-        }
+        // if (
+        //   Array.isArray(websiteContentData) &&
+        //   websiteContentData.length !== 0
+        // ) {
+        //   router.push("/websiteContent");
+        fetchWebsiteContentData();
+        router.push("/websiteContent");
       } catch (error: any) {
         if (error?.response && error?.response?.data) {
           errorToastingFunction(error?.response?.data.message);

@@ -101,39 +101,7 @@ const AmendmentContent: React.FC = () => {
 
     router.push(`${pathname}?${params.toString()}`);
   };
-  // ==============================================================
-  // useEffect(() => {
-  //   if (searchInput !== "") {
-  //     setPage(1);
-  //   }
-  // }, [searchInput]);
-
-  // Debounced search API call
-  // const debouncedSearch = useCallback(
-  //   debounce((searchInput) => {
-  //     fetchAmendmentData({
-  //       page,
-  //       limit,
-  //       searchInput,
-  //       filters,
-  //     });
-  //   }, 500),
-  //   [fetchAmendmentData, filters, page, limit]
-  // );
-
-  // useEffect(() => {
-  //   debouncedSearch(searchInput);
-  //   fetchAmendmentData({
-  //     page,
-  //     limit,
-  //     searchInput,
-  //     filters,
-  //   });
-  //   return () => {
-  //     debouncedSearch.cancel();
-  //   };
-  // }, [searchInput, debouncedSearch, page, limit, filters]);
-  // ==========================================================================
+ 
 
   useEffect(() => {
     if (
@@ -171,25 +139,41 @@ const AmendmentContent: React.FC = () => {
     { label: "Complete", value: "Complete" },
   ];
 
+ useEffect(() => {
+    if (searchInput !== "") {
+      setPage(1);
+    }
+  }, [searchInput]);
+
   const debouncedSearch = useCallback(
-    debounce((input) => {
-      fetchAmendmentData({ page, limit, searchInput: input, filters });
+    debounce((searchInput) => {
+      fetchAmendmentData({
+        page,
+        limit,
+        searchInput,
+        filters,
+      });
     }, 500),
     [fetchAmendmentData, filters, page, limit]
   );
 
   useEffect(() => {
-    debouncedSearch(searchInput);
-    return () => debouncedSearch.cancel();
-  }, [searchInput, page, limit, filters, debouncedSearch]);
-
-  useEffect(() => {
-    if (amendmentData && amendmentData?.amendments) {
-      setLoader(false);
-      setAllAmendments(amendmentData?.amendments || []);
-      setTotalPages(amendmentData?.totalPages);
+    if (searchInput.trim().length > 0) {
+      debouncedSearch(searchInput);
+    } else {
+      fetchAmendmentData({
+        page,
+        limit,
+        searchInput,
+        filters,
+      });
     }
-  }, [amendmentData]);
+
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [searchInput, debouncedSearch, page, limit, filters]);
+  
 
   useEffect(() => {
     if (Array.isArray(amendmentData?.amendments)) {
@@ -212,8 +196,8 @@ const AmendmentContent: React.FC = () => {
     columns,
     initialState: {
       pagination: {
-        pageIndex: 0, //custom initial page index
-        pageSize: 25, //custom default page size
+        pageIndex: 0, 
+        pageSize: 25, 
       },
     },
     state: {

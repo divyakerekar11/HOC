@@ -25,6 +25,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useUserStore } from "@/Store/UserStore";
 import { useCustomerStore } from "@/Store/CustomerStore";
 import { useTechnicalStore } from "@/Store/TechnicalStore";
+import { AsyncPaginate } from "react-select-async-paginate";
 
 interface AddTechnicalFormProps {
   setOpen: (newValue: boolean | ((prevCount: boolean) => boolean)) => void;
@@ -45,7 +46,7 @@ const AddTechnicalForm: React.FC<AddTechnicalFormProps> = ({
 
   useEffect(() => {
     fetchUsersData();
-    fetchAllCustomerData();
+    fetchTechnicalData()
   }, []);
 
   const formik = useFormik({
@@ -103,9 +104,71 @@ const AddTechnicalForm: React.FC<AddTechnicalFormProps> = ({
     setFieldTouched,
   } = formik;
 
-  useEffect(() => {
-    fetchAllCustomerData();
-  }, []);
+  // useEffect(() => {
+  //   fetchAllCustomerData();
+  // }, []);
+  const [customerOptions, setCustomerOptions] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+
+  const loadCustomerOptions = async (
+    search: any,
+    loadedOptions: any,
+    { page }: any
+  ) => {
+    const currentPageNumber = page || currentPage;
+    setCurrentPage(currentPageNumber + 1);
+
+    try {
+      setLoading(true);
+
+      // Build params dynamically
+      const params: Record<string, any> = {
+        page: currentPageNumber,
+        limit: 20,
+        ...(search && { search: search }),
+      };
+
+      console.log("params", params);
+
+      const response = await baseInstance.get("/customers", { params });
+
+      const customers = response.data?.data?.customers || [];
+
+      // Transform the response data
+      const transformedData = customers.map(
+        (customer: { _id: any; companyName: any }) => ({
+          value: customer._id,
+          label: customer.companyName,
+        })
+      );
+
+      // Merge options for infinite scroll
+      const combinedOptions =
+        currentPageNumber === 1
+          ? transformedData
+          : [...(loadedOptions?.options || []), ...transformedData];
+
+      // Handle pagination flag
+      const hasMore = response.data?.data?.hasMore ?? false;
+
+      setCustomerOptions(customers);
+
+      return {
+        options: combinedOptions,
+        hasMore,
+        additional: JSON.stringify({ page: currentPageNumber + 1 }), // Convert to string
+      };
+    } catch (error) {
+      console.error("Error fetching customers:", error);
+      return {
+        options: [],
+        hasMore: false,
+      };
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <ScrollArea className="h-[23rem]   px-3 py-3">
@@ -115,7 +178,49 @@ const AddTechnicalForm: React.FC<AddTechnicalFormProps> = ({
             Select Company <span style={{ opacity: "0.5" }}> * </span>
           </label>
           <div className="relative">
-            {!customerData?.customers ? (
+            <AsyncPaginate
+                              className="react-select-custom-styling__container"
+                              classNamePrefix="react-select-custom-styling"
+                              value={customerOptions}
+                              loadOptions={loadCustomerOptions}
+                              onChange={(selectedOption: any) => {
+                                setCustomerOptions(selectedOption);
+                                setSelectedCustomerId(
+                                  selectedOption ? selectedOption.value : null
+                                );
+                                
+                              }}
+                              additional={{ page: 1 }}
+                              placeholder="Select Company"
+                              debounceTimeout={300}
+                              noOptionsMessage={({ inputValue }) =>
+                                inputValue
+                                  ? `No Company found for "${inputValue}"`
+                                  : "No Company found"
+                              }
+                              // onError={(error: any) => {
+                              //   errorToastingFunction("Error loading Client");
+                              //   console.error("Async Paginate Client:", error);
+                              // }}
+                              styles={{
+                                option: (provided, state) => ({
+                                  ...provided,
+                                  backgroundColor: state.isSelected ? "#007bff" : "white",
+                                  cursor: "pointer",
+                                  color: state.isSelected ? "white" : "black",
+                                  ":hover": {
+                                    backgroundColor: state.isSelected
+                                      ? "#007bff"
+                                      : "#f1f3f5",
+                                  },
+                                }),
+                                singleValue: (provided) => ({
+                                  ...provided,
+                                  color: "black",
+                                }),
+                              }}
+                            />
+            {/* {!customerData?.customers ? (
               <div className="flex justify-start">
                 <LoaderIconSVG />
                 <span className="px-2">Loading...</span>
@@ -136,7 +241,7 @@ const AddTechnicalForm: React.FC<AddTechnicalFormProps> = ({
                 }}
                 placeholder="Select a Company"
               />
-            )}
+            )} */}
             {/* )}  */}
           </div>
         </div>

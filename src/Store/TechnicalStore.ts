@@ -25,7 +25,12 @@ export type TechnicalState = {
 };
 
 export type TechnicalActions = {
-  fetchTechnicalData: () => void;
+  fetchTechnicalData: ({
+    page,
+    limit,
+    searchInput,
+    filters,
+  }: any) => Promise<void>;
   addTechnicalData: (data: any, customerId: string) => void;
 };
 
@@ -34,12 +39,30 @@ export const useTechnicalStore = create<TechnicalState & TechnicalActions>()(
     technicalData: [],
     loading: false,
 
-    fetchTechnicalData: async () => {
+    fetchTechnicalData: async (params) => {
       set({ loading: true });
+      const {
+        page = 1,
+        limit = 20,
+        searchInput = "",
+        filters = [],
+      } = params || {};
+
       try {
-        const response = await baseInstance.get("/technicaltrackers");
+        const queryParams = new URLSearchParams();
+        if (page) queryParams.append("page", String(page));
+        if (limit) queryParams.append("limit", String(limit));
+        if (searchInput) queryParams.append("search", searchInput);
+        if (filters?.status?.length > 0) {
+          queryParams.append("status", filters?.status); 
+        }
+
+        const response = await baseInstance.get(
+          `/technicaltrackers?${queryParams.toString()}`
+        );
+
         if (response.status === 200) {
-          set({ technicalData: response.data?.data?.trackers, loading: false });
+          set({ technicalData: response.data?.data, loading: false });
         } else {
           set({ technicalData: response.data?.message, loading: false });
         }

@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { columns } from "./components/columns";
 import { DataTable } from "../common/data-table";
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Select from "react-select";
@@ -24,6 +24,8 @@ import {
 } from "@tanstack/react-table";
 
 import { useProductflowStore } from "@/Store/ProductFlowStore";
+import { debounce } from "lodash";
+import CustomPagination from "../CustomPagination/CustomPagination";
 const animatedComponents = makeAnimated();
 
 const ProductflowContent: React.FC = () => {
@@ -45,15 +47,52 @@ const ProductflowContent: React.FC = () => {
   const [statusValue, setStatusValue] = React.useState("");
   const data = useMemo(() => allProductflow, [allProductflow]);
   const [filters, setFilters] = useState<any>({
-    status: [],
+    currentStage: [],
   });
-
   const searchParams = useSearchParams();
   const queryParams = searchParams.get("id");
+  const pathname = usePathname();
+  const [searchInput, setSearchInput] = useState("");
+  const [totalPages, setTotalPages] = useState(1);
+  const initialPage = Number(searchParams.get("page")) || 1;
+  const initialLimit = Number(searchParams.get("limit")) || 20;
+  const [page, setPage] = useState(initialPage);
+  const [limit, setLimit] = useState(initialLimit);
 
   useEffect(() => {
-    fetchProductFlowData();
-  }, []);
+    if (searchInput !== "") {
+      setPage(1);
+    }
+  }, [searchInput]);
+
+  const debouncedSearch = useCallback(
+    debounce((searchInput) => {
+      fetchProductFlowData({
+        page,
+        limit,
+        searchInput,
+        filters,
+      });
+    }, 500),
+    [fetchProductFlowData, filters, page, limit]
+  );
+
+  useEffect(() => {
+    if (searchInput.trim().length > 0) {
+      debouncedSearch(searchInput);
+    } else {
+      fetchProductFlowData({
+        page,
+        limit,
+        searchInput,
+        filters,
+      });
+    }
+
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [searchInput, debouncedSearch, page, limit, filters]);
 
   useEffect(() => {
     if (
@@ -66,9 +105,11 @@ const ProductflowContent: React.FC = () => {
       router.push("/auth/login");
     } else {
       setLoader(false);
-      setAllProductflow(productFlowData ? productFlowData || [] : []);
+      setAllProductflow(
+        productFlowData ? productFlowData?.productFlows || [] : []
+      );
     }
-  }, [productFlowData, router]);
+  }, [productFlowData?.productFlows, router]);
 
   const statusOptions = [
     { label: "Copywriter", value: "Copywriter" },
@@ -102,43 +143,14 @@ const ProductflowContent: React.FC = () => {
       setAllProductflow(filterByStatus);
     }
   }, [filters?.currentStage, productFlowData]);
-  // Table Instance
-  // const tableInstance = useReactTable({
-  //   data,
-  //   columns,
-  //   // initialState: {
-  //   //   pagination: {
-  //   //     pageIndex: 2, //custom initial page index
-  //   //     pageSize: 20, //custom default page size
-  //   //   },
-  //   // },
-  //   state: {
-  //     sorting,
-  //     columnVisibility,
-  //     rowSelection,
-  //     globalFilter: filtering,
-  //     columnFilters,
-  //   },
-  //   onGlobalFilterChange: setFiltering,
-  //   enableRowSelection: true,
-  //   onRowSelectionChange: setRowSelection,
-  //   onSortingChange: setSorting,
-  //   onColumnFiltersChange: setColumnFilters,
-  //   onColumnVisibilityChange: setColumnVisibility,
-  //   getCoreRowModel: getCoreRowModel(),
-  //   getFilteredRowModel: getFilteredRowModel(),
-  //   getPaginationRowModel: getPaginationRowModel(),
-  //   getSortedRowModel: getSortedRowModel(),
-  //   getFacetedRowModel: getFacetedRowModel(),
-  //   getFacetedUniqueValues: getFacetedUniqueValues(),
-  // });
+
   const tableInstance = useReactTable({
     data,
     columns,
     initialState: {
       pagination: {
-        pageIndex: 0, //custom initial page index
-        pageSize: 25, //custom default page size
+        pageIndex: 0,
+        pageSize: 25,
       },
     },
     state: {
@@ -162,6 +174,15 @@ const ProductflowContent: React.FC = () => {
     getFacetedUniqueValues: getFacetedUniqueValues(),
   });
 
+  const onPageChange = (newPage: number, newLimit: number) => {
+    setPage(newPage);
+    const params = new URLSearchParams(searchParams.toString());
+
+    params.set("page", newPage.toString());
+    params.set("limit", newLimit.toString());
+
+    router.push(`${pathname}?${params.toString()}`);
+  };
   return (
     <div className="px-4 py-0 relative">
       {/* <div className="text-xl font-semibold absolute top-[-52px]">
@@ -189,11 +210,10 @@ const ProductflowContent: React.FC = () => {
       </div>
 
       <div className="md:flex justify-center sm:justify-end my-2">
-        {productFlowData && productFlowData.length > 0 ? (
-          <PageHeader tableInstance={tableInstance} />
-        ) : (
-          ""
-        )}
+        <PageHeader
+          tableInstance={tableInstance}
+          setSearchInput={setSearchInput}
+        />
 
         <div className="flex justify-normal lg:justify-end">
           <Link href={"/productFlow/addProductFlow"}>
@@ -208,11 +228,19 @@ const ProductflowContent: React.FC = () => {
       </div>
 
       <DataTable
-        text=""
+        text="product-flow"
         queryParams={queryParams ? queryParams : ""}
         columns={columns}
         tableInstance={tableInstance}
         loading={loading}
+      />
+      <CustomPagination
+        setLimit={setLimit}
+        limit={limit}
+        page={page}
+        onPageChange={onPageChange}
+        data={allProductflow}
+        totalPages={totalPages}
       />
     </div>
   );

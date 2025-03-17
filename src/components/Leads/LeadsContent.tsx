@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { columns } from "./components/columns";
 import { DataTable } from "../common/data-table";
 import AddLeadDialoge from "./components/AddLeadDialoge";
-import { useRouter, useSearchParams } from "next/navigation";
 import BreadcrumbSection from "../common/BreadcrumbSection";
 import { useLeadStore } from "@/Store/LeadStore";
 import {
@@ -34,7 +33,9 @@ import makeAnimated from "react-select/animated";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import SideDrawer from "../common/Editor/SideDrawer";
-
+import { debounce } from "lodash";
+import CustomPagination from "../CustomPagination/CustomPagination";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 const animatedComponents = makeAnimated();
 
 const crumbs = [
@@ -69,12 +70,18 @@ const LeadsContent: React.FC = () => {
   const [filters, setFilters] = useState<any>({
     outcome: [],
   });
-
+  const pathname = usePathname();
   const data = useMemo(() => allLeads, [allLeads]);
-
-  useEffect(() => {
-    fetchAllLeadData();
-  }, []);
+  const [searchInput, setSearchInput] = useState("");
+  const [totalPages, setTotalPages] = useState(1);
+  const initialPage = Number(searchParams.get("page")) || 1;
+  const initialLimit = Number(searchParams.get("limit")) || 20;
+  const [page, setPage] = useState(initialPage);
+  const [limit, setLimit] = useState(initialLimit);
+  const [loader, setLoader] = useState(true);
+  // useEffect(() => {
+  //   fetchAllLeadData();
+  // }, []);
 
   const outcome = [
     { label: "Appointement Made", value: "Appointement Made" },
@@ -98,44 +105,49 @@ const LeadsContent: React.FC = () => {
     }
   }, [leadData?.leads, leadData, router]);
 
-  // Table Instance
-  // const tableInstance = useReactTable({
-  //   data,
-  //   columns,
-  //   // initialState: {
-  //   //   pagination: {
-  //   //     pageIndex: 2, //custom initial page index
-  //   //     pageSize: 20, //custom default page size
-  //   //   },
-  //   // },
-  //   state: {
-  //     sorting,
-  //     columnVisibility,
-  //     rowSelection,
-  //     globalFilter: filtering,
-  //     columnFilters,
-  //   },
-  //   onGlobalFilterChange: setFiltering,
-  //   enableRowSelection: true,
-  //   onRowSelectionChange: setRowSelection,
-  //   onSortingChange: setSorting,
-  //   onColumnFiltersChange: setColumnFilters,
-  //   onColumnVisibilityChange: setColumnVisibility,
-  //   getCoreRowModel: getCoreRowModel(),
-  //   getFilteredRowModel: getFilteredRowModel(),
-  //   getPaginationRowModel: getPaginationRowModel(),
-  //   getSortedRowModel: getSortedRowModel(),
-  //   getFacetedRowModel: getFacetedRowModel(),
-  //   getFacetedUniqueValues: getFacetedUniqueValues(),
-  // });
+  const debouncedSearch = useCallback(
+    debounce((input) => {
+      fetchAllLeadData({ page, limit, searchInput: input, filters });
+    }, 500),
+    [fetchAllLeadData, filters, page, limit]
+  );
+
+  useEffect(() => {
+    debouncedSearch(searchInput);
+    return () => debouncedSearch.cancel();
+  }, [searchInput, page, limit, filters, debouncedSearch]);
+
+  useEffect(() => {
+    if (leadData && leadData?.leads) {
+      setLoader(false);
+      setAllLeads(leadData?.leads || []);
+      setTotalPages(leadData?.totalPages);
+    }
+  }, [leadData]);
+
+  useEffect(() => {
+    if (Array.isArray(leadData?.leads)) {
+      const filterByStatus =
+        leadData?.leads &&
+        leadData?.leads?.filter((elem: any) => {
+          if (filters?.outcome?.length > 0) {
+            return filters?.outcome?.includes(elem?.outcome);
+          } else {
+            return true;
+          }
+        });
+
+      setAllLeads(filterByStatus);
+    }
+  }, [filters?.outcome, leadData?.leads]);
 
   const tableInstance = useReactTable({
     data,
     columns,
     initialState: {
       pagination: {
-        pageIndex: 0, //custom initial page index
-        pageSize: 25, //custom default page size
+        pageIndex: 0,
+        pageSize: 25,
       },
     },
     state: {
@@ -159,71 +171,57 @@ const LeadsContent: React.FC = () => {
     getFacetedUniqueValues: getFacetedUniqueValues(),
   });
 
-  // Filter
-  // useEffect(() => {
-  //   const filterByOutcome = leadData?.filter((elem: any) => {
-  //     if (filters.outcome) {
-  //       return filters.outcome ? elem.outcome === filters.outcome : elem;
-  //     } else {
-  //       return leadData;
-  //     }
-  //   });
 
-  //   setAllLeads(() => filterByOutcome);
-  // }, [outcomeValue, leadData]);
 
-  useEffect(() => {
-    if (Array.isArray(leadData?.leads)) {
-      const filterByOutcome: any =
-        leadData &&
-        leadData?.leads?.filter((elem: any) => {
-          if (filters?.outcome?.length > 0) {
-            return filters?.outcome?.includes(elem?.outcome);
-          } else {
-            return true;
-          }
-        });
+  const onPageChange = (newPage: number, newLimit: number) => {
+    setPage(newPage);
+    const params = new URLSearchParams(searchParams.toString()); 
 
-      setAllLeads(filterByOutcome);
-    }
-  }, [filters?.outcome, leadData?.leads]);
+    params.set("page", newPage.toString());
+    params.set("limit", newLimit.toString());
+
+    router.push(`${pathname}?${params.toString()}`);
+  };
 
   return (
     <div className="px-4 py-0 relative">
-      {/* <div className="text-xl font-semibold absolute top-[-60px]">Leads</div> */}
-      {/* <div className="mb-1">
-        <BreadcrumbSection crumbs={crumbs} />
-      </div> */}
-
       <div className="w-[300px] lg:absolute z-10 mt-2 lg:mt-0">
         <Select
           className="text-[0.8rem] boxShadow"
           closeMenuOnSelect={false}
           components={animatedComponents}
-          isMulti
+          isClearable
           options={outcome}
-          // value={filters.outcome}
-          onChange={(selectedOptions) => {
-            const selectedValues =
-              selectedOptions &&
-              selectedOptions.map((option: any) => option.value);
+          onChange={(selectedOption: any) => {
+            const selectedValues = selectedOption ? selectedOption.value : [];
             setFilters((prev: any) => ({
               ...prev,
               outcome: selectedValues,
             }));
+            setPage(1);
           }}
-          placeholder="Select Outcome"
-          // className="react-select-custom-styling__container "
-          // classNamePrefix="react-select-custom-styling"
+          placeholder="Select a Outcome"
+          styles={{
+            option: (provided, state) => ({
+              ...provided,
+              backgroundColor: state.isSelected
+                ? "#29354f"
+                : provided.backgroundColor,
+              color: state.isSelected ? "white" : provided.color,
+              ":hover": {
+                backgroundColor: state.isSelected ? "#29354f" : "#f0f0f0",
+              },
+            }),
+          }}
         />
       </div>
 
       <div className="md:flex justify-center sm:justify-end my-2">
-        {allLeads?.length > 0 ? (
-          <PageHeader tableInstance={tableInstance} />
-        ) : (
-          ""
-        )}
+        <PageHeader
+          tableInstance={tableInstance}
+          setSearchInput={setSearchInput}
+        />
+
         {/* <AddLeadDialoge getMyLeadData={fetchAllLeadData} /> */}
         <div className="flex justify-normal lg:justify-end ">
           <Link href={"/leads/addLead"}>
@@ -237,11 +235,20 @@ const LeadsContent: React.FC = () => {
         </div>
       </div>
       <DataTable
-        text=""
+        text="lead"
         queryParams={queryParams ? queryParams : ""}
         columns={columns}
         tableInstance={tableInstance}
         loading={loading}
+      />
+
+      <CustomPagination
+        setLimit={setLimit}
+        limit={limit}
+        page={page}
+        onPageChange={onPageChange}
+        data={allLeads}
+        totalPages={totalPages}
       />
     </div>
   );
