@@ -36,6 +36,7 @@ const DeleteDialoge = ({
         setIsModalOpen(false);
         setIsOpenReplyModel ? setIsOpenReplyModel(false) : "";
         setIsCommentOpen ? setIsCommentOpen(false) : "";
+        
       }
     } catch (error: any) {
       if (error?.response && error?.response?.data) {

@@ -83,7 +83,7 @@ export const useAmendmentStore = create<AmendmentState & AmendmentActions>()(
       set({ loading: true });
       const {
         page = 1,
-        limit = 10,
+        limit = 20,
         searchInput = "",
         filters = [],
       } = params || {};
@@ -93,7 +93,7 @@ export const useAmendmentStore = create<AmendmentState & AmendmentActions>()(
         if (page) queryParams.append("page", String(page));
         if (limit) queryParams.append("limit", String(limit));
         if (searchInput) queryParams.append("search", searchInput);
-        if (filters) queryParams.append("status", filters?.status);
+        if (filters?.status !== undefined) queryParams.append("status", filters?.status);
 
         const response = await baseInstance.get(
           `/amendments?${queryParams.toString()}`

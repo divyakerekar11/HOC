@@ -838,10 +838,17 @@ const CustomerDetailsContent = ({ handleUpdate }: any) => {
         </div>
       </div>
       <div className="lg gap-1 justify-start">
-        <div className="w-full">
-          <ActivitySection activityDetails={activityData} />
-        </div>
+  <div className="w-full">
+    {activityData?.length > 0 ? (
+      <ActivitySection activityDetails={activityData} />
+    ) : (
+      <div className="text-center font-semibold text-lg text-gray-500 py-4">
+        No Activity Found
       </div>
+    )}
+  </div>
+</div>
+
     </div>
   );
 };

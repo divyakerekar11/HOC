@@ -58,7 +58,7 @@ export const useProductflowStore = create<ProductFlowState & ProductFlowActions>
         if (page) queryParams.append("page", String(page));
         if (limit) queryParams.append("limit", String(limit));
         if (searchInput) queryParams.append("search", searchInput);
-        if (filters) queryParams.append("currentStage", filters?.currentStage);
+        if (filters?.currentStage !== undefined) queryParams.append("currentStage", filters?.currentStage);
 
         const response = await baseInstance.get(
           `/productflows?${queryParams.toString()}`

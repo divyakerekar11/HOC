@@ -79,7 +79,7 @@ export const useWebsiteContentStore = create<
         if (page) queryParams.append("page", String(page));
         if (limit) queryParams.append("limit", String(limit));
         if (searchInput) queryParams.append("search", searchInput);
-        if (filters)
+        if (filters?.typeOfCustomer !== undefined)
           queryParams.append("typeOfCustomer", filters?.typeOfCustomer);
 
         const response = await baseInstance.get(

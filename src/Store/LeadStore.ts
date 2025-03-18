@@ -56,7 +56,7 @@ export const useLeadStore = create<LeadState & LeadActions>()(
           if (page) queryParams.append("page", String(page));
           if (limit) queryParams.append("limit", String(limit));
           if (searchInput) queryParams.append("search", searchInput);
-          if (filters) queryParams.append("outcome", filters?.outcome);
+          if (filters?.outcome !== undefined) queryParams.append("outcome", filters?.outcome);
   
           const response = await baseInstance.get(
             `/leads?${queryParams.toString()}`

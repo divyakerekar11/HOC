@@ -130,31 +130,7 @@ const CustomersContent: React.FC = () => {
     }
   }, [customerData, router, customerData?.totalPages]);
 
-  // useEffect(() => {
-  //   const filterByStatus = customerData.customers?.filter((elem: any) => {
-  //     if (statusValue !== "all") {
-  //       return statusValue ? elem.status === statusValue : elem;
-  //     } else {
-  //       return customerData;
-  //     }
-  //   });
 
-  //   setAllCustomers(() => filterByStatus);
-  // }, [statusValue, customerData]);
-
-  // Table Instance
-
-  // useEffect(() => {
-  //   const filterByStatus = customerData?.customers?.filter((elem: any) => {
-  //     if (filters?.status?.length > 0) {
-  //       return filters?.status?.includes(elem?.status);
-  //     } else {
-  //       return true;
-  //     }
-  //   });
-
-  //   setAllCustomers(filterByStatus);
-  // }, [filters?.status, customerData]);
 
   useEffect(() => {
     if (Array.isArray(customerData?.customers)) {
@@ -196,7 +172,7 @@ const CustomersContent: React.FC = () => {
     }
   }, [searchInput]);
 
-  // ========================================
+
 
   // Debounced search API call
   const debouncedSearch = useCallback(

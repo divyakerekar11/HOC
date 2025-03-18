@@ -28,7 +28,7 @@ const ActivitySection = ({ activityDetails,loading }: any) => {
         month: "2-digit",
         year: "2-digit",
       };
-      const formattedDate = date.toLocaleDateString("en-GB", options); // Using "en-GB" for day-month-year format
+      const formattedDate = date.toLocaleDateString("en-GB", options); 
       return formattedDate;
     } else {
       return <div className="text-gray-400">N/A</div>;

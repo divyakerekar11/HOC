@@ -48,7 +48,7 @@ import { LoaderIconSVG, PhoneIconSVG, UserIconSVG } from "@/utils/SVGs/SVGs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useCustomerStore } from "@/Store/CustomerStore";
 import { useAmendmentStore } from "@/Store/AmendmentStore";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useNotificationStore } from "@/Store/NotificationStore";
 import { AsyncPaginate } from "react-select-async-paginate";
 // Register Quill modules
@@ -66,7 +66,7 @@ const AllForm = ({
   const [fileURLs, setFileURLs] = useState<{ [key: string]: string }>({});
   const [mentionedUserIds, setMentionedUserIds] = useState<string[]>([]);
   const quillRef = useRef<ReactQuill>(null);
-  const { fetchNotificationData } = useNotificationStore();
+  // const { fetchNotificationData } = useNotificationStore();
   const router = useRouter();
   const [userLoading, setUserLoading] = useState(false);
   const [isUserValid, setIsUserValid] = useState(false);
@@ -311,6 +311,30 @@ const AllForm = ({
     undefined
   );
   const [liveDate, setLiveDate] = useState<Date | undefined>(undefined);
+  const searchParams = useSearchParams();
+  const queryParams = searchParams.get("id");
+  const pathname = usePathname();
+  const [searchInput, setSearchInput] = useState("");
+  const [totalPages, setTotalPages] = useState(1);
+  const initialPage = Number(searchParams.get("page")) || 1;
+  const initialLimit = Number(searchParams.get("limit")) || 20;
+  const [page, setPage] = useState(initialPage);
+  const [limit, setLimit] = useState(initialLimit);
+  const { fetchNotificationData } = useNotificationStore()
+
+  // Fetch notifications based on page and limit
+  const fetchNotifications = async () => {
+    await fetchNotificationData({ page, limit });
+  };
+
+  // // Optionally, you can trigger the fetch when the form is opened or on any specific action
+  useEffect(() => {
+    fetchNotifications();
+  }, [page, limit, fetchNotificationData])
+
+  //   useEffect(() => {
+  //     fetchNotificationData();
+  // }, [])
   const formik = useFormik({
     initialValues: {
       customer_status: undefined,
@@ -430,7 +454,8 @@ const AllForm = ({
         await addMultipleForm(payload, selectedCustomerId);
 
         // Fetch updated data after the submission
-        fetchNotificationData();
+        fetchNotificationData({ page, limit });
+        // fetchNotificationData();
         // const subjectPage = values.subject;
         // if (values.subject === "TechnicalTracker") {
         //   router.push("/technical");
@@ -487,7 +512,8 @@ const AllForm = ({
       formik.setFieldValue("subject", selectedStatus);
     }
   };
-
+  // Fetch Notification Data from the store
+ ;
   const handleMonthChange2 = (
     month: string,
     target: "phase1" | "phase2" | "demo" | "live"
@@ -658,7 +684,7 @@ const AllForm = ({
     }
   };
 
-  // =========================================================
+
 
   const handleDropDown = (field: string, selectedOption: any | null) => {
     console.log(`${field}:`, selectedOption);

@@ -126,7 +126,7 @@ const Appbar: React.FC<NavBarProps> = ({ toggleSider }) => {
 
   useEffect(() => {
     fetchUserData();
-    fetchNotificationData();
+    // fetchNotificationData();
   }, []);
 
   const singleNotificationfecthHandler = async (notificationId: string) => {
@@ -187,9 +187,9 @@ const Appbar: React.FC<NavBarProps> = ({ toggleSider }) => {
     }
   }, [notificationTriggered, notificationSingleData]); // Include notificationSingleData if needed
 
-  useEffect(() => {
-    fetchNotificationData();
-  }, [notificationReadData]);
+  // useEffect(() => {
+  //   fetchNotificationData();
+  // }, [notificationReadData]);
 
   return (
     <nav

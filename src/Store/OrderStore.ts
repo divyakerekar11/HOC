@@ -81,7 +81,7 @@ export const useOrderStore = create<OrderState & OrderActions>()(
         if (page) queryParams.append("page", String(page));
         if (limit) queryParams.append("limit", String(limit));
         if (searchInput) queryParams.append("search", searchInput);
-        if (filters) queryParams.append("orderType", filters?.orderType);
+        if (filters?.orderType !== undefined) queryParams.append("orderType", filters?.orderType);
         if (year) queryParams.append("year", String(year));
 
         const response = await baseInstance.get(

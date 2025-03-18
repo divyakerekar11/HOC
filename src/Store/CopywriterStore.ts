@@ -57,7 +57,7 @@ export const useCopywriterStore = create<CopywriterState & CopywriterActions>()(
         if (page) queryParams.append("page", String(page));
         if (limit) queryParams.append("limit", String(limit));
         if (searchInput) queryParams.append("search", searchInput);
-        if (filters) queryParams.append("status", filters?.status);
+        if (filters?.status !== undefined) queryParams.append("status", filters?.status);
 
         const response = await baseInstance.get(
           `/copywritertrackers?${queryParams.toString()}`

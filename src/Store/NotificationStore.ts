@@ -20,28 +20,46 @@ export type NotificationState = {
   notificationReadData: NotificationDataType[] | any;
   message?: string;
   loading: boolean;
+  hasMore?:boolean;
 };
 
+
 export type NotificationActions = {
-  fetchNotificationData: () => void;
+  // fetchNotificationData: () => void;
+  fetchNotificationData: ({ page, limit }: any) => Promise<void>;
   fetchSingleNotificationData: (notificationId: string) => void;
   fetchSingleReadNotificationData: (notificationId: string) => void;
 };
 
-export const useNotificationStore = create<
-  NotificationState & NotificationActions
->()(
+export const useNotificationStore = create<NotificationState & NotificationActions>()(
   devtools((set) => ({
     notificationData: [],
     notificationSingleData: {},
     notificationReadData: {},
     loading: false,
-    fetchNotificationData: async () => {
+    hasMore: true,  // Track whether there are more notifications to fetch
+
+    fetchNotificationData: async (params) => {
       set({ loading: true });
+      const { page = 1, limit = 20 } = params || {};
       try {
-        const response = await baseInstance.get("/notifications");
+        const queryParams = new URLSearchParams();
+        if (page) queryParams.append('page', String(page));
+        if (limit) queryParams.append('limit', String(limit));
+
+        const response = await baseInstance.get(
+          `/notifications?${queryParams.toString()}`
+        );
+
         if (response.status === 200) {
-          set({ notificationData: response.data?.data, loading: false });
+          const newNotifications = response.data?.data || [];
+          const hasMore = newNotifications.length === limit;  // If the returned data length equals the limit, more data is available
+
+          set({ 
+            notificationData: page === 1 ? newNotifications : [...response.data.data],
+            hasMore, // Set hasMore based on the length of returned notifications
+            loading: false 
+          });
         } else {
           set({ notificationData: response.data?.message, loading: false });
         }
@@ -53,6 +71,33 @@ export const useNotificationStore = create<
         });
       }
     },
+// export const useNotificationStore = create<
+//   NotificationState & NotificationActions
+// >()(
+//   devtools((set) => ({
+//     notificationData: [],
+//     notificationSingleData: {},
+//     notificationReadData: {},
+//     loading: false,
+//     fetchNotificationData: 
+    
+//     async () => {
+//       set({ loading: true });
+//       try {
+//         const response = await baseInstance.get("/notifications");
+//         if (response.status === 200) {
+//           set({ notificationData: response.data?.data, loading: false });
+//         } else {
+//           set({ notificationData: response.data?.message, loading: false });
+//         }
+//       } catch (error: any) {
+//         logOutFunction(error?.response?.data?.message);
+//         set({
+//           notificationData: error?.response?.data?.message,
+//           loading: false,
+//         });
+//       }
+//     },
     fetchSingleNotificationData: async (notificationId) => {
       set({ loading: true });
       try {

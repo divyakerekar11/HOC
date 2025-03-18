@@ -59,58 +59,36 @@ const InboxContent: React.FC = () => {
     notificationSingleData,
     fetchSingleReadNotificationData,
     notificationReadData,
-    loading,
+    loading,hasMore
   } = useNotificationStore();
 
-  const singleNotificationfecthHandler = async (notificationId: string) => {
-    await fetchSingleNotificationData(notificationId);
-    await fetchSingleReadNotificationData(notificationId);
+  // const singleNotificationfecthHandler = async (notificationId: string) => {
+  //   await fetchSingleNotificationData(notificationId);
+  //   await fetchSingleReadNotificationData(notificationId);
+  //   setNotificationTriggered(true);
+  // };
+
+  const [isDeleteClicked, setIsDeleteClicked] = useState(false);
+
+  const handleRowClick = (event: React.MouseEvent, notification: any) => {
+
+    if (isDeleteClicked) {
+      setIsDeleteClicked(false); 
+      return; 
+    }
+
+    fetchSingleReadNotificationData(notification._id);
+    fetchSingleNotificationData(notification._id);
     setNotificationTriggered(true);
   };
+  
 
   // useEffect(() => {
-  //   if (notificationTriggered) {
-  //     if (
-  //       notificationSingleData &&
-  //       Object.keys(notificationSingleData).length > 0
-  //     ) {
-  //       const itemType = notificationSingleData?.itemType;
-
-  //       const queryData = { id: notificationSingleData?.item };
-  //       const queryString = new URLSearchParams(queryData).toString();
-  //       const idValue = queryString.split("=")[1];
-
-  //       if (itemType === "Amendment") {
-  //         router.push(`/amendment?id=${notificationSingleData?.item}`);
-  //         // router.push(`/amendment`);
-  //       } else if (itemType === "Customer") {
-  //         router.push(`/customers`);
-  //         router.push(`/customers?id=${notificationSingleData?.item}`);
-  //       } else if (itemType === "Order") {
-  //         router.push(`/orders`);
-  //       } else if (itemType === "Lead") {
-  //         router.push(`/leads`);
-  //       } else if (itemType === "NewWebsiteContent") {
-  //         router.push(`/websiteContent`);
-  //       } else if (itemType === "CopywriterTracker") {
-  //         router.push(`/copywriter`);
-  //       } else if (itemType === "TechnicalTracker") {
-  //         router.push(`/technical`);
-  //       } else if (itemType === "ProductFlow") {
-  //         router.push(`/productFlow`);
-  //       }
-  //     }
-
-  //     setNotificationTriggered(false);
-  //   }
-  // }, [notificationTriggered, notificationSingleData]);
-
-  useEffect(() => {
-    fetchNotificationData();
-  }, [notificationReadData]);
-  useEffect(() => {
-    fetchNotificationData();
-  }, []);
+  //   fetchNotificationData();
+  // }, [notificationReadData]);
+  // useEffect(() => {
+  //   fetchNotificationData();
+  // }, []);
   const [loader, setLoader] = useState(true);
   useEffect(() => {
     if (
@@ -136,7 +114,7 @@ const InboxContent: React.FC = () => {
   const initialPage = Number(searchParams.get("page")) || 1;
   const initialLimit = Number(searchParams.get("limit")) || 20;
   const [page, setPage] = useState(initialPage);
-  const [limit, setLimit] = useState(initialLimit);
+  // const [limit, setLimit] = useState(initialLimit);
   const [totalPages, setTotalPages] = useState(1);
   const onPageChange = (newPage: number, newLimit: number) => {
     setPage(newPage);
@@ -187,6 +165,20 @@ const InboxContent: React.FC = () => {
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
   });
+  const limit = 20; // Limit of notifications per request
+  const [teamData, setTeamData] = useState<any[]>([]);
+  const fetchNotifications = async (page: number) => {
+    if (loading) return;
+
+    // Fetch notifications using your store
+    await fetchNotificationData({ page, limit });
+    setTeamData((prevData) => (page === 1 ? notificationData : [...prevData, ...notificationData]));
+  };
+
+  // Fetch notifications on mount or when the page changes
+  useEffect(() => {
+    fetchNotifications(page);
+  }, [page]);
 
   return (
     <>
@@ -231,9 +223,10 @@ const InboxContent: React.FC = () => {
               notificationData.notifications.map((notification: any) => (
                 <TableRow
                   key={notification._id}
-                  onClick={() =>
-                    singleNotificationfecthHandler(notification?._id)
-                  }
+                      onClick={(event) => handleRowClick(event, notification)} 
+                  // onClick={() =>
+                  //   singleNotificationfecthHandler(notification?._id)
+                  // }
                   className={`${
                     notification?.isRead
                       ? "bg-white text-gray-700 hover:bg-gray-50"
@@ -335,7 +328,20 @@ const InboxContent: React.FC = () => {
                         entity="notifications"
                         // setIsModalOpen={setIsModalOpen}
                         // setIsCommentOpen={setIsCommentOpen}
-                        fetchAllFunction={() => fetchNotificationData()}
+                        fetchAllFunction={() => fetchNotificationData(1)}
+                        onClick={async () => {
+                          // Mark as read before deleting
+                          await fetchSingleReadNotificationData(notification._id);
+                          
+                          // Now perform the delete operation
+                          // await deleteNotification(notification._id);
+                          
+                          // Re-fetch notifications to reflect changes
+                          fetchNotificationData(1); // Re-fetch notifications to update the state
+                        }}
+                        // onClick={() => {
+                        //   setIsDeleteClicked(true);
+                        // }}
                         // deleteText="Delete Notification"
                       />
                     </span>
