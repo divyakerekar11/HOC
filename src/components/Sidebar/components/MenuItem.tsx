@@ -52,12 +52,12 @@ const MenuItem = memo((props: any) => {
             <div
               className={`relative ${
                 isSidebarOpen
-                  ? "flex gap-10 my-[0.5rem]"
+                  ? "flex gap-10 my-[0.5rem] "
                   : "my-[0.5rem] flex flex-col justify-center items-center"
               }`}
             >
-              <span>{icon}</span>
-              <span className={`${isSidebarOpen ? "" : "text-[12px]"}`}>
+              <span className="w-[25px]">{icon}</span>
+              <span className={`${isSidebarOpen ? "" : "text-[12px] "}`}>
                 {label}
               </span>
             </div>

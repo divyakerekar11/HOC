@@ -97,8 +97,10 @@ const DashBoardPage: React.FC = () => {
         <div
           className={
             toggleWidth
-              ? `sm:px-4  sm:ml-64 ml-0 bg-[#edf0f5] transition-all duration-300 relative text-[0.8rem]`
-              : `sm:px-4  sm:ml-20 ml-0  bg-[#edf0f5] transition-all duration-300 relative text-[0.8rem]`
+             ? `sm:px-2 p-0  sm:ml-20 ml-0 transition-all duration-300  bg-[#f2f6fa] min-h-[95vh] `
+            : `sm:px-2 p-0 sm:ml-56 ml-0 transition-all duration-300  bg-[#f2f6fa] min-h-[95vh]`
+              // ? `sm:px-4  sm:ml-64 ml-0 bg-[#edf0f5] transition-all duration-300 relative text-[0.8rem]`
+              // : `sm:px-4  sm:ml-20 ml-0  bg-[#edf0f5] transition-all duration-300 relative text-[0.8rem]`
           }
         >
           <div className="p-4 dark:border-gray-700">

@@ -43,7 +43,7 @@ import MenuItem from "./components/MenuItem";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import NotificationCard from "../Appbar/components/NotificationCard";
 import { useNotificationStore } from "@/Store/NotificationStore";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 interface MenuItemIF {
   id: string;
   title: string;
@@ -59,17 +59,26 @@ interface SubMenuItem {
 const SideBarContent: React.FC<{ setToggleWidth: any }> = ({
   setToggleWidth,
 }) => {
-  const [toggleSider, setToggleSider] = useState<boolean>(false);
+
+  const searchParams = useSearchParams();
+  const queryParams = searchParams.get("id")
+   const initialPage = Number(searchParams.get("page")) || 1;
+    const initialLimit = Number(searchParams.get("limit")) || 20;
+    const [page, setPage] = useState(initialPage);
+    const [limit, setLimit] = useState(initialLimit);
+  const [toggleSider, setToggleSider] = useState<boolean>(true);
   const [open, setOpen] = useState(false);
   const [openSmallSideBar, setOpenSmallSideBar] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
 
   const logoSrc = Logo.src;
   const MiniLogoSrc = MiniLogo.src;
-
+console.log("toggleSider",toggleSider)
   const togglerFunction = () => {
     setToggleSider((prev) => !prev);
     setToggleWidth((prev: any) => !prev);
+    console.log("111",toggleSider)
+    
   };
 
   let userDetails: any =
@@ -158,12 +167,24 @@ const SideBarContent: React.FC<{ setToggleWidth: any }> = ({
     }
   }, [notificationTriggered, notificationSingleData]); // Include notificationSingleData if needed
 
-  useEffect(() => {
-    fetchNotificationData();
-  }, [notificationReadData]);
-  useEffect(() => {
-    fetchNotificationData();
-  }, []);
+  // useEffect(() => {
+  //   fetchNotificationData();
+  // }, [notificationReadData]);
+  // useEffect(() => {
+  //   fetchNotificationData();
+  // }, []);
+
+
+
+    // Fetch notifications based on page and limit
+    const fetchNotifications = async () => {
+      await fetchNotificationData({ page, limit });
+    };
+  
+    // // Optionally, you can trigger the fetch when the form is opened or on any specific action
+    useEffect(() => {
+      fetchNotifications();
+    }, [page, limit, fetchNotificationData,notificationReadData])
   return (
     <>
       {/* Mobile toggle button */}
@@ -199,7 +220,8 @@ const SideBarContent: React.FC<{ setToggleWidth: any }> = ({
         id="sidebar-multi-level-sidebar"
         className={`fixed top-0 left-0 z-40 text-[0.8rem] ${
           toggleSider
-            ? "w-[17rem] closedSidebar"
+            // ? "w-[17rem] closedSidebar"
+                  ? "w-[15rem] closedSidebar"
             : `w-[6rem] OpenedSidebar ${
                 openSmallSideBar ? "" : "-translate-x-full"
               }`
@@ -249,7 +271,7 @@ const SideBarContent: React.FC<{ setToggleWidth: any }> = ({
                 <div className="relative cursor-pointer">
                   <NotificationBellIconSVG cssClass={"sidebar-icon-svg"} />
                   <div className="absolute top-0 left-3 h-4 w-4 rounded-full bg-red-600 flex justify-center items-center">
-                    <span className="font-bold text-white text-[10px]">
+                    <span className="font-bold text-white text-[10px] ">
                       {notificationData?.notifications?.filter(
                         (notification: any) => !notification.isRead
                       ).length || 0}

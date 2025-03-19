@@ -37,8 +37,39 @@ export const useNotificationStore = create<NotificationState & NotificationActio
     notificationSingleData: {},
     notificationReadData: {},
     loading: false,
-    hasMore: true,  // Track whether there are more notifications to fetch
-
+    // fetchNotificationData: async (params) => {
+    //   set({ loading: true });
+    //   const { page = 1, limit = 20 } = params || {};
+    //   try {
+    //     const queryParams = new URLSearchParams();
+    //     if (page) queryParams.append('page', String(page));
+    //     if (limit) queryParams.append('limit', String(limit));
+    
+    //     const response = await baseInstance.get(`/notifications?${queryParams.toString()}`);
+    
+    //     if (response.status === 200) {
+    //       const newNotifications = response.data?.data || [];
+    //       const hasMore = response.data?.hasMore || false;  // Ensure your API returns this flag
+    //       const totalPages = response.data?.totalPages || 0;
+    
+    //       // Update notification data in state
+    //       set({
+    //         notificationData: {
+    //           notifications: newNotifications,
+    //           hasMore,
+    //           totalPages,
+    //         },
+    //         loading: false,
+    //       });
+    //     } else {
+    //       set({ notificationData: response.data?.message, loading: false });
+    //     }
+    //   } catch (error: any) {
+    //     set({ notificationData: [], loading: false });
+    //     // logOutFunction(error?.response?.data?.message);
+    //   }
+    // },
+    
     fetchNotificationData: async (params) => {
       set({ loading: true });
       const { page = 1, limit = 20 } = params || {};
@@ -52,23 +83,16 @@ export const useNotificationStore = create<NotificationState & NotificationActio
         );
 
         if (response.status === 200) {
-          const newNotifications = response.data?.data || [];
-          const hasMore = newNotifications.length === limit;  // If the returned data length equals the limit, more data is available
-
-          set({ 
-            notificationData: page === 1 ? newNotifications : [...response.data.data],
-            hasMore, // Set hasMore based on the length of returned notifications
-            loading: false 
+          set({
+            notificationData: response.data?.data,
+            loading: false,
           });
         } else {
           set({ notificationData: response.data?.message, loading: false });
         }
       } catch (error: any) {
         logOutFunction(error?.response?.data?.message);
-        set({
-          notificationData: error?.response?.data?.message,
-          loading: false,
-        });
+        set({ notificationData: error?.response?.data?.message, loading: false });
       }
     },
 // export const useNotificationStore = create<
