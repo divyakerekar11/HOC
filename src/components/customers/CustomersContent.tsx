@@ -158,7 +158,7 @@ const CustomersContent: React.FC = () => {
 
   const onPageChange = (newPage: number, newLimit: number) => {
     setPage(newPage);
-    const params = new URLSearchParams(searchParams.toString()); // ✅ Convert to string first
+    const params = new URLSearchParams(searchParams.toString());
 
     params.set("page", newPage.toString());
     params.set("limit", newLimit.toString());
