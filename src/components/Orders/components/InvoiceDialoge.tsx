@@ -9,14 +9,14 @@ const InvoiceDialoge = ({ id, Invoice }: any) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>
-        <FileTextIcon className="h-[1.55rem] w-[1.75rem] p-1 hover:bg-[#29354f] text-black hover:text-[white] " />
+        <FileTextIcon className="h-[1.55rem] w-[1.75rem] p-1 hover:bg-[#013642] text-black hover:text-[white] " />
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-[1000px] ">
         <div></div>
         {Invoice?.startsWith("https://high-oaks-media-team.monday.com") ? (
           <>
-            <p className="bg-[#29354f] text-white p-5 flex justify-center text-lg ">
+            <p className="bg-[#013642] text-white p-5 flex justify-center text-lg ">
               No invoices have been generated yet. Please generate an invoice.
             </p>
           </>

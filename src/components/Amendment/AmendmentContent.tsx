@@ -250,11 +250,11 @@ const AmendmentContent: React.FC = () => {
             option: (provided, state) => ({
               ...provided,
               backgroundColor: state.isSelected
-                ? "#29354f"
+                ? "#013642"
                 : provided.backgroundColor,
               color: state.isSelected ? "white" : provided.color,
               ":hover": {
-                backgroundColor: state.isSelected ? "#29354f" : "#f0f0f0",
+                backgroundColor: state.isSelected ? "#013642" : "#f0f0f0",
               },
             }),
           }}
@@ -273,7 +273,7 @@ const AmendmentContent: React.FC = () => {
           <Link href={"/amendment/addAmendment"}>
             <Button
               variant="outline"
-              className=" text-[0.8rem] text-white bg-[#29354f] hover:bg-[#fff] hover:text-[#29354f] boxShadow"
+              className=" text-[0.8rem] text-white bg-[#013642] hover:bg-[#fff] hover:text-[#013642] boxShadow "
             >
               New Amendment
             </Button>

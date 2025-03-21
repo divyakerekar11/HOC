@@ -146,16 +146,16 @@ const EditTechnical = () => {
 
   return (
     <div className="p-4 relative text-[0.8rem]">
-      <div className="text-[1rem] font-semibold absolute top-[-35px] text-wrap">
+      <div className="text-[1rem] font-semibold absolute top-[-41px] text-wrap">
         {technical?.customer?.companyName
           ? technical?.customer?.companyName
           : "loading..."}
       </div>
       <div className=" flex gap-5 justify-center">
-        <ScrollArea className="h-[80vh]   sm:px-3 sm:py-3 w-[100%] xl:w-[56vw]">
+        <ScrollArea className="h-[80vh] sm:px-3 sm:py-3 w-[100%] xl:w-[56vw]">
           <form
             onSubmit={handleSubmit}
-            className="border p-6 bg-[#fff]  boxShadow"
+            className="p-6 bg-[#fff] border-0 rounded-lg slide-in "
           >
             {/* timeTakenMinutes */}
             <div className="lg:flex gap-5">
@@ -327,7 +327,7 @@ const EditTechnical = () => {
             <div className="my-6 ">
               <Button
                 type="submit"
-                className="lg:w-[6vw] w-full cursor-pointer  border border-primary bg-primary px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] w-full cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
               >
                 {isTechnicalValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

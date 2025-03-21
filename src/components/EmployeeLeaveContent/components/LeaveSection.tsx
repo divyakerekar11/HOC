@@ -377,7 +377,7 @@ export default function LeaveSection({
                                 On : 01/10/2024
                               </AccordionTrigger>
                               <AccordionContent className="border p-3 mb-1">
-                                <table className="border border-collapse w-full bg-[#f2f6fa]">
+                                <table className="border border-collapse w-full bg-[#e8f4f1]">
                                   <thead>
                                     <tr className="border text-center">
                                       <th className="border px-2 py-1">
@@ -447,7 +447,7 @@ export default function LeaveSection({
                                         </span>
                                       </AccordionTrigger>
                                       <AccordionContent className="border p-3 mb-1">
-                                        <table className="border border-collapse w-full bg-[#f2f6fa]">
+                                        <table className="border border-collapse w-full bg-[#e8f4f1]">
                                           <thead>
                                             <tr className="border text-center">
                                               <th className="border px-2 py-1">
@@ -533,7 +533,7 @@ export default function LeaveSection({
                                         </span>
                                       </AccordionTrigger>
                                       <AccordionContent className="border p-3 mb-1">
-                                        <table className="border border-collapse w-full bg-[#f2f6fa]">
+                                        <table className="border border-collapse w-full bg-[#e8f4f1]">
                                           <thead>
                                             <tr className="border text-center">
                                               <th className="border px-2 py-1">
@@ -607,7 +607,7 @@ export default function LeaveSection({
                                         </span>
                                       </AccordionTrigger>
                                       <AccordionContent className="border p-3 mb-1">
-                                        <table className="border border-collapse w-full bg-[#f2f6fa]">
+                                        <table className="border border-collapse w-full bg-[#e8f4f1]">
                                           <thead>
                                             <tr className="border text-center">
                                               <th className="border px-2 py-1">
@@ -707,7 +707,7 @@ export default function LeaveSection({
                                     On : {formatDate(appReq?.startDate)}
                                   </AccordionTrigger>
                                   <AccordionContent className="border p-3 mb-1">
-                                    <table className="border border-collapse w-full bg-[#f2f6fa]">
+                                    <table className="border border-collapse w-full bg-[#e8f4f1]">
                                       <thead>
                                         <tr className="border text-center">
                                           <th className="border px-2 py-1"></th>
@@ -773,7 +773,7 @@ export default function LeaveSection({
                                     On : {formatDate(pendReq?.startDate)}
                                   </AccordionTrigger>
                                   <AccordionContent className="border p-3 mb-1">
-                                    <table className="border border-collapse w-full bg-[#f2f6fa]">
+                                    <table className="border border-collapse w-full bg-[#e8f4f1]">
                                       <thead>
                                         <tr className="border text-center">
                                           <th className="border px-2 py-1">
@@ -835,7 +835,7 @@ export default function LeaveSection({
                                     On : {formatDate(rejReq?.startDate)}
                                   </AccordionTrigger>
                                   <AccordionContent className="border p-3 mb-1 ">
-                                    <table className="border border-collapse w-full bg-[#f2f6fa]">
+                                    <table className="border border-collapse w-full bg-[#e8f4f1]">
                                       <thead>
                                         <tr className="border text-center">
                                           <th className="border px-2 py-1">

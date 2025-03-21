@@ -240,7 +240,7 @@ const UpdateTechnical = ({ technicalId }: any) => {
                                   onClick={() => handlePinFalse(editor._id)}
                                   className="cursor-pointer flex items-center"
                                 >
-                                  <DrawingPinIcon className=" text-gray-700 mr-1  h-7 w-7 p-1 hover:bg-[#29354f]  hover:text-[white] " />
+                                  <DrawingPinIcon className=" text-gray-700 mr-1  h-7 w-7 p-1 hover:bg-[#013642]  hover:text-[white] " />
                                   <span className="text-gray-700 text-[0.8rem] ml-[7px]">
                                     Unpin From Top
                                   </span>
@@ -250,7 +250,7 @@ const UpdateTechnical = ({ technicalId }: any) => {
                                   onClick={() => handlePinTrue(editor._id)}
                                   className="cursor-pointer flex items-center"
                                 >
-                                  <DrawingPinIcon className=" text-gray-700 mr-1 h-7 w-7 p-1 hover:bg-[#29354f]  hover:text-[white] " />
+                                  <DrawingPinIcon className=" text-gray-700 mr-1 h-7 w-7 p-1 hover:bg-[#013642]  hover:text-[white] " />
                                   <span className="text-gray-700 text-[0.8rem] ml-[8px]">
                                     Pin To Top
                                   </span>

@@ -229,7 +229,7 @@ const EditLeads = ({}) => {
 
   return (
     <div className="px-4 py-0 relative text-[0.8rem]">
-      <div className="text-[1rem] font-semibold absolute top-[-35px]">
+      <div className="text-[1rem] font-semibold absolute top-[-39px]">
         {leadData?.customerName
           ? leadData?.customerName
           : leadData?.customer_id?.companyName
@@ -244,7 +244,7 @@ const EditLeads = ({}) => {
         <ScrollArea className="h-[80vh]   px-3 py-3 w-[100%] xl:w-[56vw]">
           <form
             onSubmit={handleSubmit}
-            className="border p-6 bg-[#fff] boxShadow"
+            className="border-0 rounded-lg p-6 bg-[#fff] boxShadow"
           >
             <div className="lg:flex gap-5">
               {/* contact Person  */}
@@ -609,7 +609,7 @@ const EditLeads = ({}) => {
               <Button
                 type="submit"
                 // value="Sign In"
-                className="lg:w-[6vw] w-full cursor-pointer  border border-primary bg-primary px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] w-full cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
               >
                 {isLeadValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

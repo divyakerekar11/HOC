@@ -453,7 +453,7 @@ const AppointmentContent: React.FC = () => {
                               className="block w-full px-3 border-0 py-1.5 text-gray-900 
                             shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 
                             focus:ring-2 
-                            focus:ring-inset focus:ring-[#29354f] 
+                            focus:ring-inset focus:ring-[#013642] 
                             sm:text-[0.8rem] sm:leading-6"
                               value={newEvent.title}
                               onChange={(e) => handleChange(e)}
@@ -463,7 +463,7 @@ const AppointmentContent: React.FC = () => {
                           <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
                             <button
                               type="submit"
-                              className="inline-flex w-full justify-center bg-[#29354f] px-3 py-2 text-[0.8rem] font-semibold text-white shadow-sm hover:bg-[#29354f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#29354f] sm:col-start-2 disabled:opacity-25"
+                              className="inline-flex w-full justify-center bg-[#013642] px-3 py-2 text-[0.8rem] font-semibold text-white shadow-sm hover:bg-[#013642] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#013642] sm:col-start-2 disabled:opacity-25"
                               disabled={newEvent.title === ""}
                             >
                               Create

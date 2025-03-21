@@ -710,7 +710,7 @@ const EditProductFlow = () => {
             <div className="my-6 ">
               <Button
                 type="submit"
-                className="lg:w-[6vw] cursor-pointer  border border-primary bg-primary px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
               >
                 {isProductFlowValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

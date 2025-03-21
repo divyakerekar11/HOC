@@ -675,7 +675,7 @@ export default InboxContent;
 
 //       <div className="flex justify-end mr-10 items-start gap-5">
 //         <div className="flex justify-end items-center gap-2 mt-2">
-//           <span className="text-sm text-[#29354f]">Rows per page:</span>
+//           <span className="text-sm text-[#013642]">Rows per page:</span>
 //           <Selector
 //             onValueChange={(value) => setLimit(Number(value))}
 //             name="rowsPerPage"
@@ -700,7 +700,7 @@ export default InboxContent;
 //           </Selector>
 //         </div>
 //         <div className="flex justify-center items-center space-x-2 mt-3 ">
-//           <div className="w-full text-center text-[0.8rem]  text-[#29354f]">{`Page ${page} of ${totalPages}`}</div>
+//           <div className="w-full text-center text-[0.8rem]  text-[#013642]">{`Page ${page} of ${totalPages}`}</div>
 //         </div>
 //         <div className="flex justify-center items-center space-x-2 mt-2">
 //           {/* First Page */}

@@ -1005,7 +1005,7 @@ const AddCustomerForm: React.FC = () => {
         <div className="mb-3 mt-3">
           <Button
             type="submit"
-            className="cursor-pointer  border border-primary bg-primary px-4 py-1 text-white transition hover:bg-opacity-90"
+            className="cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
           >
             {isCustomerValid ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />

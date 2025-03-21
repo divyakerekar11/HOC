@@ -197,13 +197,13 @@ export default function AppointmentSection({ leadId }: any) {
 
   return (
     <div className="mb-2">
-      <h2 className="text-base font-semibold mt-2 leading-6 text-gray-900 bg-[#f6fbff]  w-fit px-1 rounded">
+      <h2 className="text-base font-semibold mt-2 leading-6 text-gray-900 bg-[#f6fbff]  w-fit px-1 rounded p-2 pr-3 pl-3">
         Upcoming Appointments
       </h2>
       <div className="lg:grid lg:grid-cols-12 lg:gap-x-3">
         <div className="text-center lg:col-start-8 lg:col-end-13 lg:row-start-1 lg:mt-1 xl:col-start-9">
-          <div className="border p-3  boxShadow bg-[#fff]">
-            <div className="flex items-center text-gray-900 ">
+          <div className="p-3 bg-[#fff] border-0 rounded-lg">
+            <div className="flex items-center text-gray-900  ">
               <button
                 type="button"
                 className="-m-1.5 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500"
@@ -254,7 +254,7 @@ export default function AppointmentSection({ leadId }: any) {
                     dateTime={format(day, "yyyy-MM-dd")}
                     className={classNames(
                       "mx-auto flex h-7 w-7 items-center justify-center rounded-full",
-                      isToday(day) && "bg-[#29354f] text-white"
+                      isToday(day) && "bg-[#013642] text-white"
                     )}
                   >
                     {format(day, "d")}
@@ -263,7 +263,7 @@ export default function AppointmentSection({ leadId }: any) {
               ))}
             </div>
             <Button
-              className="mt-8 w-full   px-3 py-2 text-[0.8rem] font-semibold text-white shadow hover:bg-[#29354f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="mt-8 w-full   px-3 py-2 text-[0.8rem] font-semibold text-white shadow hover:bg-[#013642] bg-[#013642] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               onClick={goToAddAppointment}
             >
               Book an Appointment
@@ -275,7 +275,7 @@ export default function AppointmentSection({ leadId }: any) {
             /> */}
           </div>
         </div>
-        <div className="mt-[0.2rem] lg:col-span-7 xl:col-span-8 border  p-2 h-[376px] overflow-y-auto boxShadow bg-[#fff]">
+        <div className="mt-[0.2rem] lg:col-span-7 xl:col-span-8 border-0 rounded-lg p-2 h-[376px] overflow-y-auto boxShadow bg-[#fff]">
           {filteredMeetings.length === 0 ? (
             <p className="text-center text-gray-500 flex justify-center items-center h-full">
               There are no Appointments scheduled for this month.

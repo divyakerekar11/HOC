@@ -29,7 +29,7 @@ export function AddAppointmentDialoge() {
     //       Book an Appointment
     //     </Button>
     //     <Button
-    //       className="mt-8 w-full  px-3 py-2 text-[0.8rem] font-semibold text-white shadow hover:bg-[#29354f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+    //       className="mt-8 w-full  px-3 py-2 text-[0.8rem] font-semibold text-white shadow hover:bg-[#013642] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
     //       onClick={(e) => e.stopPropagation()}
     //     >
     //       Book an Appointment

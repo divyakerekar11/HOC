@@ -43,7 +43,7 @@ const ActivitySection = ({ activityDetails,loading }: any) => {
           <div className="relative">
             <table className="border border-collapse w-full mt-2">
               {/* Sticky header */}
-              {/* <thead className="bg-[#29354f] sticky top-0 z-10 text-white">
+              {/* <thead className="bg-[#013642] sticky top-0 z-10 text-white">
               <tr className="border text-white">
                 <th className="border px-4 py-2 h-10">Date</th>
                 <th className="border px-4 py-2 h-10">Full Name</th>

@@ -48,12 +48,12 @@ const GenerateInvoiceDialoge = ({ id, orderNo, dateOfOrder }: any) => {
     <Dialog open={open} onOpenChange={setOpen}>
       {/* Button Section  */}
       <DialogTrigger>
-        <PlusIcon className="h-[1.35rem] w-[1.75rem] p-1 hover:bg-[#29354f] text-black hover:text-[white] " />
+        <PlusIcon className="h-[1.35rem] w-[1.75rem] p-1 hover:bg-[#013642] text-black hover:text-[white] " />
       </DialogTrigger>
       {/* form Section  */}
       <DialogContent className="sm:max-w-[500px] text-[0.8rem]">
         <div className="flex justify-center text-xl">
-          <FileTextIcon className="h-7 w-7 p-1 hover:bg-[#29354f] text-black hover:text-[white] " />{" "}
+          <FileTextIcon className="h-7 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] " />{" "}
           Generate Invoice
         </div>
         <div className="border-t border-gray-200"></div>

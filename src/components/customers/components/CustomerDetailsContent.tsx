@@ -377,11 +377,11 @@ const CustomerDetailsContent = ({ handleUpdate }: any) => {
   };
 
   return (
-    <div className="px-4 py-0 relative text-[0.8rem] bg-[#f2f6fa]">
+    <div className="px-4 py-0 relative text-[0.8rem] bg-[#e8f4f1]">
       {/* <div className="text-xl font-semibold absolute top-[-50px]">
         Customer Details
       </div> */}
-      <div className="text-[1rem] font-semibold absolute top-[-35px] ml-1">
+      <div className="text-[1rem] font-semibold absolute top-[-42px] ml-1">
         {getCustomerData(customerDetails?.customerNo)}
         {" - "}
         {getCustomerData(customerDetails?.companyName)}
@@ -403,8 +403,8 @@ const CustomerDetailsContent = ({ handleUpdate }: any) => {
                 </TooltipCommon>
               </div>
 
-              <div className="text-left overflow-auto">
-                <div className="flex gap-3 text-nowrap p-2 justify-evenly">
+              <div className="text-left overflow-auto ">
+                <div className="flex gap-3 text-nowrap p-2 justify-evenly ">
                   <div className="px-2">
                     {/* Company Name  */}
                     {/* <div className="flex items-center justify-start pb-[10px] mb-[10px]  border-b-[#ddd] border-b ">
@@ -536,15 +536,15 @@ const CustomerDetailsContent = ({ handleUpdate }: any) => {
             className="w-full "
           /> */}
         </div>
-        <div className="w-full border bg-[#fff] lg:w-[50%] update">
+        <div className="w-full border-0 rounded-lg bg-[#fff] lg:w-[50%] update ">
           <Tabs
             value={textTab}
             onValueChange={setTextTab}
             defaultValue="updates"
             className="w-full"
           >
-            <TabsList className="grid grid-cols-5">
-              <TabsTrigger value="activity" className="bg-[#fff]">
+            <TabsList className="grid grid-cols-5 ">
+              <TabsTrigger value="activity" className="bg-[#fff] ">
                 Update
               </TabsTrigger>
               <TabsTrigger value="orders" className="bg-[#fff]">
@@ -793,7 +793,7 @@ const CustomerDetailsContent = ({ handleUpdate }: any) => {
                           <>
                             <button
                               type="submit"
-                              className="cursor-pointer h-[24px] border border-primary bg-primary px-4 text-white transition hover:bg-opacity-90"
+                              className="cursor-pointer h-[24px] border-0 rounded-lg bg-[#013642] px-4 text-white transition hover:bg-opacity-90"
                               disabled={isLoading}
                             >
                               {isLoading ? (

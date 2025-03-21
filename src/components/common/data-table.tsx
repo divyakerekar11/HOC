@@ -40,7 +40,7 @@ export function DataTable<TData, TValue>({
       <div className="border">
         <div className="h-[82vh] overflow-x-auto bg-[#E8F4F1] boxShadow slide-in">
          <Table className="bg-[#E8F4F1]">
-            <TableHeader className="bg-[#29354f] sticky top-0 z-0">
+            <TableHeader className="bg-[#013642] sticky top-0 z-0 " >
               {tableInstance?.getHeaderGroups()?.map((headerGroup: any) => (
                 <TableRow key={headerGroup?.id}>
                   {headerGroup?.headers?.map((header: any) => (

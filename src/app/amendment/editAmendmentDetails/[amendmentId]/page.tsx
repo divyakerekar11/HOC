@@ -31,7 +31,7 @@ const EditAmendmentDetailsPage = () => {
       <div
         className={`${
           toggleWidth ? "sm:ml-20  ml-0" : "sm:ml-56 ml-0"
-        } sm:px-4 p-0 transition-all duration-300 min-h-[95vh] bg-[#f2f6fa]`}
+        } sm:px-4 p-0 transition-all duration-300 min-h-[95vh] bg-[#e8f4f1]`}
       >
         <div className="dark:border-gray-700">
           <EditAmendmentContent />

@@ -82,7 +82,7 @@ const OrderDetail = () => {
 
   return (
     <div className="px-4 py-0  relative text-[0.8rem]">
-      <div className="text-[1rem] font-semibold absolute top-[-35px]">
+      <div className="text-[1rem] font-semibold absolute top-[-49px]">
         {orderDetail?.customer?.companyName
           ? orderDetail?.customer?.companyName
           : "loading..."}

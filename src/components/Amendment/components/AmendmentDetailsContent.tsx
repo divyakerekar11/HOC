@@ -210,7 +210,7 @@ const AmendmentDetailsContent = () => {
       {/* Main Customer details section  */}
       <div className="flex gap-5 mt-2 ">
         <div className="">
-          <Card className="w-[575px] h-[100%] boxShadow">
+          <Card className="w-[575px] h-[100%] boxShadow border-0 rounded-lg slide-in">
             <CardHeader>
               <CardTitle className="text-[1rem]">Amendment Data</CardTitle>
               <CardDescription>Details Of existing Amendment</CardDescription>

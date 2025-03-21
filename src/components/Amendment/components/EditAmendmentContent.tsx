@@ -317,7 +317,7 @@ const EditAmendmentContent = () => {
   };
   return (
     <div className="px-4 py-0  relative text-[0.8rem]">
-      <div className="text-[1rem] font-semibold absolute top-[-35px] text-wrap">
+      <div className="text-[1rem] font-semibold absolute top-[-39px] text-wrap">
         {amendmentDetails?.customer?.companyName
           ? amendmentDetails?.customer?.companyName
           : "loading..."}
@@ -329,12 +329,12 @@ const EditAmendmentContent = () => {
         <ScrollArea className="h-[80vh]  sm:px-3 sm:py-3 w-[100%] xl:w-[56vw]">
           <form
             onSubmit={handleSubmit}
-            className="border p-6 bg-[#fff] boxShadow"
+            className=" p-6 bg-[#fff] boxShadow border-0 rounded-lg slide-in"
           >
             <div className="lg:flex gap-5">
               {/* Current Date */}
               <div className="mb-3 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                   Current Date
                 </label>
                 <div className="relative">
@@ -411,7 +411,7 @@ const EditAmendmentContent = () => {
               </div>
               {/* Complete Date */}
               <div className="mb-3 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                   Complete Date
                 </label>
                 <div className="relative">
@@ -492,7 +492,7 @@ const EditAmendmentContent = () => {
             <div className="lg:flex gap-5">
               {/* Status  */}
               <div className="mb-5 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                   Status
                 </label>
                 <div className="relative">
@@ -522,7 +522,7 @@ const EditAmendmentContent = () => {
               </div>
               {/*  priority */}
               <div className="mb-5 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                   Priority
                 </label>
                 <div className="relative">
@@ -552,7 +552,7 @@ const EditAmendmentContent = () => {
             </div>
             {/*  Customer Status */}
             <div className="mb-5 w-full">
-              <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+              <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                 Customer Status
               </label>
               <div className="relative">
@@ -585,7 +585,7 @@ const EditAmendmentContent = () => {
             <div className="my-6 ">
               <Button
                 type="submit"
-                className="lg:w-[6vw] w-full cursor-pointer border border-primary bg-primary px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] w-full cursor-pointer px-4 py-1 text-white transition hover:bg-opacity-90 text-md border-0 rounded-lg p-2  bg-[#013642]"
               >
                 {isAmendmentValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

@@ -22,7 +22,7 @@ const AddLeadDialoge = ({ getMyLeadData }: { getMyLeadData: () => void }) => {
         <Button
           // onClick={() => setOpen(true)}
           variant="outline"
-          className="text-[0.8rem] text-white bg-[#29354f] hover:bg-[#fff] hover:text-[#29354f]"
+          className="text-[0.8rem] text-white bg-[#013642] hover:bg-[#fff] hover:text-[#013642]"
         >
           New Lead
         </Button>

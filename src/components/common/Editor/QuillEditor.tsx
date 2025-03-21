@@ -314,7 +314,7 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
             setIsOpenReplyModel(false);
             setOpenQuill(false);
             handleClear();
-            fetchNotificationData();
+            // fetchNotificationData();
           
           }
         });
@@ -393,7 +393,7 @@ const QuillEditor: React.FC<QuillEditorProps> = ({
         <div className="flex justify-start gap-2 items-center update-btn">
           <Button
             type="submit"
-            className="cursor-pointer h-[24px] border border-primary bg-primary px-4 text-white transition hover:bg-opacity-90"
+            className="cursor-pointer h-[24px] border-0 rounded-lg p-2  bg-[#013642] px-4 text-white transition hover:bg-opacity-90"
           >
             {isLoading ? (
               <Loader2 className="mr-2 h-6 w-6 animate-spin text-[#fff]" />

@@ -177,7 +177,7 @@ const LeadDetailsContent = () => {
   //   });
   return (
     <div className="sm:px-4 py-0 relative">
-      <div className="text-[1rem] font-semibold absolute top-[-35px]">
+      <div className="text-[1rem] font-semibold absolute top-[-49px]">
         {getLeadData(leadDetails?.customerName)}
       </div>
       {/* <div className="mb-1">

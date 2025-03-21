@@ -54,7 +54,7 @@ const ResetPasswordVerifypage = () => {
   return (
     <div className="flex flex-col justify-center items-center h-[80vh] my-1">
       <h1 className="text-xl">Please wait a Moment...</h1>
-      <Loader2 className="mr-2 h-8 w-8 animate-spin text-[#29354f]" />
+      <Loader2 className="mr-2 h-8 w-8 animate-spin text-[#013642]" />
     </div>
   );
 };

@@ -250,12 +250,12 @@ const EditUserContent = () => {
         <ScrollArea className="h-[80vh]   sm:px-3 sm:py-3 w-[100%] xl:w-[56vw]">
           <form
             onSubmit={handleSubmit}
-            className="border p-6 text-[0.8rem] bg-[#fff] boxShadow"
+            className="border-0 rounded-lg slide-in  p-6 text-[0.8rem] bg-[#fff] "
           >
             <div className="lg:flex gap-5">
               {/* full Name  */}
               <div className="mb-3 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white ">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white ">
                   Name
                 </label>
                 <div className="relative">
@@ -282,7 +282,7 @@ const EditUserContent = () => {
               </div>
               {/* Email  */}
               <div className="mb-3 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                   Email Address
                 </label>
                 <div className="relative">
@@ -312,7 +312,7 @@ const EditUserContent = () => {
             <div className="lg:flex gap-5">
               {/* Password  */}
               {/* <div className="mb-5 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                   Password
                 </label>
                 <div className="relative">
@@ -357,7 +357,7 @@ const EditUserContent = () => {
               </div> */}
               {/* Role  */}
               <div className="mb-5 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                   Role
                 </label>
                 <div className="relative">
@@ -388,7 +388,7 @@ const EditUserContent = () => {
               </div>
               {/* Mobile No.  */}
               <div className="mb-5 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                   Mobile No.
                 </label>
                 <div className="relative">
@@ -418,7 +418,7 @@ const EditUserContent = () => {
             <div className="lg:flex gap-5">
               {/* TimeZone  */}
               <div className="mb-5 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                   Time Zone
                 </label>
                 <div className="relative">
@@ -446,7 +446,7 @@ const EditUserContent = () => {
               </div>
               {/* jobtitle */}
               <div className="mb-3 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                   Job Title
                 </label>
                 <div className="relative">
@@ -472,7 +472,7 @@ const EditUserContent = () => {
             <div className="lg:flex gap-5">
               {/* Address */}
               <div className="mb-3 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                   Address
                 </label>
                 <div className="relative">
@@ -497,7 +497,7 @@ const EditUserContent = () => {
 
             {/* Avatar */}
             <div className="mb-3">
-              <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+              <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
                 Avatar
               </label>
               <div className="relative">
@@ -525,7 +525,7 @@ const EditUserContent = () => {
             <div className="my-6 ">
               <Button
                 type="submit"
-                className="lg:w-[6vw] w-full cursor-pointer  border border-primary bg-primary px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] w-full cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
               >
                 {isUserValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

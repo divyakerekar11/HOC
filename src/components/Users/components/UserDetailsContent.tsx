@@ -200,7 +200,7 @@ const UserDetailsContent = () => {
   //   });
   return (
     <div className="px-4 py-0 relative">
-      <div className="text-[1rem] font-semibold absolute top-[-38px]">
+      <div className="text-[1rem] font-semibold absolute top-[-47px]">
         {userDetails?.fullName || "Loading..."}
       </div>
       {/* <div className="mb-4">

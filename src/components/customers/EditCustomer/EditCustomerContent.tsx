@@ -334,7 +334,7 @@ const EditCustomerContent = () => {
         <ScrollArea className="h-[90vh]  my-3 sm:my-0 sm:px-3 sm:py-3 w-[100%] xl:w-[70vw] ">
           <form
             onSubmit={handleSubmit}
-            className="border p-6 text-[0.8rem] bg-[#fff] boxShadow"
+            className="p-6 text-[0.8rem] bg-[#fff] border-0 rounded-lg slide-in "
           >
             <div className="lg:flex gap-5">
               {/* Contact Name  */}

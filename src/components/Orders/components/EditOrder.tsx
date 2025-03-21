@@ -479,11 +479,11 @@ const EditOrder = ({}) => {
         <ScrollArea className="h-[95vh]   sm:px-3 sm:py-3 w-[100%] xl:w-[70vw]">
           <form
             onSubmit={handleSubmit}
-            className="border p-6 text-[0.8rem] bg-[#fff] boxShadow"
+            className="p-6 text-[0.8rem] bg-[#fff] border-0 rounded-lg slide-in "
           >
             <div className="lg:flex gap-5">
               {/* <div className="mb-3 w-full">
-                <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white ">
+                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white ">
                   Assigned User
                 </label>
                 <div className="relative">
@@ -1543,7 +1543,7 @@ const EditOrder = ({}) => {
               <Button
                 type="submit"
                 // value="Sign In"
-                className="lg:w-[6vw] w-full cursor-pointer  border border-primary bg-primary px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] w-full cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
               >
                 {isLeadValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

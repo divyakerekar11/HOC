@@ -201,15 +201,15 @@ const Appbar: React.FC<NavBarProps> = ({ toggleSider }) => {
       <div
         className={
           toggleSider
-            ? `pl-[7rem] pr-3 flex flex-wrap items-center justify-end mx-auto py-[0.2rem] transition-all duration-300 h-[100%]`
-            : `pl-[18rem] pr-3 flex flex-wrap items-center justify-end mx-auto py-[0.2rem]  transition-all duration-300 h-[100%]`
+            ? `pl-[7rem] pr-3 flex flex-wrap items-center justify-end mx-auto py-[0.8rem] transition-all duration-300 h-[100%]`
+            : `pl-[18rem] pr-3 flex flex-wrap items-center justify-end mx-auto py-[0.8rem]  transition-all duration-300 h-[100%]`
         }
       >
 
         {/* Notification section  */}
         {/* <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <div className="text-[#29354f] mr-5 relative cursor-pointer mt-1">
+            <div className="text-[#013642] mr-5 relative cursor-pointer mt-1">
               <div className="h-4 w-4 rounded-full bg-red-600 absolute flex justify-center items-center right-3 -top-1">
                 <span className="font-bold text-white text-[10px]">
                   {notificationData?.notifications?.filter(

@@ -35,7 +35,7 @@ const MenuItem = memo((props: any) => {
   return (
     <li
       ref={menuItemRef}
-      className={`${isSidebarOpen ? "my-4" : "mt-[1rem]"} onHover px-1`}
+      className={`${isSidebarOpen ? "my-2" : "mt-[1rem]"} onHover px-1`}
     >
       <div className="relative">
         <Link href={href} scroll={false}> 
@@ -52,7 +52,7 @@ const MenuItem = memo((props: any) => {
             <div
               className={`relative ${
                 isSidebarOpen
-                  ? "flex gap-10 my-[0.5rem] "
+                  ? "flex gap-7 my-[0.5rem] "
                   : "my-[0.5rem] flex flex-col justify-center items-center"
               }`}
             >
