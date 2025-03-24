@@ -56,6 +56,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 // import EventComponentBox from "./EventComponentBox";
 // import { AddAppointmentDialoge } from "./AddAppointmentDialoge";
 import User from "../../../asset/images/user.png";
+import Link from "next/link";
 
 const UserPic = User.src;
 
@@ -201,23 +202,27 @@ const AmendmentDetailsContent = () => {
   //   });
   return (
     <div className="sm:px-4 py-0 relative ">
-      <div className="text-[1rem] font-semibold absolute top-[-40px] px-4 sm:px-0">
+      <div className="text-[1rem] font-semibold absolute top-[-46px] px-4 sm:px-0">
         {amendmentDetails?.customer?.companyName || "Loading..."}
       </div>
       {/* <div className="mb-4">
         <BreadcrumbSection crumbs={crumbs} />
       </div> */}
       {/* Main Customer details section  */}
+
       <div className="flex gap-5 mt-2 ">
+        <div className="my-3 text-[0.8rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 rounded cursor-pointer hidden text-center sm:block w-fit boxShadow ">
+          <Link href={`/amendment`}>Back</Link>
+        </div>
         <div className="">
-          <Card className="w-[575px] h-[100%] boxShadow border-0 rounded-lg slide-in">
+          <Card className="w-[575px] h-[100%] boxShadow border-0 rounded-lg slide-in mt-3">
             <CardHeader>
               <CardTitle className="text-[1rem]">Amendment Data</CardTitle>
               <CardDescription>Details Of existing Amendment</CardDescription>
             </CardHeader>
             <CardContent>
               {/* Company Name  */}
-              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.8rem]">
+              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.9rem]">
                 <Label htmlFor="name" className="text-right font-bold">
                   Company Name :
                 </Label>
@@ -226,7 +231,7 @@ const AmendmentDetailsContent = () => {
                 </p>
               </div>
               {/* Status */}
-              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.8rem]">
+              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.9rem]">
                 <Label htmlFor="name" className="text-right font-bold">
                   Status :
                 </Label>
@@ -235,7 +240,7 @@ const AmendmentDetailsContent = () => {
                 </p>
               </div>
               {/*  RefNo */}
-              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.8rem]">
+              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.9rem]">
                 <Label htmlFor="username" className="text-right font-bold">
                   RefNo :
                 </Label>
@@ -244,7 +249,7 @@ const AmendmentDetailsContent = () => {
                 </p>
               </div>
               {/* Priority  */}
-              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.8rem]">
+              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.9rem]">
                 <Label htmlFor="username" className="text-right font-bold">
                   Priority :
                 </Label>
@@ -253,7 +258,7 @@ const AmendmentDetailsContent = () => {
                 </p>
               </div>
               {/* Date Current  */}
-              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.8rem]">
+              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.9rem]">
                 <Label htmlFor="username" className="text-right font-bold">
                   Date Current :
                 </Label>
@@ -263,7 +268,7 @@ const AmendmentDetailsContent = () => {
               </div>
               {/* Address  */}
               {amendmentDetails?.date_complete ? (
-                <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.8rem]">
+                <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.9rem]">
                   <Label htmlFor="username" className="text-right font-bold">
                     Date Complete :
                   </Label>

@@ -25,7 +25,7 @@ const AppointmentPage = () => {
         className={
           toggleWidth
             ? `sm:px-4 p-0 sm:ml-20 ml-0 transition-all duration-300`
-            : `sm:px-4 p-0 sm:ml-56 ml-0 transition-all duration-300`
+            : `sm:px-4 p-0 sm:ml-60 ml-0 transition-all duration-300`
         }
       >
         <div className=" dark:border-gray-700">

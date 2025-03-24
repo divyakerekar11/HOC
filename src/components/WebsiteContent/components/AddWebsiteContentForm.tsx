@@ -24,6 +24,7 @@ import { LoaderIconSVG } from "@/utils/SVGs/SVGs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useCustomerStore } from "@/Store/CustomerStore";
 import { useWebsiteContentStore } from "@/Store/WebsiteContentStore";
+import Link from "next/link";
 
 const AddWebsiteContentForm = ({}: any) => {
   const router = useRouter();
@@ -209,15 +210,18 @@ const AddWebsiteContentForm = ({}: any) => {
   return (
     <>
       <div className="p-4 relative">
-        <div className="text-[1rem] font-semibold absolute top-[-50px]">
+        <div className="text-[1rem] font-semibold absolute top-[-55px]">
           Add Website Content
         </div>
 
-        <div className="flex justify-center">
-          <ScrollArea className="h-[80vh]   px-3 py-3 w-[100%] xl:w-[56vw]">
+        <div className="flex justify-center slide-in ">
+        <div className="my-3 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded-lg">
+          <Link href={`/websiteContent`} >Back</Link>
+        </div>
+          <ScrollArea className="h-[80vh] px-3 py-3 w-[100%] xl:w-[56vw]">
             <form
               onSubmit={handleSubmit}
-              className="border-0 rounded-lg slide-in  p-6 text-[0.8rem] bg-[#fff]"
+              className="border-0 rounded-lg slide-in  p-6 text-[0.8rem] bg-[#fff] label-text"
             >
               <div className="mb-3 mt-3">
                 <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -1003,7 +1007,7 @@ const AddWebsiteContentForm = ({}: any) => {
               <div className="my-6 ">
                 <Button
                   type="submit"
-                  className="lg:w-[6vw] cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                  className="lg:w-[6vw] cursor-pointer border-0 rounded-lg p-2 h-9  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
                 >
                   {isWebsiteContentValid ? (
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />

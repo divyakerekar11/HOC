@@ -218,10 +218,10 @@ console.log("toggleSider",toggleSider)
       {/* Sidebar */}
       <aside
         id="sidebar-multi-level-sidebar"
-        className={`fixed top-0 left-0 z-40 text-[0.8rem] ${
+        className={`fixed top-0 left-0 z-40 text-[0.9rem] ${
           toggleSider
             // ? "w-[17rem] closedSidebar"
-                  ? "w-[15rem] closedSidebar"
+                  ? "w-[16rem] closedSidebar"
             : `w-[6rem] OpenedSidebar ${
                 openSmallSideBar ? "" : "-translate-x-full"
               }`

@@ -460,7 +460,7 @@ const EditOrder = ({}) => {
  
   return (
     <div className="sm:px-4 py-0 relative">
-      <div className="text-[1rem] font-semibold absolute top-[-30px]">
+      <div className="text-[1rem] font-semibold absolute top-[-38px]">
         {orderData?.customer?.companyName
           ? orderData?.customer?.companyName
           : "loading..."}

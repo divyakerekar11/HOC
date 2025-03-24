@@ -168,7 +168,7 @@ const AddCopywriterForm = ({}: any) => {
 
   return (
     <div className="p-4 relative">
-      <div className="text-[1rem] font-semibold absolute top-[-50px]">
+      <div className="text-[1rem] font-semibold absolute top-[-50px] ">
         Add Copywriter Tracker
       </div>
 
@@ -176,10 +176,10 @@ const AddCopywriterForm = ({}: any) => {
         <ScrollArea className="h-[80vh]  px-3 py-3 w-[100%] xl:w-[56vw]">
           <form
             onSubmit={handleSubmit}
-            className="p-6 text-[0.8rem] bg-[#fff] border-0 rounded-lg slide-in "
+            className="p-6 text-[0.8rem] bg-[#fff] border-0 rounded-lg slide-in label-text "
           >
             <div className="mb-3 mt-3">
-              <label className="mb-2.5 block font-medium text-black dark:text-white">
+              <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
                 Select Company <span style={{ opacity: "0.5" }}> * </span>
               </label>
               <div className="relative">
@@ -217,7 +217,7 @@ const AddCopywriterForm = ({}: any) => {
 
             <div className="lg:flex gap-5">
               <div className="mb-3 w-full">
-                <label className="mb-2.5 block font-medium text-black dark:text-white">
+                <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
                   Status
                 </label>
                 <div className="relative">
@@ -270,7 +270,7 @@ const AddCopywriterForm = ({}: any) => {
                 </div>
               </div>
               <div className="mb-3 w-full">
-                <label className="mb-2.5 block font-medium text-black dark:text-white">
+                <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
                   Completed Date
                 </label>
 
@@ -347,7 +347,7 @@ const AddCopywriterForm = ({}: any) => {
             <div className="my-6 ">
               <Button
                 type="submit"
-                className="lg:w-[6vw] cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
               >
                 {isCopywriterValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

@@ -16,6 +16,7 @@ import {
 } from "@/common/commonFunctions";
 import { AxiosError } from "axios";
 import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
 interface WebsiteContentDetailType {
   id: number;
   customer: any;
@@ -80,7 +81,11 @@ const WebsiteContentDetails = () => {
           : "loading..."}
       </div>
       <div className=" gap-5 mt-2">
-        <div className="flex justify-center">
+        
+        <div className="flex justify-center gap-5">
+        <div className="my-3 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded-lg">
+          <Link href={`/websiteContent`} >Back</Link>
+        </div>
           <Card className="h-[90vh] overflow-auto">
             <CardHeader>
               <CardTitle className="text-[1rem]">

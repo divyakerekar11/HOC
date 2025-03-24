@@ -15,7 +15,7 @@ const AddOrderFormPage: React.FC = () => {
         className={
           toggleWidth
             ? `sm:px-4 p-0 sm:ml-20 ml-0  transition-all duration-300 bg-[#e8f4f1] min-h-[95vh] `
-            : ` sm:px-4 p-0 sm:ml-56 ml-0 transition-all duration-300 bg-[#e8f4f1] min-h-[95vh] `
+            : ` sm:px-4 p-0 sm:ml-60 ml-0 transition-all duration-300 bg-[#e8f4f1] min-h-[95vh] `
         }
         // className={
         //   toggleWidth

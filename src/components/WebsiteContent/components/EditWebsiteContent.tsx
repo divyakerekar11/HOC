@@ -341,10 +341,10 @@ const EditWebsiteContent = () => {
       </div>
 
       <div className="flex justify-center">
-        <div className="my-3 text-[0.8rem] hover:bg-gray-300 h-fit px-2 py-1 rounded cursor-pointer hidden text-center sm:block w-fit bg-[#fff] boxShadow">
+        <div className="my-3 text-[0.9rem] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit bg-[#fff] boxShadow rder-0 rounded-lg">
           <Link href={`/websiteContent`}>Back</Link>
         </div>
-        <ScrollArea className="h-[80vh]   px-3 py-3 w-[100%] xl:w-[56vw]">
+        <ScrollArea className="h-[80vh]   px-3 py-3 w-[100%] xl:w-[56vw] label-text">
           <form
             onSubmit={handleSubmit}
             className=" p-6 text-[0.8rem] bg-[#fff] border-0 rounded-lg slide-in  "
@@ -1039,7 +1039,7 @@ const EditWebsiteContent = () => {
             <div className="my-6 ">
               <Button
                 type="submit"
-                className="lg:w-[6vw] cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] cursor-pointer border-0 rounded-lg p-2 h-9  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
               >
                 {isWebsiteContentValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

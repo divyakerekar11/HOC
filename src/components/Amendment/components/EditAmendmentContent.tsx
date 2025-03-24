@@ -38,6 +38,7 @@ import {
 } from "@/common/commonFunctions";
 import { AxiosError } from "axios";
 import { formatDate } from "date-fns";
+import Link from "next/link";
 
 const crumbs = [
   {
@@ -325,7 +326,12 @@ const EditAmendmentContent = () => {
       {/* <div className="mb-4">
         <BreadcrumbSection crumbs={crumbs} />
       </div> */}
+
+     
       <div className=" flex gap-5 justify-center ">
+      <div className="my-3 text-[0.8rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 rounded cursor-pointer hidden text-center sm:block w-fit boxShadow ">
+                <Link href={`/amendment`}>Back</Link>
+              </div>
         <ScrollArea className="h-[80vh]  sm:px-3 sm:py-3 w-[100%] xl:w-[56vw]">
           <form
             onSubmit={handleSubmit}
@@ -334,7 +340,7 @@ const EditAmendmentContent = () => {
             <div className="lg:flex gap-5">
               {/* Current Date */}
               <div className="mb-3 w-full">
-                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
+                <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
                   Current Date
                 </label>
                 <div className="relative">
@@ -411,7 +417,7 @@ const EditAmendmentContent = () => {
               </div>
               {/* Complete Date */}
               <div className="mb-3 w-full">
-                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
+                <label className="mb-2.5 block font-medium text-black text-[0.9rem] dark:text-white">
                   Complete Date
                 </label>
                 <div className="relative">
@@ -492,7 +498,7 @@ const EditAmendmentContent = () => {
             <div className="lg:flex gap-5">
               {/* Status  */}
               <div className="mb-5 w-full">
-                <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
+                <label className="mb-2.5 block font-medium text-black text-[0.9rem]  dark:text-white">
                   Status
                 </label>
                 <div className="relative">
@@ -552,7 +558,7 @@ const EditAmendmentContent = () => {
             </div>
             {/*  Customer Status */}
             <div className="mb-5 w-full">
-              <label className="mb-2.5 block font-medium text-[#013642] dark:text-white">
+              <label className="mb-2.5 block font-medium text-[0.9rem] text-black dark:text-white">
                 Customer Status
               </label>
               <div className="relative">

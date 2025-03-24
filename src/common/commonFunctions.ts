@@ -109,7 +109,7 @@ export function formatDateYYYYMMDD(date: any) {
   const year = d.getFullYear();
   let month = (d.getMonth() + 1).toString().padStart(2, "0");
   let day = d.getDate().toString().padStart(2, "0");
-  return `${year}-${month}-${day}`;
+  return `${day}-${month}-${year}`;
 }
 
 // time elapsed since the creation date of a notification in a human-readable format

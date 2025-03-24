@@ -169,7 +169,7 @@ const EditCustomer = ({}) => {
           onSubmit={handleSubmit}
         >
           <div className="mb-3">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Name
             </label>
 
@@ -186,7 +186,7 @@ const EditCustomer = ({}) => {
             </div>
           </div>
           <div className="mb-3">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Company Name
             </label>
 
@@ -203,7 +203,7 @@ const EditCustomer = ({}) => {
             </div>
           </div>
           <div className="mb-3">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Email
             </label>
             <div className="relative">
@@ -222,8 +222,8 @@ const EditCustomer = ({}) => {
             ) : null}
           </div>
 
-          <div className="mb-3">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+          <div className="mb-3"> 
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Mobile Number
             </label>
             <div className="relative">
@@ -241,7 +241,7 @@ const EditCustomer = ({}) => {
             ) : null}
           </div>
           <div className="mb-3">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Phone Number
             </label>
             <div className="relative">

@@ -30,6 +30,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { useUserStore } from "@/Store/UserStore";
 import { useCustomerStore } from "@/Store/CustomerStore";
 import { useProductflowStore } from "@/Store/ProductFlowStore";
+import Link from "next/link";
 
 const AddProductFlowForm = ({}: any) => {
   const router = useRouter();
@@ -178,29 +179,34 @@ const AddProductFlowForm = ({}: any) => {
     { length: endYear - startYear + 1 },
     (_, i) => startYear + i
   );
-  const handleMonthChange = (month: string, target: "phase1" | "phase2" | "demo" | "live") => {
+  const handleMonthChange = (
+    month: string,
+    target: "phase1" | "phase2" | "demo" | "live"
+  ) => {
     const monthIndex = months.indexOf(month);
     if (monthIndex === -1) return;
-  
+
     const dateMap = {
       phase1: setDatePhase1Instructed,
       phase2: setDatePhase2Instructed,
       demo: setDemoCompletedDate,
       live: setLiveDate,
     };
-  
+
     const currentDate = {
       phase1: datePhase1Instructed,
       phase2: datePhase2Instructed,
       demo: demoCompletedDate,
       live: liveDate,
     }[target];
-  
-    const newDate = currentDate ? setMonth(currentDate, monthIndex) : setMonth(new Date(), monthIndex);
-  
+
+    const newDate = currentDate
+      ? setMonth(currentDate, monthIndex)
+      : setMonth(new Date(), monthIndex);
+
     dateMap[target](newDate);
   };
-  
+
   // const handleMonthChange = (
   //   month: string,
   //   target: "phase1" | "phase2" | "demo" | "live"
@@ -231,29 +237,34 @@ const AddProductFlowForm = ({}: any) => {
   //     setLiveDate(newDate);
   //   }
   // };
-  const handleYearChange = (year: string, target: "phase1" | "phase2" | "demo" | "live") => {
+  const handleYearChange = (
+    year: string,
+    target: "phase1" | "phase2" | "demo" | "live"
+  ) => {
     const yearNumber = parseInt(year);
     if (isNaN(yearNumber)) return;
-  
+
     const dateMap = {
       phase1: setDatePhase1Instructed,
       phase2: setDatePhase2Instructed,
       demo: setDemoCompletedDate,
       live: setLiveDate,
     };
-  
+
     const currentDate = {
       phase1: datePhase1Instructed,
       phase2: datePhase2Instructed,
       demo: demoCompletedDate,
       live: liveDate,
     }[target];
-  
-    const newDate = currentDate ? setYear(currentDate, yearNumber) : setYear(new Date(), yearNumber);
-    
+
+    const newDate = currentDate
+      ? setYear(currentDate, yearNumber)
+      : setYear(new Date(), yearNumber);
+
     dateMap[target](newDate);
   };
-  
+
   // const handleYearChange = (
   //   year: string,
   //   target: "phase1" | "phase2" | "demo" | "live"
@@ -297,8 +308,6 @@ const AddProductFlowForm = ({}: any) => {
   const { month: currentMonthLive, year: currentYearLive } =
     getCurrentMonthAndYear(liveDate);
 
-
-
   return (
     <div className="p-4 relative">
       <div className="text-[1rem] font-semibold absolute top-[-50px]">
@@ -306,7 +315,15 @@ const AddProductFlowForm = ({}: any) => {
       </div>
 
       <div className="flex justify-center">
-        <ScrollArea className="h-[80vh]   px-3 py-3 w-[100%] xl:w-[56vw] ">
+        <div className="my-3 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded-lg" >
+          <Link
+            href={`/productFlow`}
+            className="text-[0.9rem]  "
+          >
+            Back
+          </Link>
+        </div>
+        <ScrollArea className="h-[80vh] px-3 py-3 w-[100%] xl:w-[56vw] label-text ">
           <form
             onSubmit={handleSubmit}
             className="border-0 rounded-lg slide-in  p-6 text-[0.8rem] bg-[#fff]"
@@ -465,14 +482,16 @@ const AddProductFlowForm = ({}: any) => {
                         </Select>
                       </div>
                       <div className="calendar-container">
-                      <Calendar
-                        mode="single"
-                        selected={datePhase1Instructed}
-                        onSelect={handlePhase1Instructed}
-                        initialFocus
-                        month={datePhase1Instructed}
-                        onMonthChange={(date) => setDatePhase1Instructed(date)}
-                      />
+                        <Calendar
+                          mode="single"
+                          selected={datePhase1Instructed}
+                          onSelect={handlePhase1Instructed}
+                          initialFocus
+                          month={datePhase1Instructed}
+                          onMonthChange={(date) =>
+                            setDatePhase1Instructed(date)
+                          }
+                        />
                       </div>
                     </PopoverContent>
                   </Popover>
@@ -539,14 +558,16 @@ const AddProductFlowForm = ({}: any) => {
                         </Select>
                       </div>
                       <div className="calendar-container">
-                      <Calendar
-                        mode="single"
-                        selected={datePhase2Instructed}
-                        onSelect={handlePhase2Instructed}
-                        initialFocus
-                        month={datePhase2Instructed}
-                        onMonthChange={(date) => setDatePhase2Instructed(date)}
-                      />
+                        <Calendar
+                          mode="single"
+                          selected={datePhase2Instructed}
+                          onSelect={handlePhase2Instructed}
+                          initialFocus
+                          month={datePhase2Instructed}
+                          onMonthChange={(date) =>
+                            setDatePhase2Instructed(date)
+                          }
+                        />
                       </div>
                     </PopoverContent>
                   </Popover>
@@ -616,14 +637,14 @@ const AddProductFlowForm = ({}: any) => {
                         </Select>
                       </div>
                       <div className="calendar-container">
-                      <Calendar
-                        mode="single"
-                        selected={demoCompletedDate}
-                        onSelect={handleDemoCompletedDate}
-                        initialFocus
-                        month={demoCompletedDate}
-                        onMonthChange={(date) => setDemoCompletedDate(date)}
-                      />
+                        <Calendar
+                          mode="single"
+                          selected={demoCompletedDate}
+                          onSelect={handleDemoCompletedDate}
+                          initialFocus
+                          month={demoCompletedDate}
+                          onMonthChange={(date) => setDemoCompletedDate(date)}
+                        />
                       </div>
                     </PopoverContent>
                   </Popover>
@@ -691,14 +712,14 @@ const AddProductFlowForm = ({}: any) => {
                         </Select>
                       </div>
                       <div className="calendar-container">
-                      <Calendar
-                        mode="single"
-                        selected={liveDate}
-                        onSelect={handleLiveDate}
-                        initialFocus
-                        month={liveDate}
-                        onMonthChange={(date) => setLiveDate(date)}
-                      />
+                        <Calendar
+                          mode="single"
+                          selected={liveDate}
+                          onSelect={handleLiveDate}
+                          initialFocus
+                          month={liveDate}
+                          onMonthChange={(date) => setLiveDate(date)}
+                        />
                       </div>
                     </PopoverContent>
                   </Popover>
@@ -746,7 +767,7 @@ const AddProductFlowForm = ({}: any) => {
             <div className="my-6 ">
               <Button
                 type="submit"
-                className="lg:w-[6vw] cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
               >
                 {isProductFlowValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

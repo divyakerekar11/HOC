@@ -668,7 +668,7 @@ const AddOrderForm = ({ fetchAllOrdersData }: any) => {
 
   return (
     <div className="p-4 relative">
-      <div className="text-[1rem] font-semibold absolute top-[-30px]">
+      <div className="text-[1rem] font-semibold absolute top-[-38px]">
         Add Order
       </div>
 
@@ -1673,7 +1673,7 @@ const AddOrderForm = ({ fetchAllOrdersData }: any) => {
             <div className="my-1 ">
               <Button
                 type="submit"
-                className="lg:w-[6vw] w-full cursor-pointer  border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] w-full cursor-pointer  border-0 rounded-lg p-2 h-10 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
               >
                 {isOrder ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

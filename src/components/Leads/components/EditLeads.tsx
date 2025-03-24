@@ -244,7 +244,7 @@ const EditLeads = ({}) => {
         <ScrollArea className="h-[80vh]   px-3 py-3 w-[100%] xl:w-[56vw]">
           <form
             onSubmit={handleSubmit}
-            className="border-0 rounded-lg p-6 bg-[#fff] boxShadow"
+            className="border-0 rounded-lg p-6 bg-[#fff] slide-in label-text"
           >
             <div className="lg:flex gap-5">
               {/* contact Person  */}

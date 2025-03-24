@@ -178,7 +178,7 @@ const UsersContent: React.FC = () => {
           <Link href={"/users/addUser"}>
             <Button
               variant="outline"
-              className=" text-[0.8rem] text-white bg-[#013642] hover:bg-[#fff] hover:text-[#013642] "
+              className=" text-[0.9rem] text-white bg-[#013642] hover:bg-[#fff] hover:text-[#013642] border-0 rounded-lg"
             >
               Add New User
             </Button>

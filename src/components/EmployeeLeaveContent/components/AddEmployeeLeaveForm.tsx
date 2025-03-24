@@ -35,6 +35,7 @@ import { useRouter } from "next/navigation";
 import { AxiosError } from "axios";
 import { useEmployeeLeaveStore } from "@/Store/EmployeeLeaveStore";
 import { format, getMonth, getYear, setMonth, setYear } from "date-fns";
+import Link from "next/link";
 
 interface UserData {
   fullName?: string;
@@ -223,8 +224,14 @@ const AddEmployeeLeaveForm: React.FC = () => {
     setReturnDate(selectedDate);
   };
   return (
-    <ScrollArea className=" w-[100%] xl:w-[56vw]  p-7 my-5 border boxShadow bg-[#fff]">
-      <form onSubmit={handleSubmit} className="text-[0.8rem] ">
+    <>
+    <div className="my-3 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded-lg mt-5">
+    <Link href={`/employeeLeaveManagement`} >Back</Link>
+  </div>
+    <ScrollArea className=" w-[100%] xl:w-[56vw]  p-7 my-5 boxShadow bg-[#fff] label-text  border-0 rounded-lg slide-in">
+    
+      <form onSubmit={handleSubmit} className="text-[0.9rem] ">
+        
         <div className="mb-3 lg:flex gap-3">
           {/* Rep Name  */}
           <div className="w-full">
@@ -527,7 +534,7 @@ const AddEmployeeLeaveForm: React.FC = () => {
           <Button
             type="submit"
             value="Sign In"
-            className="cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
+            className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
           >
             {isUserValid ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -538,6 +545,7 @@ const AddEmployeeLeaveForm: React.FC = () => {
         </div>
       </form>
     </ScrollArea>
+    </>
   );
 };
 

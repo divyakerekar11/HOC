@@ -230,7 +230,7 @@ const AddAppointmentForm: React.FC<AddAppointmentFormProps> = ({
   const currentYear = date ? getYear(date) : getYear(new Date());
 
   return (
-    <form onSubmit={handleSubmit} className="overflow-y-auto text-[0.8rem]">
+    <form onSubmit={handleSubmit} className="overflow-y-auto text-[0.8rem] label-text">
       <div className="px-3 py-3">
         {/* Name   */}
         <div className="mb-3">

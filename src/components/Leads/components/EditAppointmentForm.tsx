@@ -238,9 +238,7 @@ any) => {
               }
             };
       
-       
-          
-            const currentMonth = appointmentDate
+         const currentMonth = appointmentDate
               ? getMonth(appointmentDate)
               : getMonth(new Date());
             const currentYear = appointmentDate
@@ -259,7 +257,7 @@ any) => {
         >
           Back
         </div>
-        <div className="flex justify-center md:w-[55vw] w-full border  bg-[#fff] boxShadow">
+        <div className="flex justify-center md:w-[55vw] w-full border  bg-[#fff] boxShadow label-text">
           <div className="w-full p-3">
             <form
               onSubmit={handleSubmit}

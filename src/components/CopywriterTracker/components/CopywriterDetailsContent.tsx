@@ -64,7 +64,7 @@ const CopywriterDetailsContent = () => {
             </CardHeader>
             <CardContent>
               {/* Current Stage  */}
-              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.8rem]">
+              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.9rem]">
                 <Label htmlFor="name" className="text-right font-bold">
                   Status :
                 </Label>
@@ -73,7 +73,7 @@ const CopywriterDetailsContent = () => {
                 </p>
               </div>
               {/* date  */}
-              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.8rem]">
+              <div className="flex items-center pb-[10px] mb-[10px]  border-b-[#ddd] border-b text-[0.9rem]">
                 <Label htmlFor="username" className="text-right font-bold">
                   Date :
                 </Label>

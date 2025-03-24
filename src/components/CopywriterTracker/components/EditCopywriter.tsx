@@ -202,24 +202,24 @@ const EditCopywriter = () => {
     ? getYear(dateComplete)
     : getYear(new Date());
   return (
-    <div className="p-4 relative text-[0.8rem]">
-      <div className="text-[1rem] font-semibold absolute top-[-50px] ">
+    <div className="p-4 relative text-[0.9rem]">
+      <div className="text-[1rem] font-semibold absolute top-[-56px] ">
         {copywriter?.customer?.companyName
           ? copywriter?.customer?.companyName
           : "loading..."}
       </div>
 
       <div className=" flex gap-5 justify-center">
-        <div className="my-3 text-[0.8rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow">
-          <Link href={`/copywriter`}>Back</Link>
+        <div className="my-3 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded-lg">
+          <Link href={`/copywriter`} className="text-[0.9rem]  ">Back</Link>
         </div>
         <ScrollArea className="h-[80vh]  sm:px-3 sm:py-3 w-[100%] xl:w-[56vw]">
           <form
             onSubmit={handleSubmit}
-            className="border-0 rounded-lg p-6 bg-[#fff] boxShadow "
+            className="border-0 rounded-lg slide-in  p-6 bg-[#fff]"
           >
             <div className="mb-5 w-full">
-              <label className="mb-2.5 block font-medium text-black dark:text-white">
+              <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
                 Status
               </label>
               <div className="relative">
@@ -273,7 +273,7 @@ const EditCopywriter = () => {
             </div>
 
             <div className="mb-5 w-full">
-              <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white">
+              <label className="mb-2.5 block font-medium text-[#29354f] dark:text-white text-[0.9rem]">
                 Completed Date
               </label>
               <div className="relative">
@@ -346,7 +346,7 @@ const EditCopywriter = () => {
             <div className="my-6 ">
               <Button
                 type="submit"
-                className="lg:w-[6vw] cursor-pointerborder-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] cursor-pointerborder-0 rounded-lg p-2 h-9  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
               >
                 {isCopywriterValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

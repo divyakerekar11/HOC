@@ -56,6 +56,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 // import EventComponentBox from "./EventComponentBox";
 // import { AddAppointmentDialoge } from "./AddAppointmentDialoge";
 import User from "../../../asset/images/user.png";
+import Link from "next/link";
 
 const UserPic = User.src;
 
@@ -139,8 +140,8 @@ const ProductFlowDetailsContent = () => {
   }, []);
 
   return (
-    <div className="px-4 py-0 relative">
-      <div className="text-[1rem] font-semibold absolute top-[-40px]">
+    <div className="px-4 py-0 relative ">
+      <div className="text-[1rem] font-semibold absolute top-[-48px]">
         {productDetails?.customer?.companyName
           ? productDetails?.customer?.companyName
           : "loading..."}
@@ -149,9 +150,18 @@ const ProductFlowDetailsContent = () => {
         <BreadcrumbSection crumbs={crumbs} />
       </div> */}
       {/* Main Customer details section  */}
+
       <div className="flex gap-5 mt-2">
-        <div className="">
-          <Card className="w-[575px] h-[100%] boxShadow">
+        <div className="my-3 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded-lg">
+          <Link
+            href={`/productFlow`}
+            className="text-[0.9rem]  "
+          >
+            Back
+          </Link>
+        </div>
+        <div className="slide-in">
+          <Card className="w-[575px] h-[100%] boxShadow mt-3">
             <CardHeader>
               <CardTitle className="text-[1rem]">Product Data</CardTitle>
               <CardDescription>Details Of existing product</CardDescription>

@@ -241,7 +241,7 @@ const AddLeadForm: React.FC = () => {
   };
 
   return (
-    <ScrollArea className=" p-7 w-full lg:w-[70%] border my-5 bg-[#fff] boxShadow">
+    <ScrollArea className=" p-7 w-full lg:w-[70%] border my-5 bg-[#fff] boxShadow label-text">
       <form onSubmit={handleSubmit} className="text-[0.8rem] ">
         <div className="mb-2">
           <input

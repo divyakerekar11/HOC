@@ -37,15 +37,17 @@ const MenuItem = memo((props: any) => {
       ref={menuItemRef}
       className={`${isSidebarOpen ? "my-2" : "mt-[1rem]"} onHover px-1`}
     >
-      <div className="relative">
+      <div className="relative ">
         <Link href={href} scroll={false}> 
           <button
             type="button"
             className={
               isActive
-                ? "w-full bg-white text-gray-700 dark:text-white transition duration-75 p-1"
+                ? "w-full bg-white text-gray-700 dark:text-white transition duration-75 p-1 "
                 : "w-full transition duration-75 p-1"
+                
             }
+            
             aria-controls="dropdown-example"
             data-collapse-toggle="dropdown-example"
           >

@@ -344,7 +344,7 @@ const AddCustomerForm: React.FC = () => {
           {/* Assigned User */}
           {role !== "salesman" ? (
             <div className="mb-3 w-full">
-              <label className="mb-2.5 block font-medium text-black dark:text-white">
+              <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
                 Assigned User
               </label>
               <div className="relative">
@@ -443,7 +443,7 @@ const AddCustomerForm: React.FC = () => {
             </div>
           ) : (
             <div className="mb-3 w-full">
-              <label className="mb-2.5 block font-medium text-black dark:text-white">
+              <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
                 Assigned User
               </label>
               <div className="relative">
@@ -460,7 +460,7 @@ const AddCustomerForm: React.FC = () => {
           )}
           {/* Contact Name  */}
           <div className="w-full">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Contact Name
             </label>
             <div className="relative">
@@ -489,7 +489,7 @@ const AddCustomerForm: React.FC = () => {
         <div className="mb-3 lg:flex gap-3">
           {/* Company Name  */}
           <div className="w-full mb-2 lg:mb-0">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Company Name <span className="text-red-500">*</span>
             </label>
             <div className="relative">
@@ -515,7 +515,7 @@ const AddCustomerForm: React.FC = () => {
           </div>
           {/* Email  */}
           <div className="w-full">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Email Address
             </label>
             <div className="relative">
@@ -558,7 +558,7 @@ const AddCustomerForm: React.FC = () => {
         <div className="mb-3 lg:flex gap-3">
           {/* Mobile No.  */}
           <div className="w-full mb-2 lg:mb-0">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Mobile No.
             </label>
             <div className="relative">
@@ -585,7 +585,7 @@ const AddCustomerForm: React.FC = () => {
 
           {/* Landline No.  */}
           <div className="w-full">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Landline No. (Optional)
             </label>
             <div className="relative">
@@ -614,7 +614,7 @@ const AddCustomerForm: React.FC = () => {
         <div className="mb-3 lg:flex gap-3">
           {/* Street No. and Name */}
           <div className="w-full mb-2 lg:mb-0">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Street No. and Name
             </label>
             <div className="relative">
@@ -636,7 +636,7 @@ const AddCustomerForm: React.FC = () => {
           </div>
           {/* Town */}
           <div className="w-full">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Town
             </label>
             <div className="relative">
@@ -661,7 +661,7 @@ const AddCustomerForm: React.FC = () => {
         <div className="mb-3 lg:flex gap-3">
           {/* County */}
           <div className="w-full mb-2 lg:mb-0">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               County
             </label>
             <div className="relative">
@@ -683,7 +683,7 @@ const AddCustomerForm: React.FC = () => {
           </div>
           {/* Post Code  */}
           <div className="w-full">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Post Code
             </label>
             <div className="relative">
@@ -708,7 +708,7 @@ const AddCustomerForm: React.FC = () => {
         <div className="mb-3 lg:flex gap-3">
           {/* URL  */}
           <div className="w-full mb-2 lg:mb-0">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               URL
             </label>
             <div className="relative">
@@ -725,7 +725,7 @@ const AddCustomerForm: React.FC = () => {
           </div>
           {/* SSL  */}
           <div className="w-full">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               SSL
             </label>
             <div className="relative">
@@ -745,7 +745,7 @@ const AddCustomerForm: React.FC = () => {
         <div className="mb-3 lg:flex gap-3">
           {/* SiteMap  */}
           <div className="w-full mb-2 lg:mb-0">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Site Map
             </label>
             <div className="relative">
@@ -767,7 +767,7 @@ const AddCustomerForm: React.FC = () => {
           </div>
           {/* HT Access  */}
           <div className="w-full">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               HT Access
             </label>
             <div className="relative">
@@ -792,7 +792,7 @@ const AddCustomerForm: React.FC = () => {
         <div className="mb-3 lg:flex gap-3">
           {/* GA Code  */}
           <div className="w-full mb-2 lg:mb-0">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               GA Code
             </label>
             <div className="relative">
@@ -814,7 +814,7 @@ const AddCustomerForm: React.FC = () => {
           </div>
           {/* New GA Code  */}
           <div className="w-full">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               New GA Code
             </label>
             <div className="relative">
@@ -839,7 +839,7 @@ const AddCustomerForm: React.FC = () => {
         <div className="mb-3 lg:flex gap-3">
           {/* Status */}
           <div className="w-full mb-2 lg:mb-0">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Status
             </label>
             <div className="relative">
@@ -880,7 +880,7 @@ const AddCustomerForm: React.FC = () => {
           </div>
           {/* Logo */}
           <div className="w-full">
-            <label className="mb-2.5 block font-medium text-black dark:text-white">
+            <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
               Logo
             </label>
             <div className="relative">
@@ -910,7 +910,7 @@ const AddCustomerForm: React.FC = () => {
 
         {/* Live Date  */}
         <div className="w-full">
-          <label className="mb-2.5 block font-medium text-black dark:text-white">
+          <label className="mb-2.5 block font-medium text-black dark:text-white text-[0.9rem]">
             Live Date
           </label>
           <div className="relative">
