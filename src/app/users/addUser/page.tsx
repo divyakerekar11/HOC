@@ -1,6 +1,10 @@
 "use client";
 
-import SideBarContent from "@/components/Sidebar/SideBarContent";
+// import SideBarContent from "@/components/Sidebar/SideBarContent";
+import dynamic from "next/dynamic";
+const SideBarContent = dynamic(() => import("@/components/Sidebar/SideBarContent"), {
+  ssr: false,
+});
 import AddUserContent from "@/components/Users/components/AddUserContent";
 import React, { useState } from "react";
 

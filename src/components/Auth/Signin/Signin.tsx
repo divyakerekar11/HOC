@@ -168,7 +168,7 @@ const SignIn: React.FC = () => {
             <div className="mt-20 ">
               <Button
                 type="submit"
-                className="bg-[#569C45] rounded-[8px] w-[502px] h-[48px] p-[10px] text-white font-[700] tracking-[0.1rem]"
+                className="bg-[#013642] rounded-[8px] w-[502px] h-[48px] p-[10px] text-white font-[700] tracking-[0.1rem]"
               >
                 {isUserValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -181,7 +181,7 @@ const SignIn: React.FC = () => {
           <div className="my-4 items-start ">
             <span className="text-gray-400 mx-3 ">Forget Password?</span>
             <Link href="/auth/forgetPassword" className="text-primary px-3 ">
-              <span className="text-[#569C45] hover:text-[#3d6931]">
+              <span className="text-[#013642] hover:text-[#013642]">
                 Click Here
               </span>
             </Link>

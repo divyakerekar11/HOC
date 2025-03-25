@@ -71,11 +71,15 @@ export function DataTable<TData, TValue>({
                   </TableCell>
                 </TableRow>
               ) : tableInstance?.getRowModel()?.rows?.length !== 0 ? (
-                tableInstance.getRowModel().rows.map((row: any) => {
+                tableInstance.getRowModel().rows.map((row: any, index: number) => {
                   const isHighlighted = row.original._id === queryParams; 
+                  // const rowClass = index % 2 === 0 ? "bg-[#F2FBF9]" : "bg-[#D1E7E2]";
+                  // index % 2 === 0 ? "bg-[#fff]" : "bg-[#e8f4f1]";
+    
                   return (
                     <TableRow
                       key={row.id}
+                      // className={`${rowClass} ${isHighlighted ? "bg-[#ced7ea] " : ""}`}
                       className={isHighlighted ? "bg-[#ced7ea]" : ""}
                       data-state={row.getIsSelected() && "selected"}
                     >

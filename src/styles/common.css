@@ -43,14 +43,14 @@
   /* font-weight: 400 !important; */
   /* line-height: 2 !important; */
   border-radius: 7px !important;
-  border: 0.2px solid #e1e8f0 !important;
+  border: 0.2px solid #e8f4f1 !important;
   outline: none !important;
   box-shadow: none !important;
   /* min-height: 38px; */
 }
 
 .react-select-custom-styling {
-  border-color: #e1e8f0;
+  border-color: #e8f4f1;
 }
 
 .calendar-container .h-9 {
@@ -356,7 +356,7 @@
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 } */
-@keyframes slideIn {
+ /* @keyframes slideIn {
   0% {
     opacity: 0;
     transform: translateX(-20px);
@@ -369,7 +369,87 @@
 
 .slide-in {
   animation: slideIn 0.8s ease-out;
+} */
+/* @keyframes bounceIn {
+  0% {
+    transform: scale(0) translateY(100px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2) translateY(-90px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
+
+.slide-in {
+  animation: bounceIn 1.5s ease-out;
+} */
+/* @keyframes zoomIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: zoomIn 1.5s ease-in-out;
+} */
+/* @keyframes smoothBounceIn {
+  0% {
+    transform: scale(0) translateY(100px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+sahi laga
+.slide-in {
+  animation: smoothBounceIn 2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+} */
+
+/* @keyframes fadeInDownBig {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+.slide-in  {
+  animation: fadeInDownBig 1.5s ease-out;
+} */
+/* @keyframes zoomIn {
+  0% {
+    transform: scale(0.18);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
+
+.slide-in  {
+  animation: zoomIn 1.5s ease-out;
+} */
+
+
 /* @keyframes slideZoomIn {
   0% {
     opacity: 0;
@@ -385,7 +465,134 @@
   animation: slideZoomIn 0.8s ease-out;
 } */
 /* CSS */
+
+/* @keyframes slideInFromLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideInFromLeft 1.5s ease-in-out forwards;
+} */
+
+/* Your animation definition */
+/* 
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideInFromLeft 1.5s ease-in-out forwards;
+} */
+/* @keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.slide-in {
+  animation: scaleUp 0.5s ease-in-out forwards;
+} */
+/* @keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideUp 1s ease-out forwards;
+} */
+
+/* @keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideInFromRight 1.5s ease-in-out forwards;
+} */
+
+/* @keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: fadeSlideUp 1s ease-out forwards;
+} */
+/* @keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: zoomIn 1s ease-out forwards;
+} */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(-7%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideInFromLeft 1.5s ease-in-out forwards;
+}
+
+
 .label-text label {
   font-size: 14px;
   cursor: pointer;
+  font-weight: 500;
+}
+.data-table {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.loading-spinner {
+  display: none;
 }

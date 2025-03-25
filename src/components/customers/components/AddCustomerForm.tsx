@@ -43,6 +43,7 @@ import { LoaderIconSVG } from "@/utils/SVGs/SVGs";
 import { useUserStore } from "@/Store/UserStore";
 import { useCustomerStore } from "@/Store/CustomerStore";
 import { AsyncPaginate } from "react-select-async-paginate";
+import Link from "next/link";
 // interface AddCustomerFormProps {
 //   setOpen: (newValue: boolean | ((prevCount: boolean) => boolean)) => void;
 //   getMyCustomerData: () => void;
@@ -338,7 +339,17 @@ const AddCustomerForm: React.FC = () => {
   };
 
   return (
-    <ScrollArea className=" p-7 w-full lg:w-[70%] border my-5 h-[90vh] bg-[#fff] boxShadow">
+    <>
+         <div className="my-3 mt-5 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded-lg" >
+          <Link
+            href={`/customers`}
+            className="text-[0.9rem]"
+          >
+            Back
+          </Link>
+        </div>
+    <ScrollArea className=" p-7 w-full lg:w-[70%]  border-0 rounded-lg my-5 h-[90vh] bg-[#fff] boxShadow slide-in">
+     
       <form onSubmit={handleSubmit} className="text-[0.8rem] bg-[#fff]">
         <div className="mb-3 lg:flex gap-3">
           {/* Assigned User */}
@@ -348,32 +359,6 @@ const AddCustomerForm: React.FC = () => {
                 Assigned User
               </label>
               <div className="relative">
-                {/* {!userLoading && userData?.length === 0 ? (
-                  <div className="flex justify-start">
-                    <LoaderIconSVG />
-                    <span className="px-2">Loading...</span>
-                  </div>
-                ) : (
-                  <SelectReactSelect
-                    closeMenuOnSelect={true}
-                    isClearable={true}
-                    options={userData?.map(
-                      (user: { _id: any; fullName: any }) => ({
-                        value: user._id,
-                        label: user.fullName,
-                      })
-                    )}
-                    onChange={(
-                      selectedOption: { value: any; label: string } | null
-                    ) => {
-                      formik.setFieldValue(
-                        "selectedUserId",
-                        selectedOption?.value || ""
-                      );
-                    }}
-                    placeholder="Select a User"
-                  />
-                )} */}
                 <AsyncPaginate
                   className="react-select-custom-styling__container"
                   classNamePrefix="react-select-custom-styling"
@@ -1005,7 +990,7 @@ const AddCustomerForm: React.FC = () => {
         <div className="mb-3 mt-3">
           <Button
             type="submit"
-            className="cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
+            className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
           >
             {isCustomerValid ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -1016,6 +1001,7 @@ const AddCustomerForm: React.FC = () => {
         </div>
       </form>
     </ScrollArea>
+    </>
   );
 };
 

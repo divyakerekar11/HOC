@@ -167,7 +167,7 @@ const OrdersContent = () => {
   // Set default orderYear to current year and yearOptions when page loads
   useEffect(() => {
     setYearOptions(getYearOptions());
-    setOrderYear(new Date().getFullYear().toString()); // Set default to current year
+    setOrderYear(new Date().getFullYear().toString());
   }, []);
   // const yearOptions = getYearOptions();
 
@@ -184,14 +184,17 @@ const OrdersContent = () => {
 
   const onPageChange = (newPage: number, newLimit: number) => {
     setPage(newPage);
-    const params = new URLSearchParams(searchParams.toString()); // ✅ Convert to string first
+    const params = new URLSearchParams(searchParams.toString()); 
 
     params.set("page", newPage.toString());
     params.set("limit", newLimit.toString());
 
     router.push(`${pathname}?${params.toString()}`);
   };
-
+  useEffect(() => {
+    setPage(1); 
+  }, [filters, orderYear, searchInput]);
+  
   useEffect(() => {
     if (orderYear || limit) {
       setPage(1);

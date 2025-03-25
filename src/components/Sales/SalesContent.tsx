@@ -114,22 +114,33 @@ const SalesContent: React.FC = () => {
   const [orderYear, setOrderYear] = useState<any>("");
   const [orderMonth, setOrderMonth] = useState<any>("");
   const [orderMonthlyYear, setOrderMonthlyYear] = useState<any>("");
-  const searchParams = useSearchParams();
-  const queryParams = searchParams.get("id");
+  
 
   // const statusOptions = [
   //   { label: "In Progress", value: "In Progress" },
   //   { label: "In Query", value: "In Query" },
   //   { label: "Completed", value: "Completed" },
   // ];
+  const searchParams = useSearchParams();
+  const queryParams = searchParams.get("id");
+  const initialPage = Number(searchParams.get("page")) || 1;
+  const initialLimit = Number(searchParams.get("limit")) || 20;
+  const [page, setPage] = useState(initialPage);
+  const [limit, setLimit] = useState(initialLimit);
+    const fetchData = async () => {
+      await fetchTechnicalData({ page, limit });
+    };
 
-  useEffect(() => {
-    fetchTechnicalData();
-  }, []);
+    useEffect(() => {
+      fetchData();
+    }, [page, limit, fetchTechnicalData])
+  // useEffect(() => {
+  //   fetchTechnicalData();
+  // }, []);
 
   useEffect(() => {
     const currentDate = new Date();
-    const month = (currentDate.getMonth() + 1).toString().padStart(2, "0"); // Get month and format as two digits
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
     const year = currentDate.getFullYear().toString();
 
     setOrderMonth(month);

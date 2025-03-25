@@ -311,11 +311,12 @@ const AllForm = ({
     undefined
   );
   const [liveDate, setLiveDate] = useState<Date | undefined>(undefined);
-  const searchParams = useSearchParams();
-  const queryParams = searchParams.get("id");
+
   const pathname = usePathname();
   const [searchInput, setSearchInput] = useState("");
   const [totalPages, setTotalPages] = useState(1);
+  const searchParams = useSearchParams();
+  const queryParams = searchParams.get("id");
   const initialPage = Number(searchParams.get("page")) || 1;
   const initialLimit = Number(searchParams.get("limit")) || 20;
   const [page, setPage] = useState(initialPage);

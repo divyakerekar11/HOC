@@ -1,5 +1,9 @@
 "use client";
-import SideBarContent from "@/components/Sidebar/SideBarContent";
+// import SideBarContent from "@/components/Sidebar/SideBarContent";
+import dynamic from "next/dynamic";
+const SideBarContent = dynamic(() => import("@/components/Sidebar/SideBarContent"), {
+  ssr: false,
+});
 import React, { useEffect, useState } from "react";
 import { AxiosError, all } from "axios";
 
@@ -34,6 +38,7 @@ import { useAmendmentStore } from "@/Store/AmendmentStore";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Link from "next/link";
 import { Label } from "@/components/ui/label";
+
 
 const DashBoardPage: React.FC = () => {
   const { fetchAmendmentData, amendmentData }: any = useAmendmentStore();

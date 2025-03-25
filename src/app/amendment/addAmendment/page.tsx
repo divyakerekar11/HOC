@@ -2,9 +2,12 @@
 import AddAmendmentForm from "@/components/Amendment/components/AddAmendmentForm";
 // import AddAmendmentForm from "@/components/Amendment/components/AddAmendmentForm";
 // import AddCopywriterForm from "@/components/CopywriterTracker/components/AddCopywriterForm";
-import SideBarContent from "@/components/Sidebar/SideBarContent";
+// import SideBarContent from "@/components/Sidebar/SideBarContent";
 import React, { useState } from "react";
-
+import dynamic from "next/dynamic";
+const SideBarContent = dynamic(() => import("@/components/Sidebar/SideBarContent"), {
+  ssr: false,
+});
 const AddAmendmentFormPage: React.FC = () => {
   const [toggleWidth, setToggleWidth] = useState<boolean>(false);
   return (

@@ -356,7 +356,7 @@ const InvoiceSendMailDialoge: React.FC<Props> = ({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>
-        <EnvelopeClosedIcon className="h-[1.35rem] w-[1.75rem] p-1 hover:bg-[#29354f] text-black hover:text-[white] " />
+        <EnvelopeClosedIcon className="h-[1.35rem] w-[1.75rem] p-1 hover:bg-[#29354f] text-black hover:text-[white] border-0 rounded-lg" />
       </DialogTrigger>
       <DialogContent className="sm:max-w-[550px] text-[0.8rem]">
         <div className="flex justify-center text-xl">

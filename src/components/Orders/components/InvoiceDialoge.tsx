@@ -9,7 +9,7 @@ const InvoiceDialoge = ({ id, Invoice }: any) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>
-        <FileTextIcon className="h-[1.55rem] w-[1.75rem] p-1 hover:bg-[#013642] text-black hover:text-[white] " />
+        <FileTextIcon className="h-[1.55rem] w-[1.75rem] p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg" />
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-[1000px] ">

@@ -1,9 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import SideBarContent from "@/components/Sidebar/SideBarContent";
+// import SideBarContent from "@/components/Sidebar/SideBarContent";
 import AddEmployeeLeaveContent from "@/components/EmployeeLeaveContent/components/AddEmployeeLeaveContent";
-
+import dynamic from "next/dynamic";
+const SideBarContent = dynamic(() => import("@/components/Sidebar/SideBarContent"), {
+  ssr: false,
+});
 const AddEmployeeLeavePage = () => {
   const [toggleWidth, setToggleWidth] = useState<boolean>(false);
   return (

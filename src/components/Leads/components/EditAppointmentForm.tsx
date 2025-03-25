@@ -250,9 +250,9 @@ any) => {
         Edit Appointment Details
       </div>
 
-      <div className="px-4 py-0 relative flex justify-center text-[0.8rem] pt-12">
+      <div className="px-4 py-0 relative flex justify-center text-[0.9rem] pt-12">
         <div
-          className="p-2 w-fit h-fit mx-5  cursor-pointer hover:bg-slate-200 hidden sm:block bg-[#fff] boxShadow"
+          className="p-2 w-fit h-fit mx-5  cursor-pointer hover:bg-slate-200 hidden sm:block bg-[#fff] boxShadow border-0 rounded-lg"
           onClick={goToLeadsDetails}
         >
           Back
@@ -458,7 +458,7 @@ any) => {
                   <Button
                     type="submit"
                     value="Sign In"
-                    className="cursor-pointer border-0 rounded-lg p-2  bg-[#013642] py-1 text-white transition hover:bg-opacity-90"
+                    className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] py-1 text-white transition hover:bg-opacity-90"
                   >
                     {isUserValid ? (
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />

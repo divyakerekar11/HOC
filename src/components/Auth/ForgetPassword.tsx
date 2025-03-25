@@ -126,7 +126,7 @@ const ForgetPassword: React.FC = () => {
             <div className="mt-20 ">
               <Button
                 type="submit"
-                className="bg-[#569C45] rounded-[8px] w-[502px] h-[48px] p-[10px] text-white font-[700] tracking-[0.1rem]"
+                className="bg-[#013642] rounded-[8px] w-[502px] h-[48px] p-[10px] text-white font-[700] tracking-[0.1rem]"
               >
                 {isUserValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

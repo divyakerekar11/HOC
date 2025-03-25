@@ -263,7 +263,7 @@ export default function AppointmentSection({ leadId }: any) {
               ))}
             </div>
             <Button
-              className="mt-8 w-full   px-3 py-2 text-[0.8rem] font-semibold text-white shadow hover:bg-[#013642] bg-[#013642] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="mt-8 w-full  border-0 rounded-lg p-2 h-9  px-3 py-2 text-[0.8rem] font-semibold text-white shadow hover:bg-[#013642] bg-[#013642] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               onClick={goToAddAppointment}
             >
               Book an Appointment

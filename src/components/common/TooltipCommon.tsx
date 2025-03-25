@@ -17,7 +17,7 @@ const TooltipCommon = ({ text, children }: TooltipProps) => {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
-        <TooltipContent side="bottom" className="bg-[#013642]">
+        <TooltipContent side="bottom" className="bg-[#013642] border-0 rounded-lg">
           <p className="text-white">{text}</p>
         </TooltipContent>
       </Tooltip>

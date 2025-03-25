@@ -319,7 +319,7 @@ const EditCustomerContent = () => {
     formik;
   return (
     <div className="px-4 py-0 relative">
-      <div className="text-[1rem] font-semibold absolute top-[-30px]">
+      <div className="text-[1rem] font-semibold absolute top-[-39px]">
         {customerDetails?.customerNo}
         {" - "}
         {customerDetails?.companyName}
@@ -328,10 +328,10 @@ const EditCustomerContent = () => {
         <BreadcrumbSection crumbs={crumbs} />
       </div> */}
       <div className=" flex gap-5 justify-center">
-        <div className="my-3 text-[0.8rem] bg-[#fff] hover:bg-gray-300 h-fit w-fit px-2 py-1  cursor-pointer hidden text-center sm:block boxShadow ">
+        <div className="my-3 text-[0.8rem] bg-[#fff] hover:bg-gray-300 h-fit w-fit px-2 py-1  cursor-pointer hidden text-center sm:block boxShadow border-0 rounded-lg">
           <Link href={`/customers/customerDetails/${customerId}`}>Back</Link>
         </div>
-        <ScrollArea className="h-[90vh]  my-3 sm:my-0 sm:px-3 sm:py-3 w-[100%] xl:w-[70vw] ">
+        <ScrollArea className="h-[90vh]  my-3 sm:my-0 sm:px-3 sm:py-3 w-[100%] xl:w-[70vw] label-text">
           <form
             onSubmit={handleSubmit}
             className="p-6 text-[0.8rem] bg-[#fff] border-0 rounded-lg slide-in "
@@ -924,7 +924,7 @@ const EditCustomerContent = () => {
               <Button
                 type="submit"
                 // value="Sign In"
-                className="lg:w-[6vw] w-full cursor-pointer border border-primary bg-primary px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] w-full cursor-pointer border-0 rounded-lg px-4 py-1 h-9 text-white transition hover:bg-opacity-90 text-md bg-[#013642] "
               >
                 {isCustomerValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

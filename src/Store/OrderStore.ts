@@ -62,7 +62,6 @@ export type OrderActions = {
     filters,
   }: any) => Promise<void>;
 };
-
 export const useOrderStore = create<OrderState & OrderActions>()(
   devtools((set) => ({
     orderData: [],
@@ -75,7 +74,12 @@ export const useOrderStore = create<OrderState & OrderActions>()(
       filters = [],
       year,
     } = {}) => {
-      set({ loading: true });
+      if (page > 1) {
+        set({ loading: false });
+      } else {
+        set({ loading: true });  
+      }
+      
       try {
         const queryParams = new URLSearchParams();
         if (page) queryParams.append("page", String(page));
@@ -84,9 +88,7 @@ export const useOrderStore = create<OrderState & OrderActions>()(
         if (filters?.orderType !== undefined) queryParams.append("orderType", filters?.orderType);
         if (year) queryParams.append("year", String(year));
 
-        const response = await baseInstance.get(
-          `/orders?${queryParams.toString()}`
-        );
+        const response = await baseInstance.get(`/orders?${queryParams.toString()}`);
         if (response.status === 200) {
           set({ orderData: response?.data?.data, loading: false });
         } else {
@@ -99,6 +101,42 @@ export const useOrderStore = create<OrderState & OrderActions>()(
     },
   }))
 );
+// export const useOrderStore = create<OrderState & OrderActions>()(
+//   devtools((set) => ({
+//     orderData: [],
+//     addedOrder: {},
+//     loading: false,
+//     fetchAllOrdersData: async ({
+//       page = 1,
+//       limit = 10,
+//       searchInput = "",
+//       filters = [],
+//       year,
+//     } = {}) => {
+//       set({ loading: true });
+//       try {
+//         const queryParams = new URLSearchParams();
+//         if (page) queryParams.append("page", String(page));
+//         if (limit) queryParams.append("limit", String(limit));
+//         if (searchInput) queryParams.append("search", searchInput);
+//         if (filters?.orderType !== undefined) queryParams.append("orderType", filters?.orderType);
+//         if (year) queryParams.append("year", String(year));
+
+//         const response = await baseInstance.get(
+//           `/orders?${queryParams.toString()}`
+//         );
+//         if (response.status === 200) {
+//           set({ orderData: response?.data?.data, loading: false });
+//         } else {
+//           set({ orderData: response?.data?.message, loading: false });
+//         }
+//       } catch (error: any) {
+//         logOutFunction(error?.response?.data?.message);
+//         set({ orderData: error?.response?.data?.message, loading: false });
+//       }
+//     },
+//   }))
+// );
 // export const useOrderStore = create<OrderState & OrderActions>()(
 //   devtools((set) => ({
 //     orderData: [],

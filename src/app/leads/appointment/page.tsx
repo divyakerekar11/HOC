@@ -1,8 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import SideBarContent from "@/components/Sidebar/SideBarContent";
 import dynamic from "next/dynamic";
+const SideBarContent = dynamic(() => import("@/components/Sidebar/SideBarContent"), {
+  ssr: false,
+});
+
 // import AppointmentContent from "@/components/Leads/appointment/AppointmentContent";
 const AppointmentContent = dynamic(
   () => import("@/components/Leads/appointment/AppointmentContent"),

@@ -68,6 +68,13 @@ export const useCustomerStore = create<CustomerState & CustomerActions>()(
         searchInput = "",
         filters = [],
       } = params || {};
+
+      if (page > 1) {
+        set({ loading: false });
+      } else {
+        set({ loading: true });  
+      }
+      
       try {
         const queryParams = new URLSearchParams();
         if (page) queryParams.append("page", String(page));

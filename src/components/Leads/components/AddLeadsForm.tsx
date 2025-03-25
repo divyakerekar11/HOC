@@ -33,6 +33,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import ReactSelect from "react-select";
 import { useLeadStore } from "@/Store/LeadStore";
 import { AsyncPaginate } from "react-select-async-paginate";
+import Link from "next/link";
 
 type Customer = {
   id: number;
@@ -241,8 +242,11 @@ const AddLeadForm: React.FC = () => {
   };
 
   return (
-    <ScrollArea className=" p-7 w-full lg:w-[70%] border my-5 bg-[#fff] boxShadow label-text">
-      <form onSubmit={handleSubmit} className="text-[0.8rem] ">
+    <> <div className="my-3 text-[0.9rem] mt-5 bg-[#013642] hover:bg-[#fff] h-fit w-fit text-white  hover:text-[#013642] px-2 py-1   cursor-pointer hidden text-center sm:block boxShadow border-0 rounded-lg">
+    <Link href={`/leads`}>Back</Link>
+  </div>
+    <ScrollArea className=" p-7 w-full lg:w-[70%] border-0 rounded-lg my-5 bg-[#fff] boxShadow label-text">
+      <form onSubmit={handleSubmit} className="text-[0.9rem] ">
         <div className="mb-2">
           <input
             //  className="custom-checkbox"
@@ -671,7 +675,7 @@ const AddLeadForm: React.FC = () => {
         <div className="mb-3">
           <Button
             type="submit"
-            className="cursor-pointer border-0 rounded-lg p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
+            className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
           >
             {isLead ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -682,6 +686,7 @@ const AddLeadForm: React.FC = () => {
         </div>
       </form>
     </ScrollArea>
+    </>
   );
 };
 

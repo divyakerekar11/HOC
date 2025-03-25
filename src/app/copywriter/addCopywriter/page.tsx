@@ -1,6 +1,10 @@
 "use client";
 import AddCopywriterForm from "@/components/CopywriterTracker/components/AddCopywriterForm";
-import SideBarContent from "@/components/Sidebar/SideBarContent";
+// import SideBarContent from "@/components/Sidebar/SideBarContent";
+import dynamic from "next/dynamic";
+const SideBarContent = dynamic(() => import("@/components/Sidebar/SideBarContent"), {
+  ssr: false,
+});
 import React, { useState } from "react";
 
 const AddCopywriterFormPage: React.FC = () => {

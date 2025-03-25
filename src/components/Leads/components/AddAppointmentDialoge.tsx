@@ -58,18 +58,18 @@ export function AddAppointmentDialoge() {
     //   </DialogContent>
     // </Dialog>
     <>
-      <div className="text-[1rem] font-semibold absolute top-[4px] px-2">
+      <div className="text-[1rem] font-semibold absolute top-[14px] px-2">
         Add Appointment
       </div>
 
-      <div className="px-4 py-0 relative flex justify-center text-[0.8rem] pt-12">
+      <div className="px-4 py-0 relative flex justify-center text-[0.9rem] pt-12">
         <div
-          className=" p-2 w-fit h-fit mx-5  cursor-pointer hover:bg-slate-200 bg-[#fff] boxShadow"
+          className=" p-2 w-fit h-fit mx-5 text-white cursor-pointer hover:bg-[#fff] bg-[#013642] hover:text-black boxShadow border-0 rounded-lg"
           onClick={goToLeadsDetails}
         >
           Back
         </div>
-        <div className="flex justify-center w-[50vw] border bg-[#fff] boxShadow">
+        <div className="flex justify-center w-[50vw] bg-[#fff] boxShadow label-text border-0 rounded-lg slider-in ">
           <div className="flex justify-center w-[50vw] ">
             <div className="w-full p-3">
               <AddAppointmentForm leadId={leadIdString} />

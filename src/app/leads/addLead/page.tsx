@@ -1,7 +1,11 @@
 "use client";
 
 import AddLeadContent from "@/components/Leads/components/AddlLeadContent";
-import SideBarContent from "@/components/Sidebar/SideBarContent";
+// import SideBarContent from "@/components/Sidebar/SideBarContent";
+import dynamic from "next/dynamic";
+const SideBarContent = dynamic(() => import("@/components/Sidebar/SideBarContent"), {
+  ssr: false,
+});
 import React, { useState } from "react";
 
 const AddLeadPage = () => {

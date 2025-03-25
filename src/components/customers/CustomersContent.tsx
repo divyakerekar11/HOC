@@ -130,8 +130,6 @@ const CustomersContent: React.FC = () => {
     }
   }, [customerData, router, customerData?.totalPages]);
 
-
-
   useEffect(() => {
     if (Array.isArray(customerData?.customers)) {
       const filterByStatus: any =
@@ -147,14 +145,6 @@ const CustomersContent: React.FC = () => {
       setAllCustomers(filterByStatus);
     }
   }, [filters?.status, customerData?.customers]);
-
-  const [pagination, setPagination] = useState({
-    pageIndex: 0,
-    pageSize: 10,
-  });
-  // useEffect(() => {
-  //   fetchAllCustomerData(pagination.pageIndex + 1, pagination.pageSize);
-  // }, [pagination]);
 
   const onPageChange = (newPage: number, newLimit: number) => {
     setPage(newPage);
@@ -172,9 +162,6 @@ const CustomersContent: React.FC = () => {
     }
   }, [searchInput]);
 
-
-
-  // Debounced search API call
   const debouncedSearch = useCallback(
     debounce((searchInput) => {
       fetchAllCustomerData({
@@ -188,17 +175,57 @@ const CustomersContent: React.FC = () => {
   );
 
   useEffect(() => {
-    debouncedSearch(searchInput);
     fetchAllCustomerData({
       page,
       limit,
       searchInput,
       filters,
     });
+  }, [page, limit, searchInput, filters, fetchAllCustomerData]);
+
+  useEffect(() => {
+    if (searchInput !== "") {
+      debouncedSearch(searchInput);
+    } else {
+      fetchAllCustomerData({ page, limit, searchInput, filters });
+    }
+
     return () => {
       debouncedSearch.cancel();
     };
-  }, [searchInput, debouncedSearch, page, limit, filters]);
+  }, [
+    searchInput,
+    debouncedSearch,
+    page,
+    limit,
+    filters,
+    fetchAllCustomerData,
+  ]);
+  // Debounced search API call
+  // const debouncedSearch = useCallback(
+  //   debounce((searchInput) => {
+  //     fetchAllCustomerData({
+  //       page,
+  //       limit,
+  //       searchInput,
+  //       filters,
+  //     });
+  //   }, 500),
+  //   [fetchAllCustomerData, filters, page, limit]
+  // );
+
+  // useEffect(() => {
+  //   debouncedSearch(searchInput);
+  //   fetchAllCustomerData({
+  //     page,
+  //     limit,
+  //     searchInput,
+  //     filters,
+  //   });
+  //   return () => {
+  //     debouncedSearch.cancel();
+  //   };
+  // }, [searchInput, debouncedSearch, page, limit, filters]);
 
   const tableInstance = useReactTable({
     data,
@@ -272,8 +299,6 @@ const CustomersContent: React.FC = () => {
       </div>
 
       <div className="md:flex justify-center sm:justify-end my-2">
-        {/* {customerData?.customers?.length ||
-        customerData?.customers?.length > 0 ? ( */}
         <PageHeader
           tableInstance={tableInstance}
           setSearchInput={setSearchInput}
@@ -283,7 +308,7 @@ const CustomersContent: React.FC = () => {
           <Link href={"/customers/addCustomer"}>
             <Button
               variant="outline"
-              className=" text-[0.8rem] text-white bg-[#013642] hover:bg-[#fff] hover:text-[#013642] boxShadow"
+              className=" text-[0.8rem] text-white bg-[#013642] hover:bg-[#fff] hover:text-[#013642] boxShadow  border-0 rounded-lg"
             >
               New Customer
             </Button>

@@ -105,17 +105,51 @@ const LeadsContent: React.FC = () => {
     }
   }, [leadData?.leads, leadData, router]);
 
+  // const debouncedSearch = useCallback(
+  //   debounce((input) => {
+  //     fetchAllLeadData({ page, limit, searchInput: input, filters });
+  //   }, 500),
+  //   [fetchAllLeadData, filters, page, limit]
+  // );
+
+  // useEffect(() => {
+  //   debouncedSearch(searchInput);
+  //   return () => debouncedSearch.cancel();
+  // }, [searchInput, page, limit, filters, debouncedSearch]);
+
+  useEffect(() => {
+    if (searchInput !== "") {
+      setPage(1);
+    }
+  }, [searchInput]);
+
   const debouncedSearch = useCallback(
-    debounce((input) => {
-      fetchAllLeadData({ page, limit, searchInput: input, filters });
+    debounce((searchInput) => {
+      fetchAllLeadData({
+        page,
+        limit,
+        searchInput,
+        filters,
+      });
     }, 500),
     [fetchAllLeadData, filters, page, limit]
   );
 
   useEffect(() => {
-    debouncedSearch(searchInput);
-    return () => debouncedSearch.cancel();
-  }, [searchInput, page, limit, filters, debouncedSearch]);
+    if (searchInput.trim().length > 0) {
+      debouncedSearch(searchInput);
+    } else {
+      fetchAllLeadData({
+        page,
+        limit,
+        searchInput,
+        filters,
+      });
+    }
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [searchInput, debouncedSearch, page, limit, filters]);
 
   useEffect(() => {
     if (leadData && leadData?.leads) {
@@ -171,11 +205,9 @@ const LeadsContent: React.FC = () => {
     getFacetedUniqueValues: getFacetedUniqueValues(),
   });
 
-
-
   const onPageChange = (newPage: number, newLimit: number) => {
     setPage(newPage);
-    const params = new URLSearchParams(searchParams.toString()); 
+    const params = new URLSearchParams(searchParams.toString());
 
     params.set("page", newPage.toString());
     params.set("limit", newLimit.toString());
@@ -227,7 +259,7 @@ const LeadsContent: React.FC = () => {
           <Link href={"/leads/addLead"}>
             <Button
               variant="outline"
-              className=" text-[0.8rem] text-white bg-[#013642] hover:bg-[#fff] hover:text-[#013642] boxShadow"
+              className=" text-[0.8rem] text-white bg-[#013642] hover:bg-[#fff] hover:text-[#013642] boxShadow border-0 rounded-lg"
             >
               New Lead
             </Button>
