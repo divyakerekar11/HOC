@@ -26,7 +26,7 @@ const AddDialoge = () => {
       </DialogTrigger>
 
       {/* Form Section */}
-      <DialogContent   className="sm:max-w-[700px]"
+      <DialogContent   className="sm:max-w-[700px] bg-[#e8f4f1] border-0 rounded-lg"
         aria-describedby="dialog-description">
         {/* <DialogHeader>
           <DialogTitle>New Add</DialogTitle>

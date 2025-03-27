@@ -1,6 +1,3 @@
-
-
-
 "use client";
 import React, { useEffect, useRef, useState, memo } from "react";
 import { RightArrowIconSVG } from "@/utils/SVGs/SVGs";
@@ -8,18 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const MenuItem = memo((props: any) => {
-  const {
-    label,
-    href,
-    submenuItems = [], 
-    isSidebarOpen,
-    icon,
-  } = props;
+  const { label, href, submenuItems = [], isSidebarOpen, icon } = props;
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const isActive = href === pathname;
   const menuItemRef = useRef<HTMLLIElement>(null);
-
 
   useEffect(() => {
     const isInitialLoad = !localStorage.getItem("hasScrolled");
@@ -38,16 +28,14 @@ const MenuItem = memo((props: any) => {
       className={`${isSidebarOpen ? "my-2" : "mt-[1rem]"} onHover px-1`}
     >
       <div className="relative ">
-        <Link href={href} scroll={false}> 
+        <Link href={href} scroll={false}>
           <button
             type="button"
             className={
               isActive
-                ? "w-full bg-white text-gray-700 dark:text-white transition duration-75 p-1 border-0 rounded-lg"
-                : "w-full transition duration-75 p-1"
-                
+                ? "w-full bg-white text-gray-700 dark:text-white transition duration-75 p-1 border-0 rounded-lg "
+                : "w-full transition duration-75 p-1 hover:bg-white hover:duration-75 hover:text-gray-700 hover:border-0 hover:rounded-lg"
             }
-            
             aria-controls="dropdown-example"
             data-collapse-toggle="dropdown-example"
           >
@@ -103,15 +91,3 @@ const MenuItem = memo((props: any) => {
 });
 
 export default MenuItem;
-
-
-
-
-
-
-
-
-
-
-
-

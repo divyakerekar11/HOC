@@ -87,7 +87,7 @@ const AllForm = ({
     let day = d.getDate().toString().padStart(2, "0");
     return `${year}-${month}-${day}`;
   }
- 
+
   const handleDateSelect = (selectedDate: any) => {
     setDate(selectedDate);
   };
@@ -321,7 +321,7 @@ const AllForm = ({
   const initialLimit = Number(searchParams.get("limit")) || 20;
   const [page, setPage] = useState(initialPage);
   const [limit, setLimit] = useState(initialLimit);
-  const { fetchNotificationData } = useNotificationStore()
+  const { fetchNotificationData } = useNotificationStore();
 
   // Fetch notifications based on page and limit
   const fetchNotifications = async () => {
@@ -331,7 +331,7 @@ const AllForm = ({
   // // Optionally, you can trigger the fetch when the form is opened or on any specific action
   useEffect(() => {
     fetchNotifications();
-  }, [page, limit, fetchNotificationData])
+  }, [page, limit, fetchNotificationData]);
 
   //   useEffect(() => {
   //     fetchNotificationData();
@@ -341,24 +341,24 @@ const AllForm = ({
       customer_status: undefined,
       date_current: "",
       subject: "",
-      priority: undefined, 
+      priority: undefined,
       generated_by: "",
       customerName: "",
       timeTakenMinutes: "",
-      status:undefined,
+      status: undefined,
       technicalTask: undefined,
-      currentStage:undefined,
+      currentStage: undefined,
       datePhase1Instructed: "",
       datePhase2Instructed: "",
-      demoLink:undefined,
+      demoLink: undefined,
       demoCompletedDate: "",
       liveDate: "",
-      notes:"",
+      notes: "",
       selectedCustomerId: "",
       selectedUserId: "",
-      liveUrl:undefined,
+      liveUrl: undefined,
       demoUrl: undefined,
-      files:undefined,
+      files: undefined,
       mentions: [] as string[],
     },
 
@@ -514,7 +514,6 @@ const AllForm = ({
     }
   };
   // Fetch Notification Data from the store
- ;
   const handleMonthChange2 = (
     month: string,
     target: "phase1" | "phase2" | "demo" | "live"
@@ -685,8 +684,6 @@ const AllForm = ({
     }
   };
 
-
-
   const handleDropDown = (field: string, selectedOption: any | null) => {
     console.log(`${field}:`, selectedOption);
   };
@@ -703,7 +700,6 @@ const AllForm = ({
 
     try {
       setLoading(true);
-
 
       const params: Record<string, any> = {
         page: currentPageNumber,
@@ -735,7 +731,7 @@ const AllForm = ({
       return {
         options: combinedOptions,
         hasMore,
-        additional: { page: currentPageNumber + 1 }, 
+        additional: { page: currentPageNumber + 1 },
       };
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -766,14 +762,36 @@ const AllForm = ({
           options={contentOptions}
           value={contentOptions.find((option) => option.value === statusValue)}
           onChange={handleStatusChange}
-          placeholder="Select a Types"
+          placeholder="Select a Type"
+          styles={{
+            option: (provided, state) => ({
+              ...provided,
+              backgroundColor: state.isSelected
+                ? "#013642"
+                : provided.backgroundColor,
+              color: state.isSelected ? "white" : provided.color,
+              ":hover": {
+                backgroundColor: state.isSelected ? "#013642" : "#e8f4f1",
+
+              },
+            }),
+            control: (provided, state) => ({
+              ...provided,
+              borderColor: state.isFocused ? "#013642" : provided.borderColor,
+              outline: "none",
+              boxShadow: "none",
+              ":hover": {
+                borderColor: state.isFocused ? "#013642" : provided.borderColor,
+              },
+            }),
+          }}
         />
       </div>
       {statusValue === "Amendment" && (
         <ScrollArea className="h-[30rem] px-3 py-3 label-text ">
           <form
             onSubmit={handleSubmit}
-            className="border rounded-lg slide-in p-6 text-[0.8rem] bg-[#fff]"
+            className="border rounded-lg p-6 text-[0.8rem] bg-[#fff] "
           >
             <div className="mb-3">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -804,16 +822,40 @@ const AllForm = ({
                   //   errorToastingFunction("Error loading Client");
                   //   console.error("Async Paginate Client:", error);
                   // }}
+                  // styles={{
+                  //   option: (provided, state) => ({
+                  //     ...provided,
+                  //     backgroundColor: state.isSelected ? "#007bff" : "white",
+                  //     cursor: "pointer",
+                  //     color: state.isSelected ? "white" : "black",
+                  //     ":hover": {
+                  //       backgroundColor: state.isSelected
+                  //         ? "#007bff"
+                  //         : "#f1f3f5",
+                  //     },
+                  //   }),
+                  //   singleValue: (provided) => ({
+                  //     ...provided,
+                  //     color: "black",
+                  //   }),
+                  // }}
                   styles={{
                     option: (provided, state) => ({
                       ...provided,
-                      backgroundColor: state.isSelected ? "#007bff" : "white",
-                      cursor: "pointer",
-                      color: state.isSelected ? "white" : "black",
+                      backgroundColor: state.isSelected ? "#013642" : provided.backgroundColor,
+                      color: state.isSelected ? "white" : provided.color,
                       ":hover": {
-                        backgroundColor: state.isSelected
-                          ? "#007bff"
-                          : "#f1f3f5",
+                        backgroundColor: state.isSelected ? "#013642" : "#e8f4f1",
+                        color: "black", 
+                      },
+                    }),
+                    control: (provided, state) => ({
+                      ...provided,
+                      borderColor: state.isFocused ? "#013642" : provided.borderColor,
+                      outline: "none",
+                      boxShadow: "none",
+                      ":hover": {
+                        borderColor: state.isFocused ? "#013642" : provided.borderColor,
                       },
                     }),
                     singleValue: (provided) => ({
@@ -881,7 +923,7 @@ const AllForm = ({
                     option: (provided, state) => ({
                       ...provided,
                       backgroundColor: state.isSelected ? "#007bff" : "white",
-             
+
                       cursor: "pointer",
                       color: state.isSelected ? "white" : "black",
                       ":hover": {
@@ -897,10 +939,8 @@ const AllForm = ({
                     menuList: (provided, state) => ({
                       ...provided,
                       maxHeight: state.options.length * 28,
-                      overflowY: 'auto',
+                      overflowY: "auto",
                     }),
-         
-                    
                   }}
                 />
                 {/* {!userLoading && userData?.length === 0 ? (
@@ -1172,7 +1212,7 @@ const AllForm = ({
         <ScrollArea className="h-[30rem] px-3 py-3 label-text ">
           <form
             onSubmit={handleSubmit}
-            className="border  rounded-lg slide-in   p-6 text-[0.8rem] bg-[#fff]"
+            className="border  rounded-lg    p-6 text-[0.8rem] bg-[#fff]"
           >
             <div className="mb-3 mt-1">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -1228,7 +1268,7 @@ const AllForm = ({
                 Assigned To
               </label>
               <div className="relative">
-              <AsyncPaginate
+                <AsyncPaginate
                   isMulti
                   className="react-select-custom-styling__container"
                   classNamePrefix="react-select-custom-styling"
@@ -1255,7 +1295,7 @@ const AllForm = ({
                     option: (provided, state) => ({
                       ...provided,
                       backgroundColor: state.isSelected ? "#007bff" : "white",
-             
+
                       cursor: "pointer",
                       color: state.isSelected ? "white" : "black",
                       ":hover": {
@@ -1271,10 +1311,8 @@ const AllForm = ({
                     menuList: (provided, state) => ({
                       ...provided,
                       maxHeight: state.options.length * 28,
-                      overflowY: 'auto',
+                      overflowY: "auto",
                     }),
-         
-                    
                   }}
                 />
               </div>
@@ -1521,7 +1559,7 @@ const AllForm = ({
         <ScrollArea className="h-[30rem] px-3 py-3 label-text ">
           <form
             onSubmit={handleSubmit}
-            className="border  rounded-lg slide-in  p-6 text-[0.8rem] bg-[#fff]"
+            className="border  rounded-lg  p-6 text-[0.8rem] bg-[#fff]"
           >
             <div className="lg:flex gap-5">
               <div className="mb-3  w-full">
@@ -1643,7 +1681,7 @@ const AllForm = ({
                 Assigned To
               </label>
               <div className="relative">
-              <AsyncPaginate
+                <AsyncPaginate
                   isMulti
                   className="react-select-custom-styling__container"
                   classNamePrefix="react-select-custom-styling"
@@ -1670,7 +1708,7 @@ const AllForm = ({
                     option: (provided, state) => ({
                       ...provided,
                       backgroundColor: state.isSelected ? "#007bff" : "white",
-             
+
                       cursor: "pointer",
                       color: state.isSelected ? "white" : "black",
                       ":hover": {
@@ -1686,10 +1724,8 @@ const AllForm = ({
                     menuList: (provided, state) => ({
                       ...provided,
                       maxHeight: state.options.length * 28,
-                      overflowY: 'auto',
+                      overflowY: "auto",
                     }),
-         
-                    
                   }}
                 />
               </div>
@@ -2092,7 +2128,7 @@ const AllForm = ({
         <ScrollArea className="h-[30rem] px-3 py-3 label-text ">
           <form
             onSubmit={handleSubmit}
-            className="border rounded-lg slide-in  p-6 text-[0.8rem] bg-[#fff]"
+            className="border rounded-lg  p-6 text-[0.8rem] bg-[#fff]"
           >
             <div className="mb-3 mt-1">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -2155,7 +2191,7 @@ const AllForm = ({
                 Assigned To
               </label>
               <div className="relative">
-              <AsyncPaginate
+                <AsyncPaginate
                   isMulti
                   className="react-select-custom-styling__container"
                   classNamePrefix="react-select-custom-styling"
@@ -2182,7 +2218,7 @@ const AllForm = ({
                     option: (provided, state) => ({
                       ...provided,
                       backgroundColor: state.isSelected ? "#007bff" : "white",
-             
+
                       cursor: "pointer",
                       color: state.isSelected ? "white" : "black",
                       ":hover": {
@@ -2198,10 +2234,8 @@ const AllForm = ({
                     menuList: (provided, state) => ({
                       ...provided,
                       maxHeight: state.options.length * 28,
-                      overflowY: 'auto',
+                      overflowY: "auto",
                     }),
-         
-                    
                   }}
                 />
                 {/* {!userLoading && userData?.length === 0 ? (
@@ -2537,7 +2571,7 @@ const AllForm = ({
         <ScrollArea className="h-[30rem] px-3 py-3 label-text ">
           <form
             onSubmit={handleSubmit}
-            className="border rounded-lg slide-in  p-6 text-[0.8rem] bg-[#fff]"
+            className="border rounded-lg  p-6 text-[0.8rem] bg-[#fff]"
           >
             <div className="mb-3 mt-1">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -2594,7 +2628,7 @@ const AllForm = ({
                 Assigned To
               </label>
               <div className="relative">
-              <AsyncPaginate
+                <AsyncPaginate
                   isMulti
                   className="react-select-custom-styling__container"
                   classNamePrefix="react-select-custom-styling"
@@ -2621,7 +2655,7 @@ const AllForm = ({
                     option: (provided, state) => ({
                       ...provided,
                       backgroundColor: state.isSelected ? "#007bff" : "white",
-             
+
                       cursor: "pointer",
                       color: state.isSelected ? "white" : "black",
                       ":hover": {
@@ -2637,10 +2671,8 @@ const AllForm = ({
                     menuList: (provided, state) => ({
                       ...provided,
                       maxHeight: state.options.length * 28,
-                      overflowY: 'auto',
+                      overflowY: "auto",
                     }),
-         
-                    
                   }}
                 />
               </div>

@@ -120,45 +120,55 @@
   height: 100%;
   overflow: hidden; 
 } */
-
+/* Define the default option styles */
 .react-select-custom-styling__option {
   cursor: pointer;
-}
-
-.react-select-custom-styling__option:hover {
-  background-color: #e2e8f0;
-  color: black;
-}
-.react-select-custom-styling__option {
-  /* background-color:red !important;  */
-  color: black;
-  /* cursor: default; */
+  color: black; /* Ensure text color is black */
   display: block;
-  /* font-family: "Century-Gothic"; */
+  padding: 8px 12px;
   font-size: inherit;
   width: 100%;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  padding: 8px 12px;
   box-sizing: border-box;
 }
+.react-select__control, .select2__control {
+  border-color: #013642 !important;
+  outline: none !important;
+}
+
+.react-select__option, .select2__option {
+  background-color: #e8f4f1 !important;
+}
+
+.react-select__option--is-selected, .select2__option--is-selected {
+  background-color: #013642 !important;
+  color: white !important;
+}
+
+
+/* .react-select-custom-styling__option:hover {
+  background-color: #f1f3f5; 
+  color: black; 
+}
+
 
 .react-select-custom-styling__option--is-selected {
   background-color: #013642 !important;
-  color: black;
+  color: white;
 }
-.react-select-custom-styling__option--is-selected:hover {
-  background-color: #29354f !important;
-  color: #fff;
-}
-/* ================================= */
 
-.css-13cymwt-control {
-  border-color: #9da4b0 !important;
+
+.react-select-custom-styling__option--is-selected:hover {
+  background-color: #013642 !important;
+  color: white;
 }
+
+
+.react-select-custom-styling__option:hover {
+  background-color: red; 
+  color: white; 
+} */
 
 /* =================================== */
 .ql-container {
