@@ -235,7 +235,9 @@ const AddWebsiteContentForm = ({}: any) => {
                     </div>
                   ) : (
                     <SelectReactSelect
-                      classNamePrefix="react-select-custom-styling"
+                      // classNamePrefix="react-select-custom-styling"
+                      className="react-select-custom-styling__container"
+                  classNamePrefix="react-select-custom-styling"
                       closeMenuOnSelect={true}
                       isClearable={true}
                       options={customerData.customers.map((customer: any) => ({

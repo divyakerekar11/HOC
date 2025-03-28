@@ -756,35 +756,14 @@ const AllForm = ({
           Select Type
         </label>
         <Select2
-          className="text-[0.8rem] boxShadow"
+          className="text-[0.8rem] boxShadow react-select-custom-styling__container"
           closeMenuOnSelect={true}
           components={animatedComponents}
           options={contentOptions}
           value={contentOptions.find((option) => option.value === statusValue)}
           onChange={handleStatusChange}
           placeholder="Select a Type"
-          styles={{
-            option: (provided, state) => ({
-              ...provided,
-              backgroundColor: state.isSelected
-                ? "#013642"
-                : provided.backgroundColor,
-              color: state.isSelected ? "white" : provided.color,
-              ":hover": {
-                backgroundColor: state.isSelected ? "#013642" : "#e8f4f1",
-
-              },
-            }),
-            control: (provided, state) => ({
-              ...provided,
-              borderColor: state.isFocused ? "#013642" : provided.borderColor,
-              outline: "none",
-              boxShadow: "none",
-              ":hover": {
-                borderColor: state.isFocused ? "#013642" : provided.borderColor,
-              },
-            }),
-          }}
+          classNamePrefix="react-select-custom-styling"
         />
       </div>
       {statusValue === "Amendment" && (
@@ -839,30 +818,6 @@ const AllForm = ({
                   //     color: "black",
                   //   }),
                   // }}
-                  styles={{
-                    option: (provided, state) => ({
-                      ...provided,
-                      backgroundColor: state.isSelected ? "#013642" : provided.backgroundColor,
-                      color: state.isSelected ? "white" : provided.color,
-                      ":hover": {
-                        backgroundColor: state.isSelected ? "#013642" : "#e8f4f1",
-                        color: "black", 
-                      },
-                    }),
-                    control: (provided, state) => ({
-                      ...provided,
-                      borderColor: state.isFocused ? "#013642" : provided.borderColor,
-                      outline: "none",
-                      boxShadow: "none",
-                      ":hover": {
-                        borderColor: state.isFocused ? "#013642" : provided.borderColor,
-                      },
-                    }),
-                    singleValue: (provided) => ({
-                      ...provided,
-                      color: "black",
-                    }),
-                  }}
                 />
               </div>
               {/* <div className="relative">
@@ -919,69 +874,7 @@ const AllForm = ({
                       : "No users found"
                   }
                   isLoading={loading}
-                  styles={{
-                    option: (provided, state) => ({
-                      ...provided,
-                      backgroundColor: state.isSelected ? "#007bff" : "white",
-
-                      cursor: "pointer",
-                      color: state.isSelected ? "white" : "black",
-                      ":hover": {
-                        backgroundColor: state.isSelected
-                          ? "#007bff"
-                          : "#f1f3f5",
-                      },
-                    }),
-                    singleValue: (provided) => ({
-                      ...provided,
-                      color: "black",
-                    }),
-                    menuList: (provided, state) => ({
-                      ...provided,
-                      maxHeight: state.options.length * 28,
-                      overflowY: "auto",
-                    }),
-                  }}
                 />
-                {/* {!userLoading && userData?.length === 0 ? (
-                  <div className="flex justify-start">
-                    <LoaderIconSVG />
-                    <span className="px-2">Loading...</span>
-                  </div>
-                ) : (
-                  <SelectReactSelect
-                    name="mentions"
-                    isMulti
-                    closeMenuOnSelect={false}
-                    isClearable={true}
-                    options={userData?.map(
-                      (user: { _id: any; fullName: any }) => ({
-                        value: user?._id,
-                        label: user?.fullName,
-                      })
-                    )}
-                    onChange={(selectedOptions) => {
-                      formik.setFieldValue(
-                        "mentions",
-                        selectedOptions
-                          ? selectedOptions.map((option) => option.value)
-                          : []
-                      );
-                    }}
-                    value={
-                      formik.values.mentions
-                        ? userData
-                            .filter((user: { _id: string }) =>
-                              formik.values.mentions.includes(user._id)
-                            )
-                            .map((user: { _id: any; fullName: any }) => ({
-                              value: user._id,
-                              label: user.fullName,
-                            }))
-                        : []
-                    }
-                  />
-                )} */}
               </div>
             </div>
 
@@ -1066,11 +959,36 @@ const AllForm = ({
                   onValueChange={(value: any) =>
                     formik.setFieldValue("priority", value)
                   }
-                  // onBlur={formik.handleBlur}
                   value={formik.values.priority}
                   name="priority"
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="select-trigger">
+                    <SelectValue placeholder="Select a Priority" />
+                  </SelectTrigger>
+
+                  <SelectContent className="select-content">
+                    <SelectGroup>
+                      <SelectLabel className="select-label">Select</SelectLabel>
+                      <SelectItem value="Standard" className="select-item">
+                        Standard
+                      </SelectItem>
+                      <SelectItem value="Urgent" className="select-item">
+                        Urgent
+                      </SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+
+                {/* <Select
+      
+                  onValueChange={(value: any) =>
+                    formik.setFieldValue("priority", value)
+                  }
+           
+                  value={formik.values.priority}
+                  name="priority"
+                >
+                  <SelectTrigger className="">
                     <SelectValue placeholder="Select a Priority" />
                   </SelectTrigger>
                   <SelectContent>
@@ -1080,7 +998,7 @@ const AllForm = ({
                       <SelectItem value="Urgent">Urgent</SelectItem>
                     </SelectGroup>
                   </SelectContent>
-                </Select>
+                </Select> */}
                 {touched.priority && errors.priority ? (
                   <div className="text-red-500">{errors.priority}</div>
                 ) : null}
@@ -1101,14 +1019,20 @@ const AllForm = ({
                     // id="userRoles"
                     name="customer_status"
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="select-trigger">
                       <SelectValue placeholder="Select Customer Status" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="select-content">
                       <SelectGroup>
-                        <SelectLabel>Select</SelectLabel>
-                        <SelectItem value="Live Site">Live Site</SelectItem>
-                        <SelectItem value="Demo Link">Demo Link</SelectItem>
+                        <SelectLabel className="select-label">
+                          Select
+                        </SelectLabel>
+                        <SelectItem value="Live Site" className="select-item">
+                          Live Site
+                        </SelectItem>
+                        <SelectItem value="Demo Link" className="select-item">
+                          Demo Link
+                        </SelectItem>
                       </SelectGroup>
                     </SelectContent>
                   </Select>
@@ -1132,7 +1056,8 @@ const AllForm = ({
                         id="liveUrl"
                         name="liveUrl"
                         placeholder="Enter Url"
-                        className="w-full  border border-stroke bg-transparent py-2 pl-3 pr-10  outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full  border border-stroke bg-transparent focus:border-[#013642] 
+                       focus-visible:shadow-none rounded-[4px] py-2 pl-3 pr-10  outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
                     </div>
                   </div>
@@ -1153,8 +1078,9 @@ const AllForm = ({
                         id="demoUrl"
                         name="demoUrl"
                         placeholder="Enter Url"
-                        className="w-full  border border-stroke bg-transparent py-2 pl-3 pr-10  outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      />
+                        className="w-full  border border-stroke bg-transparent focus:border-[#013642] 
+                        focus-visible:shadow-none rounded-[4px] py-2 pl-3 pr-10  outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                       />
                     </div>
                   </div>
                 </>
@@ -1195,7 +1121,7 @@ const AllForm = ({
               <Button
                 type="submit"
                 value="Sign In"
-                className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
+                className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition"
               >
                 {isUserValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -1212,7 +1138,7 @@ const AllForm = ({
         <ScrollArea className="h-[30rem] px-3 py-3 label-text ">
           <form
             onSubmit={handleSubmit}
-            className="border  rounded-lg    p-6 text-[0.8rem] bg-[#fff]"
+            className="border rounded-lg p-6 text-[0.8rem] bg-[#fff]"
           >
             <div className="mb-3 mt-1">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -1243,23 +1169,23 @@ const AllForm = ({
                   //   errorToastingFunction("Error loading Client");
                   //   console.error("Async Paginate Client:", error);
                   // }}
-                  styles={{
-                    option: (provided, state) => ({
-                      ...provided,
-                      backgroundColor: state.isSelected ? "#007bff" : "white",
-                      cursor: "pointer",
-                      color: state.isSelected ? "white" : "black",
-                      ":hover": {
-                        backgroundColor: state.isSelected
-                          ? "#007bff"
-                          : "#f1f3f5",
-                      },
-                    }),
-                    singleValue: (provided) => ({
-                      ...provided,
-                      color: "black",
-                    }),
-                  }}
+                  // styles={{
+                  //   option: (provided, state) => ({
+                  //     ...provided,
+                  //     backgroundColor: state.isSelected ? "#007bff" : "white",
+                  //     cursor: "pointer",
+                  //     color: state.isSelected ? "white" : "black",
+                  //     ":hover": {
+                  //       backgroundColor: state.isSelected
+                  //         ? "#007bff"
+                  //         : "#f1f3f5",
+                  //     },
+                  //   }),
+                  //   singleValue: (provided) => ({
+                  //     ...provided,
+                  //     color: "black",
+                  //   }),
+                  // }}
                 />
               </div>
             </div>
@@ -1492,14 +1418,18 @@ const AllForm = ({
                   value={formik.values.priority}
                   name="priority"
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="select-trigger">
                     <SelectValue placeholder="Select a Priority" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="select-content">
                     <SelectGroup>
-                      <SelectLabel>Select</SelectLabel>
-                      <SelectItem value="Standard">Standard</SelectItem>
-                      <SelectItem value="Urgent">Urgent</SelectItem>
+                      <SelectLabel className="select-label">Select</SelectLabel>
+                      <SelectItem value="Standard" className="select-item">
+                        Standard
+                      </SelectItem>
+                      <SelectItem value="Urgent" className="select-item">
+                        Urgent
+                      </SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -1542,7 +1472,7 @@ const AllForm = ({
               <Button
                 type="submit"
                 value=""
-                className="cursor-pointer  border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
+                className="cursor-pointer  border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition"
               >
                 {isCustomerValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -2159,23 +2089,6 @@ const AllForm = ({
                   //   errorToastingFunction("Error loading Client");
                   //   console.error("Async Paginate Client:", error);
                   // }}
-                  styles={{
-                    option: (provided, state) => ({
-                      ...provided,
-                      backgroundColor: state.isSelected ? "#007bff" : "white",
-                      cursor: "pointer",
-                      color: state.isSelected ? "white" : "black",
-                      ":hover": {
-                        backgroundColor: state.isSelected
-                          ? "#007bff"
-                          : "#f1f3f5",
-                      },
-                    }),
-                    singleValue: (provided) => ({
-                      ...provided,
-                      color: "black",
-                    }),
-                  }}
                 />
                 {formik.touched.selectedCustomerId &&
                 formik.errors.selectedCustomerId ? (
@@ -2214,29 +2127,6 @@ const AllForm = ({
                       : "No users found"
                   }
                   isLoading={loading}
-                  styles={{
-                    option: (provided, state) => ({
-                      ...provided,
-                      backgroundColor: state.isSelected ? "#007bff" : "white",
-
-                      cursor: "pointer",
-                      color: state.isSelected ? "white" : "black",
-                      ":hover": {
-                        backgroundColor: state.isSelected
-                          ? "#007bff"
-                          : "#f1f3f5",
-                      },
-                    }),
-                    singleValue: (provided) => ({
-                      ...provided,
-                      color: "black",
-                    }),
-                    menuList: (provided, state) => ({
-                      ...provided,
-                      maxHeight: state.options.length * 28,
-                      overflowY: "auto",
-                    }),
-                  }}
                 />
                 {/* {!userLoading && userData?.length === 0 ? (
                   <div className="flex justify-start">
@@ -2293,42 +2183,77 @@ const AllForm = ({
                     value={formik.values.status}
                     name="status"
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="select-trigger">
                       <SelectValue placeholder="Select a status" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="select-content">
                       <SelectGroup>
-                        <SelectLabel>Select</SelectLabel>
-                        <SelectItem value="Homepage In Process">
+                        <SelectLabel className="select-label">
+                          Select
+                        </SelectLabel>
+                        <SelectItem
+                          value="Homepage In Process"
+                          className="select-item"
+                        >
                           Homepage In Process
                         </SelectItem>
-                        <SelectItem value="Rework">Rework</SelectItem>
-                        <SelectItem value="Additional Pages in Process">
+                        <SelectItem value="Rework" className="select-item">
+                          Rework
+                        </SelectItem>
+                        <SelectItem
+                          value="Additional Pages in Process"
+                          className="select-item"
+                        >
                           Additional Pages in Process
                         </SelectItem>
-                        <SelectItem value="Homepage Complete">
+                        <SelectItem
+                          value="Homepage Complete"
+                          className="select-item"
+                        >
                           Homepage Complete
                         </SelectItem>
-
-                        <SelectItem value="Remaining Pages in Process">
+                        <SelectItem
+                          value="Remaining Pages in Process"
+                          className="select-item"
+                        >
                           Remaining Pages in Process
                         </SelectItem>
-                        <SelectItem value="COMPLETED">COMPLETED</SelectItem>
-                        <SelectItem value="In Query">In Query</SelectItem>
-                        <SelectItem value="Held for Critical">
+                        <SelectItem value="COMPLETED" className="select-item">
+                          COMPLETED
+                        </SelectItem>
+                        <SelectItem value="In Query" className="select-item">
+                          In Query
+                        </SelectItem>
+                        <SelectItem
+                          value="Held for Critical"
+                          className="select-item"
+                        >
                           Held for Critical
                         </SelectItem>
-                        <SelectItem value="Waiting on Info">
+                        <SelectItem
+                          value="Waiting on Info"
+                          className="select-item"
+                        >
                           Waiting on Info
                         </SelectItem>
-                        <SelectItem value="COMPLETED REWORK">
+                        <SelectItem
+                          value="COMPLETED REWORK"
+                          className="select-item"
+                        >
                           COMPLETED REWORK
                         </SelectItem>
-                        <SelectItem value="Area Pages Remaining">
+                        <SelectItem
+                          value="Area Pages Remaining"
+                          className="select-item"
+                        >
                           Area Pages Remaining
                         </SelectItem>
-                        <SelectItem value="Blog pages">Blog pages</SelectItem>
-                        <SelectItem value="Extra Pages">Extra Pages</SelectItem>
+                        <SelectItem value="Blog pages" className="select-item">
+                          Blog pages
+                        </SelectItem>
+                        <SelectItem value="Extra Pages" className="select-item">
+                          Extra Pages
+                        </SelectItem>
                       </SelectGroup>
                     </SelectContent>
                   </Select>
@@ -2346,7 +2271,8 @@ const AllForm = ({
                         variant={"outline"}
                         className={cn(
                           "w-[250px] justify-start text-left font-normal",
-                          !dateComplete && "text-muted-foreground"
+                          !dateComplete && "text-muted-foreground",
+          "focus:border-[#013642] focus-visible:shadow-none rounded-sm"
                         )}
                       >
                         <CalendarIcon className="mr-2 h-4 w-4" />
@@ -2401,7 +2327,7 @@ const AllForm = ({
 
                       <div className="calendar-container">
                         <Calendar
-                          className="pointer-events-auto"
+                          className="pointer-events-auto "
                           selected={dateComplete}
                           onSelect={handleComplateDateSelect}
                           mode="single"
@@ -2429,14 +2355,18 @@ const AllForm = ({
                   value={formik.values.priority}
                   name="priority"
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="select-trigger">
                     <SelectValue placeholder="Select a Priority" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="select-content">
                     <SelectGroup>
-                      <SelectLabel>Select</SelectLabel>
-                      <SelectItem value="Standard">Standard</SelectItem>
-                      <SelectItem value="Urgent">Urgent</SelectItem>
+                      <SelectLabel className="select-label">Select</SelectLabel>
+                      <SelectItem value="Standard" className="select-item">
+                        Standard
+                      </SelectItem>
+                      <SelectItem value="Urgent" className="select-item">
+                        Urgent
+                      </SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -2460,16 +2390,17 @@ const AllForm = ({
                     // id="userRoles"
                     name="customer_status"
                   >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select Customer Status" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        <SelectLabel>Select</SelectLabel>
-                        <SelectItem value="Live Site">Live Site</SelectItem>
-                        <SelectItem value="Demo Link">Demo Link</SelectItem>
-                      </SelectGroup>
-                    </SelectContent>
+                   <SelectTrigger className="select-trigger">
+  <SelectValue placeholder="Select Customer Status" />
+</SelectTrigger>
+<SelectContent className="select-content">
+  <SelectGroup>
+    <SelectLabel className="select-label">Select</SelectLabel>
+    <SelectItem value="Live Site" className="select-item">Live Site</SelectItem>
+    <SelectItem value="Demo Link" className="select-item">Demo Link</SelectItem>
+  </SelectGroup>
+</SelectContent>
+
                   </Select>
                   {touched.customer_status && errors.customer_status ? (
                     <div className="text-red-500">{errors.customer_status}</div>
@@ -2491,8 +2422,9 @@ const AllForm = ({
                         id="liveUrl"
                         name="liveUrl"
                         placeholder="Enter Url"
-                        className="w-full  border border-stroke bg-transparent py-2 pl-3 pr-10  outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      />
+                        className="w-full  border border-stroke bg-transparent focus:border-[#013642] 
+                        focus-visible:shadow-none rounded-[4px] py-2 pl-3 pr-10  outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                       />
                     </div>
                   </div>
                 </>
@@ -2512,8 +2444,9 @@ const AllForm = ({
                         id="demoUrl"
                         name="demoUrl"
                         placeholder="Enter Url"
-                        className="w-full  border border-stroke bg-transparent py-2 pl-3 pr-10  outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
-                      />
+                        className="w-full  border border-stroke bg-transparent focus:border-[#013642] 
+                        focus-visible:shadow-none rounded-[4px] py-2 pl-3 pr-10  outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                       />
                     </div>
                   </div>
                 </>
@@ -2554,7 +2487,7 @@ const AllForm = ({
               <Button
                 type="submit"
                 value="Sign In"
-                className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
+                className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition "
               >
                 {isUserValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -2602,23 +2535,7 @@ const AllForm = ({
                   //   errorToastingFunction("Error loading Client");
                   //   console.error("Async Paginate Client:", error);
                   // }}
-                  styles={{
-                    option: (provided, state) => ({
-                      ...provided,
-                      backgroundColor: state.isSelected ? "#007bff" : "white",
-                      cursor: "pointer",
-                      color: state.isSelected ? "white" : "black",
-                      ":hover": {
-                        backgroundColor: state.isSelected
-                          ? "#007bff"
-                          : "#f1f3f5",
-                      },
-                    }),
-                    singleValue: (provided) => ({
-                      ...provided,
-                      color: "black",
-                    }),
-                  }}
+                 
                 />
               </div>
             </div>
@@ -2651,29 +2568,7 @@ const AllForm = ({
                       : "No users found"
                   }
                   isLoading={loading}
-                  styles={{
-                    option: (provided, state) => ({
-                      ...provided,
-                      backgroundColor: state.isSelected ? "#007bff" : "white",
-
-                      cursor: "pointer",
-                      color: state.isSelected ? "white" : "black",
-                      ":hover": {
-                        backgroundColor: state.isSelected
-                          ? "#007bff"
-                          : "#f1f3f5",
-                      },
-                    }),
-                    singleValue: (provided) => ({
-                      ...provided,
-                      color: "black",
-                    }),
-                    menuList: (provided, state) => ({
-                      ...provided,
-                      maxHeight: state.options.length * 28,
-                      overflowY: "auto",
-                    }),
-                  }}
+                 
                 />
               </div>
             </div>
@@ -2888,7 +2783,7 @@ const AllForm = ({
               <Button
                 type="submit"
                 value="Sign In"
-                className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
+                className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition "
               >
                 {isUserValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

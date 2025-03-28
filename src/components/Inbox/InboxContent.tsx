@@ -193,7 +193,7 @@ const InboxContent: React.FC = () => {
 
   return (
     <>
-      <div className="md:flex justify-center sm:justify-end my-2 px-4">
+      <div className="md:flex justify-center sm:justify-end my-2 px-4 pt-[5px]">
         <AddDialoge />
       </div>
 
@@ -219,7 +219,7 @@ const InboxContent: React.FC = () => {
             style={{ maxHeight: "750px" }}
             id="scrollable-table-container"
           >
-            <Table className="shadow-md rounded-lg border border-gray-300 ">
+            <Table className="shadow-md border-gray-300 ">
               <TableHeader className="">
                 {/* fixed */}
                 <TableRow className="bg-gray-100 ">
@@ -364,12 +364,10 @@ const InboxContent: React.FC = () => {
                           className="text-[0.8rem] flex justify-end"
                           id={notification._id}
                           onClick={async () => {
-                            // First, mark the notification as read
+                    
                             await fetchSingleReadNotificationData(
                               notification._id
                             );
-
-                            // Then proceed to delete the notification
                             handleDelete(notification._id);
                           }}
                         >

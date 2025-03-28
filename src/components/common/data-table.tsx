@@ -37,12 +37,14 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="space-y-4 text-[#676879]">
-      <div className="border">
-        <div className="h-[82vh] overflow-x-auto bg-[#E8F4F1] boxShadow slide-in">
-         <Table className="bg-[#E8F4F1]">
-            <TableHeader className="bg-[#013642] sticky top-0 z-0 " >
+      {/* <div className="border">
+       */}
+         <div className="">
+        <div className="h-[82vh] overflow-x-auto bg-[#E8F4F1] boxShadow slide-in first:rounded-tl-lg last:rounded-tr-lg">
+         <Table className="bg-[#E8F4F1] ">
+            <TableHeader className="bg-[#013642] " >
               {tableInstance?.getHeaderGroups()?.map((headerGroup: any) => (
-                <TableRow key={headerGroup?.id}>
+                <TableRow key={headerGroup?.id} className="">
                   {headerGroup?.headers?.map((header: any) => (
                     <TableHead
                       key={header?.id}

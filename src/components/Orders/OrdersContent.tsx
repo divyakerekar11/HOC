@@ -184,7 +184,7 @@ const OrdersContent = () => {
 
   const onPageChange = (newPage: number, newLimit: number) => {
     setPage(newPage);
-    const params = new URLSearchParams(searchParams.toString()); 
+    const params = new URLSearchParams(searchParams.toString());
 
     params.set("page", newPage.toString());
     params.set("limit", newLimit.toString());
@@ -192,9 +192,9 @@ const OrdersContent = () => {
     router.push(`${pathname}?${params.toString()}`);
   };
   useEffect(() => {
-    setPage(1); 
+    setPage(1);
   }, [filters, orderYear, searchInput]);
-  
+
   useEffect(() => {
     if (orderYear || limit) {
       setPage(1);
@@ -221,7 +221,7 @@ const OrdersContent = () => {
           filters,
         });
     }, 500),
-    [fetchAllOrdersData, orderYear, filters, page, limit] 
+    [fetchAllOrdersData, orderYear, filters, page, limit]
   );
 
   useEffect(() => {
@@ -251,7 +251,9 @@ const OrdersContent = () => {
 
       <div className="w-[300px] md:w-[500px] lg:absolute z-50 mt-2 lg:mt-0 md:flex gap-2">
         <Select
-          className="text-[0.8rem] border-red-400 w-full mb-2 md:mb-0 boxShadow"
+          // className="text-[0.8rem] border-red-400 w-full mb-2 md:mb-0 boxShadow"
+          className="react-select-custom-styling__container"
+          classNamePrefix="react-select-custom-styling"
           closeMenuOnSelect={false}
           components={animatedComponents}
           isMulti
@@ -274,15 +276,17 @@ const OrdersContent = () => {
           name="orderyear"
           value={orderYear}
         >
-          <SelectTrigger className="border-[#73819c] h-[38px] boxShadow">
+          <SelectTrigger className="border-[#73819c] h-[38px] boxShadow select-trigger">
             <SelectValue
               placeholder="Select a year"
               className="text-[0.8rem] text-gray-50 "
             />
           </SelectTrigger>
-          <SelectContent className="text-[0.8rem] ">
+          <SelectContent className="text-[0.8rem] select-content">
             <SelectGroup>
-              <SelectLabel className="text-[0.8rem]">Select a year</SelectLabel>
+              <SelectLabel className="text-[0.8rem] select-label">
+                Select a year
+              </SelectLabel>
               {yearOptions &&
                 yearOptions?.map((year) => (
                   <SelectItem
@@ -322,7 +326,7 @@ const OrdersContent = () => {
           <Link href={"/orders/addOrder"}>
             <Button
               variant="outline"
-              className="text-[0.8rem] text-white bg-[#013642] hover:bg-[#fff] hover:text-[#013642] boxShadow"
+              className="text-[0.8rem] text-white bg-[#013642] hover:bg-[#fff] hover:text-[#013642] boxShadow border-0 rounded-lg"
             >
               Add Order
             </Button>

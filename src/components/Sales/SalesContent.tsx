@@ -246,7 +246,7 @@ const SalesContent: React.FC = () => {
   return (
     <>
       {/* Yearly  */}
-      <div className="px-4 relative">
+      <div className="px-4 relative bg-[#e8f4f1]">
         <div className="lg:flex justify-end my-3">
           <div className="w-36">
             <Selector
@@ -358,8 +358,8 @@ const SalesContent: React.FC = () => {
         </div>
       </div>
       {/* monthly  */}
-      <div className="px-4 py-4 relative my-5 ">
-        <div className="flex justify-end my-3 gap-2">
+      <div className="px-4 py-4 relative my-5 bg-[#e8f4f1]">
+        <div className="flex justify-end my-3 gap-2 ">
           <div className="w-36">
             <Selector
               onValueChange={(value: any) => setOrderMonth(value)}
@@ -527,7 +527,7 @@ const SalesContent: React.FC = () => {
       </div>
 
       {/* OrderTables  */}
-      <div className="px-4 py-4 relative my-5 ">
+      <div className="px-4 py-4 relative my-5 bg-[#e8f4f1]">
         <div className="flex gap-2  my-2">
           <p className="bg-slate-100 w-fit p-2 ">
             <span className="font-bold">Total Order Count</span> :{" "}

@@ -208,19 +208,22 @@ const CopywriterContent: React.FC = () => {
 
       <div className="w-[300px] lg:absolute  z-50 mt-2 lg:mt-0">
         <Select
-          className="text-[0.8rem] boxShadow"
+          // className="text-[0.8rem] boxShadow"
+                 className="react-select-custom-styling__container"
+                  classNamePrefix="react-select-custom-styling"
           closeMenuOnSelect={false}
+          isClearable
           components={animatedComponents}
-          isMulti
+
           options={statusOptions}
-          onChange={(selectedOptions) => {
-            const selectedValues =
-              selectedOptions &&
-              selectedOptions.map((option: any) => option.value);
+    
+          onChange={(selectedOption: any) => {
+            const selectedValues = selectedOption ? selectedOption.value : [];
             setFilters((prev: any) => ({
               ...prev,
               status: selectedValues,
             }));
+            setPage(1);
           }}
           placeholder="Select Status"
         />

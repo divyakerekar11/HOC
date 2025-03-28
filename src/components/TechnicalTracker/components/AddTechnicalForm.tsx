@@ -202,23 +202,23 @@ const AddTechnicalForm: React.FC<AddTechnicalFormProps> = ({
                               //   errorToastingFunction("Error loading Client");
                               //   console.error("Async Paginate Client:", error);
                               // }}
-                              styles={{
-                                option: (provided, state) => ({
-                                  ...provided,
-                                  backgroundColor: state.isSelected ? "#007bff" : "white",
-                                  cursor: "pointer",
-                                  color: state.isSelected ? "white" : "black",
-                                  ":hover": {
-                                    backgroundColor: state.isSelected
-                                      ? "#007bff"
-                                      : "#f1f3f5",
-                                  },
-                                }),
-                                singleValue: (provided) => ({
-                                  ...provided,
-                                  color: "black",
-                                }),
-                              }}
+                              // styles={{
+                              //   option: (provided, state) => ({
+                              //     ...provided,
+                              //     backgroundColor: state.isSelected ? "#007bff" : "white",
+                              //     cursor: "pointer",
+                              //     color: state.isSelected ? "white" : "black",
+                              //     ":hover": {
+                              //       backgroundColor: state.isSelected
+                              //         ? "#007bff"
+                              //         : "#f1f3f5",
+                              //     },
+                              //   }),
+                              //   singleValue: (provided) => ({
+                              //     ...provided,
+                              //     color: "black",
+                              //   }),
+                              // }}
                             />
             {/* {!customerData?.customers ? (
               <div className="flex justify-start">

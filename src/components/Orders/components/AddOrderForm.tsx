@@ -668,7 +668,7 @@ const AddOrderForm = ({ fetchAllOrdersData }: any) => {
 
   return (
     <div className="p-4 relative">
-      <div className="text-[1rem] font-semibold absolute top-[-38px]">
+      <div className="text-[1rem] font-semibold absolute top-[-38px] ">
         Add Order
       </div>
 
