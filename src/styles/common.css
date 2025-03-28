@@ -1,0 +1,720 @@
+/* @font-face {
+  font-family: Century-Gothic;
+  src: url(../asset//fonts/CenturyGothic.ttf);
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  /* font-family: "Figtree", sans-serif;
+   */
+   font-family: "poppins", sans-serif;
+}
+
+/* General container for the reply model */
+/* .reply-model-container {
+  position: fixed; 
+  top: 0;
+  right: 144;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  z-index: 1000; 
+}
+
+
+.quill-editor-wrapper {
+  background: #fff; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 22%; 
+  max-width: 800px; 
+  padding: 20px; 
+} */
+
+
+
+.react-select-custom-styling {
+  border-color: #e8f4f1;
+}
+
+.calendar-container .h-9 {
+  height: 1.75rem;
+}
+.calendar-container {
+  padding: 0px;
+  height: 300px; /* Set the fixed height you want */
+  /* overflow-y: auto;  */
+}
+
+.sidebar-margin {
+  margin-left: 17rem;
+}
+.rotated {
+  transform: rotate(90deg);
+  transition: all 300ms;
+}
+.closedSidebar .submenuItem {
+  display: none;
+}
+.closedSidebar .mainSidebar li:nth-child(6):hover .submenuItem {
+  background: #6c7c9e;
+  width: 160%;
+  left: calc(100%);
+  position: fixed;
+  top: 520px;
+  display: block;
+}
+.closedSidebar .mainSidebar li:nth-child(5):hover .submenuItem {
+  background: #6c7c9e;
+  width: 160%;
+  left: calc(100%);
+  position: fixed;
+  top: 438px;
+  display: block;
+}
+.backgroundSignIn {
+  background-image: url(../asset/images/company-statistics-shape.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.backgroundLogin {
+  background-image: url(../asset/images/company-statistics-shape.png);
+  background-size: auto;
+  background-repeat: no-repeat;
+  /* z-index: 100000; */
+}
+.employees {
+  background-image: url(../asset/images/employees.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 100000;
+}
+.create-account {
+  font-family: Century-Gothic;
+}
+
+.h-full.w-full.rounded-\[inherit\] {
+  overflow: scroll !important;
+}
+
+/* .editor-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; 
+} */
+/* Define the default option styles */
+/*  */
+
+
+/* .react-select-custom-styling__option:hover {
+  background-color: #f1f3f5; 
+  color: black; 
+}
+
+
+.react-select-custom-styling__option--is-selected {
+  background-color: #013642 !important;
+  color: white;
+}
+
+
+.react-select-custom-styling__option--is-selected:hover {
+  background-color: #013642 !important;
+  color: white;
+}
+
+
+.react-select-custom-styling__option:hover {
+  background-color: red; 
+  color: white; 
+} */
+/* Custom styling for the AsyncPaginate dropdown */
+
+
+
+.react-select-custom-styling__container {
+  width: 100%;
+  font-family: Arial, sans-serif;
+  border-radius: 4px;
+}
+
+/* Customize the option styles when the option is selected */
+.react-select-custom-styling__container .react-select-custom-styling__option {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  font-size: 14px !important;
+}
+
+/* When an option is selected */
+.react-select-custom-styling__container .react-select-custom-styling__option--is-selected {
+  /* background-color: #013642 !important; */
+  color: black!important;
+}
+
+/* Hover effect for options */
+.react-select-custom-styling__container .react-select-custom-styling__option:hover {
+  background-color: #e8f4f1;
+  color: black;
+}
+
+/* Control styles for the input field */
+.react-select-custom-styling__container .react-select-custom-styling__control {
+  border-color: #ccc !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  transition: border-color 0.3s ease;
+  font-size: 14px !important;
+}
+
+/* When the control is focused */
+.react-select-custom-styling__container .react-select-custom-styling__control--is-focused {
+  border-color: #013642 !important;
+  
+}
+
+/* Customize the placeholder text */
+.react-select-custom-styling__container .react-select-custom-styling__placeholder {
+  color: #888 !important;
+}
+
+/* Style the single value (selected option) text */
+.react-select-custom-styling__container .react-select-custom-styling__single-value {
+  color: black !important;
+  
+}
+
+
+/* Custom styling for the Select component */
+.select-trigger {
+  padding: 0.5rem;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius:4px;
+  font-size: 0.8rem;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+/* .select-trigger:hover {
+  border-color: #013642;
+} */
+
+/* Focus state for the Select Trigger */
+.select-trigger:focus {
+  outline: none;
+  border-color: #013642;
+}
+
+/* Customize the Select dropdown container */
+.select-content {
+  max-height: 12rem;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Label styles */
+.select-label {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Customize the Select option styles */
+.select-item {
+  padding: 0.5rem 1rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* When an option is selected */
+.select-item.selected {
+  background-color: #013642;
+  color: white;
+  
+}
+
+/* Hover effect for options */
+.select-item:hover {
+  background-color: #e8f4f1;
+  color: black;
+}
+.react-select-custom-styling__single-value, 
+.css-1dimb5e-singleValue {
+  font-size: 14px !important;
+}
+
+/* Customize the placeholder text */
+.select-placeholder {
+  color: #888;
+}
+
+/* Style for the selected value */
+.select-single-value {
+  color: #333;
+
+}
+/* Space between the option text and the checkmark/arrow in dropdown */
+.select-item {
+  display: flex;
+  align-items: center;
+  padding-left: 40px; /* Adds gap between the left side of the option and the checkmark/arrow */
+}
+
+.select-item .select-item__checkmark {
+  margin-right: 0px; /* Adjust this value to control the gap */
+}
+
+/* Adjust the gap between the dropdown text and arrow */
+.select-trigger .select-arrow {
+  margin-left: 60px;  /* Adds gap between the text and the arrow */
+}
+
+/* =================================== */
+.ql-container {
+  min-height: 130px;
+}
+
+.updates {
+  width: 100%;
+  text-align: center;
+  object-fit: cover;
+  margin: 0 auto !important;
+}
+/* ====================================== */
+/* ScrollBar Custom  */
+/* General vertical scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+  border: none;
+}
+
+/* Horizontal scrollbar styling */
+::-webkit-scrollbar:horizontal {
+  height: 8px; /* Adjust this value to change the height */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: hsl(214.3 31.8% 91.4%);
+  border-radius: 10px;
+  border: 0.2px solid hsl(214.3 31.8% 91.4%);
+}
+/* ========================================= */
+.ql-toolbar.ql-snow {
+  border-color: hsl(214.3 31.8% 91.4%) !important;
+}
+.ql-container.ql-snow {
+  border-color: hsl(214.3 31.8% 91.4%) !important;
+}
+
+/* ============================================= */
+.boxShadow {
+  box-shadow: 0 2px 10px 0 rgba(58, 53, 65, 0.1);
+}
+
+/* CSS for dialog panel */
+.dialog-panel {
+  position: fixed;
+  top: 35px;
+  right: -100%; /* Initially hidden to the right */
+  width: 60rem; /* Maximum width */
+  height: 100vh;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.1) 0px 1px 3px;
+  transition: right 0.5s ease-in-out; /* Smooth sliding transition */
+}
+
+/* When dialog is open, move it to the right */
+.dialog-panel.open {
+  right: 0; /* Slide into view */
+}
+
+/* CSS for close button */
+.dialog-close {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Optional: Animation for dialog header */
+.dialog-header {
+  background-color: #f7f7f7;
+  padding: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Optional: Overlay to darken background */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* When dialog is open, show the overlay */
+.dialog-overlay.open {
+  opacity: 1;
+}
+
+/* Quill Image  */
+
+.quill-uploaded-image {
+  max-width: 100%; /* Prevent overflow */
+  display: block; /* Ensure proper layout */
+  margin: 8px 0; /* Add some margin for better spacing */
+  resize: both; /* Allow resizing */
+  overflow: hidden;
+}
+.update-file {
+  position: absolute;
+  right: 150px;
+  bottom: 0;
+  background-color: aliceblue;
+  padding: 10px;
+}
+
+.report-files {
+  width: 200%;
+  position: absolute;
+  right: 150px;
+  bottom: 0;
+  background-color: aliceblue;
+  padding: 10px;
+}
+.report-btn {
+  right: 32px;
+  top: 194px;
+}
+.update .update-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 0px;
+}
+.update .file-1 .update-btn {
+  position: absolute;
+  bottom: 3px;
+
+  right: 11px;
+  justify-content: end;
+}
+.model-update-btn .update-btn {
+  bottom: 4px;
+  position: absolute;
+  /* justify-content: end; */
+  right: 0;
+}
+.custom-quill-container .ql-container .ql-snow.size {
+  height: 400px;
+}
+
+/* Custom React Quill editor size */
+
+/* For setting size on specific component container, you can use a custom class */
+/* Custom styles for different Quill sizes */
+/* .custom-quill-container .ql-container {
+  width: 100%;
+  height: 400px; 
+}
+
+.custom-quill-container .size {
+  height: 400px; /* This could be any size you want for the 'size' prop */
+
+/* .quill-uploaded-image {
+  width: 130px;
+  height: 130px;
+  object-fit: cover; 
+  margin: 5px;
+  border-radius: 5px;
+} */
+
+.overflowSection > div :nth-child(1) {
+  display: inline-table !important;
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1454px) {
+  .addFiles {
+    top: 177px;
+  }
+}
+/* @keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+} */
+ /* @keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.8s ease-out;
+} */
+/* @keyframes bounceIn {
+  0% {
+    transform: scale(0) translateY(100px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2) translateY(-90px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: bounceIn 1.5s ease-out;
+} */
+/* @keyframes zoomIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: zoomIn 1.5s ease-in-out;
+} */
+/* @keyframes smoothBounceIn {
+  0% {
+    transform: scale(0) translateY(100px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05) translateY(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+sahi laga
+.slide-in {
+  animation: smoothBounceIn 2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+} */
+
+/* @keyframes fadeInDownBig {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+.slide-in  {
+  animation: fadeInDownBig 1.5s ease-out;
+} */
+/* @keyframes zoomIn {
+  0% {
+    transform: scale(0.18);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
+
+.slide-in  {
+  animation: zoomIn 1.5s ease-out;
+} */
+
+
+/* @keyframes slideZoomIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1); 
+  }
+}
+
+.slide-in  {
+  animation: slideZoomIn 0.8s ease-out;
+} */
+/* CSS */
+
+/* @keyframes slideInFromLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(-5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideInFromLeft 1.5s ease-in-out forwards;
+} */
+
+/* Your animation definition */
+/* 
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideInFromLeft 1.5s ease-in-out forwards;
+} */
+/* @keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.slide-in {
+  animation: scaleUp 0.5s ease-in-out forwards;
+} */
+/* @keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideUp 1s ease-out forwards;
+} */
+
+/* @keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideInFromRight 1.5s ease-in-out forwards;
+} */
+
+/* @keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: fadeSlideUp 1s ease-out forwards;
+} */
+/* @keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: zoomIn 1s ease-out forwards;
+} */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(-7%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideInFromLeft 1.5s ease-in-out forwards;
+}
+
+
+.label-text label {
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.data-table {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.loading-spinner {
+  display: none;
+}
