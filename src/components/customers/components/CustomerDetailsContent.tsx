@@ -544,7 +544,8 @@ const CustomerDetailsContent = ({ handleUpdate }: any) => {
             className="w-full"
           >
             <TabsList className="grid grid-cols-5 ">
-              <TabsTrigger value="activity" className="bg-[#fff] ">
+              <TabsTrigger value="activity"
+               className="bg-[#fff]">
                 Update
               </TabsTrigger>
               <TabsTrigger value="orders" className="bg-[#fff]">
