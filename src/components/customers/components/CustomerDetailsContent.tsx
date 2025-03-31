@@ -375,7 +375,7 @@ const CustomerDetailsContent = ({ handleUpdate }: any) => {
     const filename = parts[parts.length - 1];
     return filename;
   };
-
+  console.log("activityData",activityData)
   return (
     <div className="px-4 py-0 relative text-[0.8rem] bg-[#e8f4f1]">
       {/* <div className="text-xl font-semibold absolute top-[-50px]">
@@ -838,6 +838,7 @@ const CustomerDetailsContent = ({ handleUpdate }: any) => {
         </div>
       </div>
       <div className="lg gap-1 justify-start">
+        
   <div className="w-full">
     {activityData?.length > 0 ? (
       <ActivitySection activityDetails={activityData} />

@@ -81,7 +81,8 @@ export const useEditorStore = create<EditorState & EditorActions>()(
             `/activitylogs/${customerId}`
           );
           if (response.status === 200) {
-            set({ activityData: response?.data?.data?.activityLogs, loading: false });
+            // set({ activityData: response?.data?.data?.activityLogs, loading: false });
+            set({ activityData: response?.data?.data, loading: false });
           } else {
             set({ activityData: response.data?.message, loading: false });
           }
