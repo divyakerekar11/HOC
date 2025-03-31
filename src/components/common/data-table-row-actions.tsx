@@ -83,7 +83,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
           <Link href={`/users/userDetails/${row?.original?._id}`}>
             <TooltipCommon text="Show More">
               <Button className="bg-transparent hover:bg-transparent">
-                <DotsHorizontalIcon className="h-5 w-6 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg " />
+                <DotsHorizontalIcon className="h-5 w-6 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded " />
               </Button>
             </TooltipCommon>
           </Link>
@@ -95,7 +95,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
           <Link href={`/customers/customerDetails/${row?.original?._id}`}>
             <TooltipCommon text="Amendments">
               <Button className="bg-transparent hover:bg-transparent">
-                <DotsHorizontalIcon className="h-5 w-6 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg" />
+                <DotsHorizontalIcon className="h-5 w-6 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded" />
               </Button>
             </TooltipCommon>
           </Link>
@@ -107,7 +107,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
           <Link href={`/leads/leadsDetails/${row?.original?._id}`}>
             <TooltipCommon text="Show More">
               <Button className="bg-transparent hover:bg-transparent">
-                <DotsHorizontalIcon className="h-5 w-6 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg" />
+                <DotsHorizontalIcon className="h-5 w-6 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded" />
               </Button>
             </TooltipCommon>
           </Link>
@@ -119,7 +119,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
           <Link href={`/orders/orderDetails/${row?.original?._id}`}>
             {/* <TooltipCommon text="Show More"> */}
             <Button className="bg-transparent hover:bg-transparent">
-              <DotsHorizontalIcon className="h-6 w-6 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg" />
+              <DotsHorizontalIcon className="h-6 w-6 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded" />
               <span className="text-black pl-4">Show More</span>
             </Button>
             {/* </TooltipCommon> */}
@@ -136,7 +136,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
           <Link href={`/users/editUserDetails/${row?.original?._id}`}>
             <TooltipCommon text="Edit User">
               <Button className="bg-transparent hover:bg-transparent">
-                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg" />
+                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded" />
               </Button>
             </TooltipCommon>
           </Link>
@@ -149,7 +149,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
           <Link href={`/productFlow/editProductFlow/${row?.original?._id}`}>
             <TooltipCommon text="Edit Product Flow">
               <Button className="bg-transparent hover:bg-transparent">
-                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg" />
+                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded" />
               </Button>
             </TooltipCommon>
           </Link>
@@ -161,7 +161,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
           <Link href={`/leads/editLead/${row?.original?._id}`}>
             <TooltipCommon text="Edit Lead ">
               <Button className="bg-transparent hover:bg-transparent ">
-                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg" />
+                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded" />
               </Button>
             </TooltipCommon>
           </Link>
@@ -183,7 +183,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
           <Link href={`/orders/editOrder/${row?.original?._id}`}>
             {/* <TooltipCommon text="Edit Order"> */}
             <Button className="bg-transparent hover:bg-transparent">
-              <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg" />
+              <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded" />
               <span className="text-black pl-4">Edit</span>
             </Button>
             {/* </TooltipCommon> */}
@@ -197,7 +197,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
           <Link href={`/amendment/editAmendmentDetails/${row?.original?._id}`}>
             <TooltipCommon text="Edit Amendment">
               <Button className="bg-transparent hover:bg-transparent">
-                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg" />
+                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded" />
               </Button>
             </TooltipCommon>
           </Link>
@@ -209,7 +209,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
           <Link href={`/technical/editTechnicalDetails/${row?.original?._id}`}>
             <TooltipCommon text="Edit Technical">
               <Button className="bg-transparent hover:bg-transparent">
-                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg" />
+                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded" />
               </Button>
             </TooltipCommon>
           </Link>
@@ -220,7 +220,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
           <Link href={`/copywriter/editCopywriter/${row?.original?._id}`}>
             <TooltipCommon text="Edit Copywriter">
               <Button className="bg-transparent hover:bg-transparent">
-                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg" />
+                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded" />
               </Button>
             </TooltipCommon>
           </Link>
@@ -233,7 +233,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
           >
             <TooltipCommon text="Edit New Website Content">
               <Button className="bg-transparent hover:bg-transparent">
-                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg" />
+                <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded" />
               </Button>
             </TooltipCommon>
           </Link>
@@ -248,7 +248,7 @@ export function DataTableRowActions<TData extends { orderType?: any }>({
             >
               <TooltipCommon text="Edit Employee Leave">
                 <Button className="bg-transparent hover:bg-transparent">
-                  <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg " />
+                  <Pencil2Icon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded " />
                 </Button>
               </TooltipCommon>
             </Link>

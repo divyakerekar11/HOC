@@ -83,7 +83,7 @@ const WebsiteContentDetails = () => {
       <div className=" gap-5 mt-2">
         
         <div className="flex justify-center gap-5">
-        <div className="my-3 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded-lg">
+        <div className="my-3 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded">
           <Link href={`/websiteContent`} >Back</Link>
         </div>
           <Card className="h-[90vh] overflow-auto">

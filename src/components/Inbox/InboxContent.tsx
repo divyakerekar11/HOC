@@ -371,7 +371,7 @@ const InboxContent: React.FC = () => {
                             handleDelete(notification._id);
                           }}
                         >
-                          <TrashIcon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded-lg " />
+                          <TrashIcon className="h-6 w-7 p-1 hover:bg-[#013642] text-black hover:text-[white] border-0 rounded " />
                         </span>
                       </TableCell>
                     </TableRow>

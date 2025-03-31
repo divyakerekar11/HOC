@@ -33,8 +33,8 @@ const MenuItem = memo((props: any) => {
             type="button"
             className={
               isActive
-                ? "w-full bg-white text-gray-700 dark:text-white transition duration-75 p-1 border-0 rounded-lg "
-                : "w-full transition duration-75 p-1 hover:bg-white hover:duration-75 hover:text-gray-700 hover:border-0 hover:rounded-lg"
+                ? "w-full bg-white text-gray-700 dark:text-white transition duration-75 p-1 border-0 rounded "
+                : "w-full transition duration-75 p-1 hover:bg-white hover:duration-75 hover:text-gray-700 hover:border-0 hover:rounded"
             }
             aria-controls="dropdown-example"
             data-collapse-toggle="dropdown-example"

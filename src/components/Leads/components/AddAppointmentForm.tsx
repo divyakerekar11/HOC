@@ -230,7 +230,7 @@ const AddAppointmentForm: React.FC<AddAppointmentFormProps> = ({
   const currentYear = date ? getYear(date) : getYear(new Date());
 
   return (
-    <form onSubmit={handleSubmit} className="overflow-y-auto text-[0.9rem] label-text border-0 rounded-lg slider-in ">
+    <form onSubmit={handleSubmit} className="overflow-y-auto text-[0.9rem] label-text border-0 rounded slider-in ">
       <div className="px-3 py-3 ">
         {/* Name   */}
         <div className="mb-3 ">
@@ -465,7 +465,7 @@ const AddAppointmentForm: React.FC<AddAppointmentFormProps> = ({
           <Button
             type="submit"
             value="Sign In"
-            className="cursor-pointer border-0 rounded-lg p-2 h-9  bg-[#013642] py-1 text-white transition hover:bg-opacity-90"
+            className="cursor-pointer border-0 rounded p-2 h-9  bg-[#013642] py-1 text-white transition hover:bg-opacity-90"
           >
             {isUserValid ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />

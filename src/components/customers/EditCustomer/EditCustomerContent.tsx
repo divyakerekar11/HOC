@@ -328,13 +328,13 @@ const EditCustomerContent = () => {
         <BreadcrumbSection crumbs={crumbs} />
       </div> */}
       <div className=" flex gap-5 justify-center">
-        <div className="my-3 text-[0.8rem] bg-[#fff] hover:bg-gray-300 h-fit w-fit px-2 py-1  cursor-pointer hidden text-center sm:block boxShadow border-0 rounded-lg">
+        <div className="my-3 text-[0.8rem] bg-[#fff] hover:bg-gray-300 h-fit w-fit px-2 py-1  cursor-pointer hidden text-center sm:block boxShadow border-0 rounded">
           <Link href={`/customers/customerDetails/${customerId}`}>Back</Link>
         </div>
         <ScrollArea className="h-[90vh]  my-3 sm:my-0 sm:px-3 sm:py-3 w-[100%] xl:w-[70vw] label-text">
           <form
             onSubmit={handleSubmit}
-            className="p-6 text-[0.8rem] bg-[#fff] border-0 rounded-lg slide-in "
+            className="p-6 text-[0.8rem] bg-[#fff] border-0 rounded slide-in "
           >
             <div className="lg:flex gap-5">
               {/* Contact Name  */}
@@ -924,7 +924,7 @@ const EditCustomerContent = () => {
               <Button
                 type="submit"
                 // value="Sign In"
-                className="lg:w-[6vw] w-full cursor-pointer border-0 rounded-lg px-4 py-1 h-9 text-white transition hover:bg-opacity-90 text-md bg-[#013642] "
+                className="lg:w-[6vw] w-full cursor-pointer border-0 rounded px-4 py-1 h-9 text-white transition hover:bg-opacity-90 text-md bg-[#013642] "
               >
                 {isCustomerValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

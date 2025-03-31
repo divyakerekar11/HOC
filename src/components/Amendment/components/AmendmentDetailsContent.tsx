@@ -215,7 +215,7 @@ const AmendmentDetailsContent = () => {
           <Link href={`/amendment`}>Back</Link>
         </div>
         <div className="">
-          <Card className="w-[575px] h-[100%] boxShadow border-0 rounded-lg slide-in mt-3">
+          <Card className="w-[575px] h-[100%] boxShadow border-0 rounded slide-in mt-3">
             <CardHeader>
               <CardTitle className="text-[1rem]">Amendment Data</CardTitle>
               <CardDescription>Details Of existing Amendment</CardDescription>

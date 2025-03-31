@@ -225,10 +225,10 @@ const AddEmployeeLeaveForm: React.FC = () => {
   };
   return (
     <>
-    <div className="my-3 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded-lg mt-5">
+    <div className="my-3 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded mt-5">
     <Link href={`/employeeLeaveManagement`} >Back</Link>
   </div>
-    <ScrollArea className=" w-[100%] xl:w-[56vw]  p-7 my-5 boxShadow bg-[#fff] label-text  border-0 rounded-lg slide-in">
+    <ScrollArea className=" w-[100%] xl:w-[56vw]  p-7 my-5 boxShadow bg-[#fff] label-text  border-0 rounded slide-in">
     
       <form onSubmit={handleSubmit} className="text-[0.9rem] ">
         
@@ -534,7 +534,7 @@ const AddEmployeeLeaveForm: React.FC = () => {
           <Button
             type="submit"
             value="Sign In"
-            className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
+            className="cursor-pointer border-0 rounded p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
           >
             {isUserValid ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />

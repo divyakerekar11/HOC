@@ -315,7 +315,7 @@ const AddProductFlowForm = ({}: any) => {
       </div>
 
       <div className="flex justify-center">
-        <div className="my-3 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded-lg" >
+        <div className="my-3 text-[0.9rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit boxShadow border-0 rounded" >
           <Link
             href={`/productFlow`}
             className="text-[0.9rem]  "
@@ -326,7 +326,7 @@ const AddProductFlowForm = ({}: any) => {
         <ScrollArea className="h-[80vh] px-3 py-3 w-[100%] xl:w-[56vw] label-text ">
           <form
             onSubmit={handleSubmit}
-            className="border-0 rounded-lg slide-in  p-6 text-[0.8rem] bg-[#fff]"
+            className="border-0 rounded slide-in  p-6 text-[0.8rem] bg-[#fff]"
           >
             <div className="lg:flex gap-5">
               <div className="mb-3  w-full">
@@ -767,7 +767,7 @@ const AddProductFlowForm = ({}: any) => {
             <div className="my-6 ">
               <Button
                 type="submit"
-                className="lg:w-[6vw] cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] cursor-pointer border-0 rounded p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
               >
                 {isProductFlowValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

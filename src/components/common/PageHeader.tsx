@@ -14,7 +14,7 @@ const PageHeader = ({ tableInstance, setSearchInput }: any) => {
         <SearchIconSVG />
       </span>
       <input
-        className="input-field w-100  border-1 text-[0.9rem] border-gray-400 py-[0.42rem]  px-[2rem] outline-none boxShadow border-0 rounded-lg"
+        className="input-field w-100  border-1 text-[0.9rem] border-gray-400 py-[0.42rem]  px-[2rem] outline-none boxShadow border-0 rounded"
         type="text"
         placeholder="Search"
         // value={initialState?.globalFilter?.filtering || ""}

@@ -770,7 +770,7 @@ const AllForm = ({
         <ScrollArea className="h-[30rem] px-3 py-3 label-text ">
           <form
             onSubmit={handleSubmit}
-            className="border rounded-lg p-6 text-[0.8rem] bg-[#fff] "
+            className="border rounded p-6 text-[0.8rem] bg-[#fff] "
           >
             <div className="mb-3">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -1121,7 +1121,7 @@ const AllForm = ({
               <Button
                 type="submit"
                 value="Sign In"
-                className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition"
+                className="cursor-pointer border-0 rounded p-2 h-9 bg-[#013642] px-4 py-1 text-white transition"
               >
                 {isUserValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -1138,7 +1138,7 @@ const AllForm = ({
         <ScrollArea className="h-[30rem] px-3 py-3 label-text ">
           <form
             onSubmit={handleSubmit}
-            className="border rounded-lg p-6 text-[0.8rem] bg-[#fff]"
+            className="border rounded p-6 text-[0.8rem] bg-[#fff]"
           >
             <div className="mb-3 mt-1">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -1472,7 +1472,7 @@ const AllForm = ({
               <Button
                 type="submit"
                 value=""
-                className="cursor-pointer  border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition"
+                className="cursor-pointer  border-0 rounded p-2 h-9 bg-[#013642] px-4 py-1 text-white transition"
               >
                 {isCustomerValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -1489,7 +1489,7 @@ const AllForm = ({
         <ScrollArea className="h-[30rem] px-3 py-3 label-text ">
           <form
             onSubmit={handleSubmit}
-            className="border  rounded-lg  p-6 text-[0.8rem] bg-[#fff]"
+            className="border  rounded  p-6 text-[0.8rem] bg-[#fff]"
           >
             <div className="lg:flex gap-5">
               <div className="mb-3  w-full">
@@ -2041,7 +2041,7 @@ const AllForm = ({
               <Button
                 type="submit"
                 value="Sign In"
-                className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
+                className="cursor-pointer border-0 rounded p-2 h-9 bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
               >
                 {isUserValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -2058,7 +2058,7 @@ const AllForm = ({
         <ScrollArea className="h-[30rem] px-3 py-3 label-text ">
           <form
             onSubmit={handleSubmit}
-            className="border rounded-lg  p-6 text-[0.8rem] bg-[#fff]"
+            className="border rounded  p-6 text-[0.8rem] bg-[#fff]"
           >
             <div className="mb-3 mt-1">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -2487,7 +2487,7 @@ const AllForm = ({
               <Button
                 type="submit"
                 value="Sign In"
-                className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition "
+                className="cursor-pointer border-0 rounded p-2 h-9 bg-[#013642] px-4 py-1 text-white transition "
               >
                 {isUserValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -2504,7 +2504,7 @@ const AllForm = ({
         <ScrollArea className="h-[30rem] px-3 py-3 label-text ">
           <form
             onSubmit={handleSubmit}
-            className="border rounded-lg  p-6 text-[0.8rem] bg-[#fff]"
+            className="border rounded  p-6 text-[0.8rem] bg-[#fff]"
           >
             <div className="mb-3 mt-1">
               <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -2783,7 +2783,7 @@ const AllForm = ({
               <Button
                 type="submit"
                 value="Sign In"
-                className="cursor-pointer border-0 rounded-lg p-2 h-9 bg-[#013642] px-4 py-1 text-white transition "
+                className="cursor-pointer border-0 rounded p-2 h-9 bg-[#013642] px-4 py-1 text-white transition "
               >
                 {isUserValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
