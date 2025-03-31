@@ -75,8 +75,10 @@ export function DataTable<TData, TValue>({
               ) : tableInstance?.getRowModel()?.rows?.length !== 0 ? (
                 tableInstance.getRowModel().rows.map((row: any, index: number) => {
                   const isHighlighted = row.original._id === queryParams; 
-                  const rowClass = index % 2 === 0 ? "bg-[#F2FBF9]" : "bg-[#D1E7E2]";
-                  index % 2 === 0 ? "bg-[#fff]" : "bg-[#e8f4f1]";
+                  const rowClass = index % 2 === 0 ? "bg-[#D8F4F3]" : "bg-[#A7D8D2]"; 
+                  // index % 2 === 0 ?  "bg-[#E0F1F1]" : "bg-[#B3D8D1]";
+                  // index % 2 === 0 ? "bg-[#F2FBF9]" : "bg-[#D1E7E2]";
+                  // index % 2 === 0 ? "bg-[#fff]" : "bg-[#e8f4f1]";
     
                   return (
                     <TableRow

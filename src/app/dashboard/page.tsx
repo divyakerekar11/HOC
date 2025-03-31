@@ -166,7 +166,7 @@ const DashBoardPage: React.FC = () => {
               </div>
             ) : (
               <div className="sm:flex gap-3 smooth-slide-in-right ">
-              <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent  hover:border-[1px] hover:border-[#013642] slide-in-right  hover:bg-[#e6f3f1]">
+              <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent  hover:border-[1px] hover:border-[#013642] slide-in-right  ">
                   <CardHeader className="p-[1rem] xl:p-[1.5rem]">
                     <CardTitle className=" text-[0.8rem] xl:text-[1rem]">
                       Total Leads
@@ -349,7 +349,7 @@ const DashBoardPage: React.FC = () => {
               </div>
 
               {/* New Amendments  */}
-              <div className="flex flex-col items-center bg-[#ffffff] dark:bg-gray-800 border-0  shadow-[0_5px_5px_#523f690d] hover:shadow-[0_1rem_2rem_rgba(0,0,0,0.2)] my-3 sm:my-0  hover:bg-[#e6f3f1]">
+              <div className="flex flex-col items-center bg-[#ffffff] dark:bg-gray-800 border-0  shadow-[0_5px_5px_#523f690d] hover:shadow-[0_1rem_2rem_rgba(0,0,0,0.2)] my-3 sm:my-0  hover:bg-[#e6f3f1] ">
                 <p className="mt-5 bg-gray-100 p-6 rounded-full  transition-all duration-300 ease-in-out hover:bg-[#e6f3f1]  hover:border-[1px] hover:border-[#013642] ">
                   <LatestAmendmentsUIconSVG />
                 </p>

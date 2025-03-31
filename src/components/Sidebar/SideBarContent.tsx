@@ -234,7 +234,7 @@ console.log("toggleSider",toggleSider)
           onScroll={handleScroll}
           className={`h-full ${
             toggleSider ? "px-3" : ""
-          } pb-4 overflow-y-auto bg-[#013642] dark:bg-gray-800 text-[#fffff5]`}
+          } pb-4 overflow-y-auto bg-gradient-to-t from-[#008080] to-[#013642] dark:bg-gray-800 text-[#fffff5]`}
         >
           {/* Logo Section */}
           <div
