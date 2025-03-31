@@ -473,13 +473,13 @@ const EditOrder = ({}) => {
       </div> */}
 
       <div className="flex justify-center">
-        <div className="my-3 text-[0.8rem] hover:bg-gray-300 h-fit px-2 py-1 rounded cursor-pointer hidden text-center sm:block w-fit bg-[#fff] boxShadow">
+        <div className="my-3 text-[0.8rem] hover:bg-gray-300 h-fit px-2 py-1 cursor-pointer hidden text-center sm:block w-fit bg-[#fff] boxShadow">
           <Link href={`/orders`}>Back</Link>
         </div>
         <ScrollArea className="h-[95vh]   sm:px-3 sm:py-3 w-[100%] xl:w-[70vw]">
           <form
             onSubmit={handleSubmit}
-            className="p-6 text-[0.8rem] bg-[#fff] border-0 rounded slide-in "
+            className="p-6 text-[0.8rem] bg-[#fff] border-0  slide-in "
           >
             <div className="lg:flex gap-5">
               {/* <div className="mb-3 w-full">
@@ -1543,7 +1543,7 @@ const EditOrder = ({}) => {
               <Button
                 type="submit"
                 // value="Sign In"
-                className="lg:w-[6vw] w-full cursor-pointer border-0 rounded p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
+                className="lg:w-[6vw] w-full cursor-pointer border-0  p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 text-md"
               >
                 {isLeadValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

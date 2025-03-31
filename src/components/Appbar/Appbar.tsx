@@ -63,6 +63,7 @@ interface NavBarProps {
 }
 interface UserData {
   fullName?: string;
+  role?: string;
   avatar?: string;
   email?: string;
 }
@@ -274,7 +275,14 @@ const Appbar: React.FC<NavBarProps> = ({ toggleSider }) => {
         </DropdownMenu> */}
 
         {/* User Profile DropDown section */}
+
+    
+
         <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse relative">
+
+          {/* <div className="header-info me-3">   <span className="fs-16 font-w600 text-black">{userData?.fullName ? userData?.fullName : ""}</span>
+          <small className="text-end fs-14 font-w400">   {userData?.role ? userData?.role : ""}     </small></div> */}
+     
           <button
             type="button"
             className="flex text-[0.8rem] bg-gray-800  md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"

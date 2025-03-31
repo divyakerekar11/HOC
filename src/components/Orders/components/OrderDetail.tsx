@@ -92,7 +92,7 @@ const OrderDetail = () => {
       </div> */}
       {/* Main Customer details section  */}
       <div className="flex gap-5  justify-center mt-2">
-        <div className="my-3 text-[0.8rem] hover:bg-gray-300 h-fit px-2 py-1 border-0 rounded cursor-pointer hidden text-center sm:block w-fit bg-[#fff] boxShadow">
+        <div className="my-3 text-[0.8rem] hover:bg-gray-300 h-fit px-2 py-1 border-0 cursor-pointer hidden text-center sm:block w-fit bg-[#fff] boxShadow">
           {/* <Link href={`/orders?year=${}&page=${}`}>Back</Link> */}
           <Link href={`/orders`}>Back</Link>
         </div>
@@ -348,7 +348,7 @@ const OrderDetail = () => {
                     {orderDetail?.vatInvoice ? (
                       <p className="mx-2">
                         <a
-                          className="flex justify-center items-center hover:bg-slate-300 px-3 py-1 rounded"
+                          className="flex justify-center items-center hover:bg-slate-300 px-3 py-1"
                           href={orderDetail?.vatInvoice}
                           target="_blank"
                         >

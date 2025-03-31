@@ -41,7 +41,7 @@ const technicalStatusStyles: { [key: string]: string } = {
 
 const renderStatus = (status: string) => (
   <div
-    className={`p-1 rounded text-center font-bold border border-l-8 w-[115px] ${
+    className={`p-1  text-center font-bold border border-l-8 w-[115px] ${
       statusStyles[status] || ""
     }`}
   >
@@ -51,7 +51,7 @@ const renderStatus = (status: string) => (
 
 const renderPriority = (priority: string) => (
   <div
-    className={`p-1 rounded text-center font-bold border border-l-8 w-[100px] ${
+    className={`p-1 text-center font-bold border border-l-8 w-[100px] ${
       priorityStyles[priority] || ""
     }`}
   >
@@ -61,7 +61,7 @@ const renderPriority = (priority: string) => (
 
 const renderTechnicalTaskStatus = (technicalTaskStatus: string) => (
   <div
-    className={`p-1 rounded text-center font-bold border border-l-8 w-[163px] ${
+    className={`p-1 text-center font-bold border border-l-8 w-[163px] ${
       technicalStatusStyles[technicalTaskStatus] || ""
     }`}
   >

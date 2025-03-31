@@ -350,7 +350,7 @@ const AddAmendmentForm = ({}: any) => {
         <ScrollArea className="h-[80vh]  px-3 py-3 w-[100%] xl:w-[56vw]">
           <form
             onSubmit={handleSubmit}
-            className=" p-6 text-[0.8rem] bg-[#fff] border-0 rounded slide-in
+            className=" p-6 text-[0.8rem] bg-[#fff] border-0 slide-in
  "
           >
             <div className="mb-3 mt-3">
@@ -630,7 +630,7 @@ const AddAmendmentForm = ({}: any) => {
               <Button
                 type="submit"
                 value="Sign In"
-                className="cursor-pointer bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 border-0 rounded p-2" 
+                className="cursor-pointer bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 border-0  p-2" 
               >
                 {isUserValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

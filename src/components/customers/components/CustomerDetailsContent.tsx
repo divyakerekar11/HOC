@@ -536,7 +536,7 @@ const CustomerDetailsContent = ({ handleUpdate }: any) => {
             className="w-full "
           /> */}
         </div>
-        <div className="w-full border-0 rounded bg-[#fff] lg:w-[50%] update ">
+        <div className="w-full border-0  bg-[#fff] lg:w-[50%] update ">
           <Tabs
             value={textTab}
             onValueChange={setTextTab}
@@ -794,7 +794,7 @@ const CustomerDetailsContent = ({ handleUpdate }: any) => {
                           <>
                             <button
                               type="submit"
-                              className="cursor-pointer h-[24px] border-0 rounded bg-[#013642] px-4 text-white transition hover:bg-opacity-90"
+                              className="cursor-pointer h-[24px] border-0  bg-[#013642] px-4 text-white transition hover:bg-opacity-90"
                               disabled={isLoading}
                             >
                               {isLoading ? (

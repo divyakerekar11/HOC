@@ -356,7 +356,7 @@ const InvoiceSendMailDialoge: React.FC<Props> = ({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>
-        <EnvelopeClosedIcon className="h-[1.35rem] w-[1.75rem] p-1 hover:bg-[#29354f] text-black hover:text-[white] border-0 rounded" />
+        <EnvelopeClosedIcon className="h-[1.35rem] w-[1.75rem] p-1 hover:bg-[#29354f] text-black hover:text-[white] border-0 " />
       </DialogTrigger>
       <DialogContent className="sm:max-w-[550px] text-[0.8rem]">
         <div className="flex justify-center text-xl">
@@ -467,7 +467,7 @@ const InvoiceSendMailDialoge: React.FC<Props> = ({
             <Button
               type="submit"
               disabled={isMail}
-              className={`cursor-pointer border-0 rounded p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 ${
+              className={`cursor-pointer border-0  p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90 ${
                 isMail ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >

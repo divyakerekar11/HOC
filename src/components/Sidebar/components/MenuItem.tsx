@@ -33,8 +33,8 @@ const MenuItem = memo((props: any) => {
             type="button"
             className={
               isActive
-                ? "w-full bg-white text-gray-700 dark:text-white transition duration-75 p-1 border-0 rounded "
-                : "w-full transition duration-75 p-1 hover:bg-white hover:duration-75 hover:text-gray-700 hover:border-0 hover:rounded"
+                ? "w-full bg-white text-gray-700 dark:text-white transition duration-75 p-1 border-0  "
+                : "w-full transition duration-75 p-1 hover:bg-white hover:duration-75 hover:text-gray-700 hover:border-0 "
             }
             aria-controls="dropdown-example"
             data-collapse-toggle="dropdown-example"
@@ -76,7 +76,7 @@ const MenuItem = memo((props: any) => {
             {submenuItems.map((el: any) => (
               <li
                 key={el.label}
-                className="outline-white outline-[20px] py-1 my-1 rounded-r-lg mb-2 hover:border-[#4b9437] hover:border-l-8 hover:bg-gray-300 hover:font-bold hover:text-gray-700 cursor-pointer"
+                className="outline-white outline-[20px] py-1 my-1 mb-2 hover:border-[#4b9437] hover:border-l-8 hover:bg-gray-300 hover:font-bold hover:text-gray-700 cursor-pointer"
               >
                 <Link href={el?.href} scroll={false}>
                   {el.label}

@@ -158,12 +158,12 @@ const CommentSection = ({
                             let content;
                             if (fileType === "pdf") {
                               content = (
-                                <div className="flex items-center justify-center h-[100px] w-[100px] bg-gray-200 rounded">
+                                <div className="flex items-center justify-center h-[100px] w-[100px] bg-gray-200 ">
                                   <a href={file} target="_blank">
                                     <img
                                       src={PDFPic}
                                       alt=""
-                                      className="h-[100px] w-[100px] object-cover rounded"
+                                      className="h-[100px] w-[100px] object-cover "
                                     />
                                   </a>
                                 </div>
@@ -174,29 +174,29 @@ const CommentSection = ({
                                   key={index}
                                   src={file}
                                   alt=""
-                                  className="h-[100px] w-[100px] object-cover rounded"
+                                  className="h-[100px] w-[100px] object-cover "
                                 />
                               );
                             } else if (fileType === "word") {
                               content = (
-                                <div className="flex items-center justify-center h-[100px] w-[100px] bg-gray-200 rounded">
+                                <div className="flex items-center justify-center h-[100px] w-[100px] bg-gray-200 ">
                                   <a href={file} target="_blank">
                                     <img
                                       src={WORDPic}
                                       alt=""
-                                      className="h-[100px] w-[100px] object-cover rounded"
+                                      className="h-[100px] w-[100px] object-cover "
                                     />
                                   </a>
                                 </div>
                               );
                             } else if (fileType === "xlsx") {
                               content = (
-                                <div className="flex items-center justify-center h-[100px] w-[100px] bg-gray-200 rounded">
+                                <div className="flex items-center justify-center h-[100px] w-[100px] bg-gray-200 ">
                                   <a href={file} target="_blank">
                                     <img
                                       src={XLSXPic}
                                       alt=""
-                                      className="h-[100px] w-[100px] object-cover rounded"
+                                      className="h-[100px] w-[100px] object-cover "
                                     />
                                   </a>
                                 </div>

@@ -151,7 +151,7 @@ const UpdateWebsiteContent = ({ websiteContentId }: any) => {
           <React.Fragment key={editor.id || index}>
             {editor.isPinned === true && (
               <div className="flex justify-end mb-2">
-                <p className="bg-orange-400 text-white flex items-center px-3 py-1 rounded-full text-xs shadow-lg">
+                <p className="bg-orange-400 text-white flex items-center px-3 py-1 -full text-xs shadow-lg">
                   <DrawingPinIcon className="mr-1 h-4 w-4" />
                   Pinned
                 </p>
@@ -167,13 +167,13 @@ const UpdateWebsiteContent = ({ websiteContentId }: any) => {
                         <Avatar className="cursor-pointer">
                           <AvatarImage
                             src={editor?.createdBy?.avatar}
-                            className="rounded-full"
+                            className="-full"
                             alt="user avatar"
                           />
                           <AvatarFallback>
                             <img
                               src={companyLogo}
-                              className="rounded-full"
+                              className="-full"
                               alt="company logo"
                             />
                           </AvatarFallback>
@@ -306,10 +306,10 @@ const UpdateWebsiteContent = ({ websiteContentId }: any) => {
                         .reverse()
                         .map((data: any) => (
                           <section
-                            className="text-gray-600 body-font overflow-hidden  my-2 rounded "
+                            className="text-gray-600 body-font overflow-hidden  my-2  "
                             key={data?._id}
                           >
-                            <div className="container px-5 py-2 mx-auto bg-gray-100 border rounded w-[90%]">
+                            <div className="container px-5 py-2 mx-auto bg-gray-100 border  w-[90%]">
                               <div className="flex flex-wrap -m-12">
                                 <div className="p-12 md:w-full flex flex-col items-start">
                                   <div className="flex items-center justify-between w-full border-b-2 border-gray-100">

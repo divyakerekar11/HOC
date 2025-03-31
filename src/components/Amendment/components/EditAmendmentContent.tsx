@@ -329,13 +329,13 @@ const EditAmendmentContent = () => {
 
      
       <div className=" flex gap-5 justify-center ">
-      <div className="my-3 text-[0.8rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1 rounded cursor-pointer hidden text-center sm:block w-fit boxShadow ">
+      <div className="my-3 text-[0.8rem] bg-[#fff] hover:bg-gray-300 h-fit px-2 py-1  cursor-pointer hidden text-center sm:block w-fit boxShadow ">
                 <Link href={`/amendment`}>Back</Link>
               </div>
         <ScrollArea className="h-[80vh]  sm:px-3 sm:py-3 w-[100%] xl:w-[56vw]">
           <form
             onSubmit={handleSubmit}
-            className=" p-6 bg-[#fff] boxShadow border-0 rounded slide-in"
+            className=" p-6 bg-[#fff] boxShadow border-0  slide-in"
           >
             <div className="lg:flex gap-5">
               {/* Current Date */}
@@ -591,7 +591,7 @@ const EditAmendmentContent = () => {
             <div className="my-6 ">
               <Button
                 type="submit"
-                className="lg:w-[6vw] w-full cursor-pointer px-4 py-1 text-white transition hover:bg-opacity-90 text-md border-0 rounded p-2  bg-[#013642]"
+                className="lg:w-[6vw] w-full cursor-pointer px-4 py-1 text-white transition hover:bg-opacity-90 text-md border-0  p-2  bg-[#013642]"
               >
                 {isAmendmentValid ? (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

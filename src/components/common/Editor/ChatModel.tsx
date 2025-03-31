@@ -260,7 +260,7 @@ const ChatModel = ({
                                 //   src={fileIcons[fileType]}
                                 src={PDFPic}
                                 alt="PDF"
-                                className="h-[50px] w-[50px] object-cover rounded"
+                                className="h-[50px] w-[50px] object-cover "
                               />
                             </a>
                           </div>

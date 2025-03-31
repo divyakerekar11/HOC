@@ -54,7 +54,7 @@ const renderCompanyLogo = (data: string[]) => (
           >
             {data.map((item, index) => (
               <div
-                className={`p-1 rounded text-center font-bold border border-l-8 text-nowrap mb-1 ${
+                className={`p-1 text-center font-bold border border-l-8 text-nowrap mb-1 ${
                   companyLogoStyles[item] || ""
                 }`}
                 key={index}
@@ -88,7 +88,7 @@ const renderCotactInfo = (data: string[]) => (
           >
             {data.map((item, index) => (
               <div
-                className={`p-1 rounded text-center font-bold border border-l-8 text-nowrap mb-1 ${
+                className={`p-1  text-center font-bold border border-l-8 text-nowrap mb-1 ${
                   contactInforStyles[item] || ""
                 }`}
                 key={index}
@@ -110,7 +110,7 @@ const typeOfCustomerStyles: { [key: string]: string } = {
 };
 const renderTypeOfCustomer = (data: string) => (
   <div
-    className={`p-1 rounded text-center font-bold border border-l-8 w-[190px] text-nowrap ${
+    className={`p-1  text-center font-bold border border-l-8 w-[190px] text-nowrap ${
       typeOfCustomerStyles[data] || ""
     }`}
   >
@@ -138,7 +138,7 @@ const renderDomainTransferred = (data: string[]) => (
           >
             {data.map((item, index) => (
               <div
-                className={`p-1 rounded text-center font-bold border border-l-8 text-nowrap mb-1 ${
+                className={`p-1  text-center font-bold border border-l-8 text-nowrap mb-1 ${
                   domainTransferredStyles[item] || ""
                 }`}
                 key={index}
@@ -172,7 +172,7 @@ const renderBlogToBeAdded = (data: string[]) => (
           >
             {data.map((item, index) => (
               <div
-                className={`p-1 rounded text-center font-bold border border-l-8 text-nowrap mb-1 ${
+                className={`p-1  text-center font-bold border border-l-8 text-nowrap mb-1 ${
                   blogToBeAddedStyles[item] || ""
                 }`}
                 key={index}
@@ -207,7 +207,7 @@ const renderCustomerEmail = (data: string[]) => (
           >
             {data.map((item, index) => (
               <div
-                className={`p-1 rounded text-center font-bold border border-l-8 text-nowrap mb-1 ${
+                className={`p-1  text-center font-bold border border-l-8 text-nowrap mb-1 ${
                   customerEmailStyles[item] || ""
                 }`}
                 key={index}
@@ -242,7 +242,7 @@ const renderImages = (data: string[]) => (
           >
             {data.map((item, index) => (
               <div
-                className={`p-1 rounded text-center font-bold border border-l-8 text-nowrap mb-1 ${
+                className={`p-1  text-center font-bold border border-l-8 text-nowrap mb-1 ${
                   imagesStyles[item] || ""
                 }`}
                 key={index}
@@ -277,7 +277,7 @@ const renderGoogleReviews = (data: string[]) => (
           >
             {data.map((item, index) => (
               <div
-                className={`p-1 rounded text-center font-bold border border-l-8 text-nowrap mb-1 ${
+                className={`p-1  text-center font-bold border border-l-8 text-nowrap mb-1 ${
                   googleReviewsStyles[item] || ""
                 }`}
                 key={index}
@@ -311,7 +311,7 @@ const renderIsCopywriter = (data: string[]) => (
           >
             {data.map((item, index) => (
               <div
-                className={`p-1 rounded text-center font-bold border border-l-8 text-nowrap mb-1 ${
+                className={`p-1  text-center font-bold border border-l-8 text-nowrap mb-1 ${
                   isCopywriterStyles[item] || ""
                 }`}
                 key={index}
@@ -350,7 +350,7 @@ const renderContentRequired = (data: string[]) => (
           >
             {data.map((item, index) => (
               <div
-                className={`p-1 rounded text-center font-bold border border-l-8 text-nowrap mb-1 ${
+                className={`p-1  text-center font-bold border border-l-8 text-nowrap mb-1 ${
                   contentRequiredStyles[item] || ""
                 }`}
                 key={index}

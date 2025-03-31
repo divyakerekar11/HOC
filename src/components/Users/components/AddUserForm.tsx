@@ -444,7 +444,7 @@ const AddUserForm: React.FC = () => {
                 <img
                   src={logoPreview}
                   alt="Logo Preview"
-                  className="h-[180px] w-[180px] object-cover rounded"
+                  className="h-[180px] w-[180px] object-cover "
                 />
               </div>
             )}
@@ -455,7 +455,7 @@ const AddUserForm: React.FC = () => {
           <Button
             type="submit"
             value="Sign In"
-            className="cursor-pointer border-0 rounded p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
+            className="cursor-pointer border-0  p-2  bg-[#013642] px-4 py-1 text-white transition hover:bg-opacity-90"
           >
             {isUserValid ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />

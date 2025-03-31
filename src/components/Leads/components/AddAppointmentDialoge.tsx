@@ -64,12 +64,12 @@ export function AddAppointmentDialoge() {
 
       <div className="px-4 py-0 relative flex justify-center text-[0.9rem] pt-12">
         <div
-          className=" p-2 w-fit h-fit mx-5 text-white cursor-pointer hover:bg-[#fff] bg-[#013642] hover:text-black boxShadow border-0 rounded"
+          className=" p-2 w-fit h-fit mx-5 text-white cursor-pointer hover:bg-[#fff] bg-[#013642] hover:text-black boxShadow border-0 "
           onClick={goToLeadsDetails}
         >
           Back
         </div>
-        <div className="flex justify-center w-[50vw] bg-[#fff] boxShadow label-text border-0 rounded slider-in ">
+        <div className="flex justify-center w-[50vw] bg-[#fff] boxShadow label-text border-0  slider-in ">
           <div className="flex justify-center w-[50vw] ">
             <div className="w-full p-3">
               <AddAppointmentForm leadId={leadIdString} />

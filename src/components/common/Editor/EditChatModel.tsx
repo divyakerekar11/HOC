@@ -587,7 +587,7 @@ const EditChatModel = ({
                         </div>
                         <TooltipCommon text="Add Files">
                           <div
-                            className="hover:bg-gray-100 px-2 py-1 rounded cursor-pointer"
+                            className="hover:bg-gray-100 px-2 py-1 cursor-pointer"
                             onClick={imageHandler}
                           >
                             <AddFilesDarkUIconSVG />

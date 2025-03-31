@@ -43,7 +43,7 @@ const productFlowStatusStyles: { [key: string]: string } = {
 
 const renderProductFlowStatus = (productFlowTaskStatus: string) => (
   <div
-    className={`p-1 rounded text-center font-bold border border-l-8 w-[150px] ${
+    className={`p-1 text-center font-bold border border-l-8 w-[150px] ${
       productFlowStatusStyles[productFlowTaskStatus] || ""
     }`}
   >

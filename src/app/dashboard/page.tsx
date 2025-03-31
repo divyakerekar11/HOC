@@ -102,7 +102,7 @@ const DashBoardPage: React.FC = () => {
         <div
           className={
             toggleWidth
-             ? `sm:px-2 p-0 sm:ml-20 ml-0 transition-all duration-300  bg-[#e8f4f1] min-h-[95vh] `
+             ? `sm:px-2 p-0 sm:ml-20 ml-0 transition-all duration-300  bg-[#fff] min-h-[95vh] `
             : `sm:px-2 p-0 sm:ml-60 ml-0 transition-all duration-300  bg-[#e8f4f1] min-h-[95vh]`
               // ? `sm:px-4  sm:ml-64 ml-0 bg-[#edf0f5] transition-all duration-300 relative text-[0.8rem]`
               // : `sm:px-4  sm:ml-20 ml-0  bg-[#edf0f5] transition-all duration-300 relative text-[0.8rem]`
@@ -123,7 +123,7 @@ const DashBoardPage: React.FC = () => {
             </div> */}
             {userRole === "salesman" ? (
               <div className="sm:flex gap-3 smooth-slide-in-right ">
-    <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent rounded hover:border-[1px] hover:border-[#013642]">
+        <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent  hover:border-[1px] hover:border-[#013642] ">
                   <CardHeader className="p-[1rem] xl:p-[1.5rem]">
                     <CardTitle className=" text-[0.8rem] xl:text-[1rem]">
                       Total Leads
@@ -133,7 +133,7 @@ const DashBoardPage: React.FC = () => {
                   {userTotalOrderData.totalLeads}
                   </CardContent>
                 </Card>
-                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent rounded hover:border-[1px] hover:border-[#013642]">
+                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent  hover:border-[1px] hover:border-[#013642]">
                   <CardHeader className="p-[1rem] xl:p-[1.5rem]">
                     <CardTitle className=" text-[0.8rem] xl:text-[1rem]">
                       Total Customers
@@ -143,7 +143,7 @@ const DashBoardPage: React.FC = () => {
                   {userTotalOrderData.totalCustomers}
                   </CardContent>
                 </Card>
-                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent rounded hover:border-[1px] hover:border-[#013642]">
+                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent  hover:border-[1px] hover:border-[#013642]">
                   <CardHeader className="p-[1rem] xl:p-[1.5rem]">
                     <CardTitle className=" text-[0.8rem] xl:text-[1rem]">
                       Total Orders
@@ -153,7 +153,7 @@ const DashBoardPage: React.FC = () => {
                   {userTotalOrderData.totalOrders}
                   </CardContent>
                 </Card>
-                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent rounded hover:border-[1px] hover:border-[#013642]">
+                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent hover:border-[1px] hover:border-[#013642]">
                   <CardHeader className="p-[1rem] xl:p-[1.5rem]">
                     <CardTitle className=" text-[0.8rem] xl:text-[1rem]">
                       Total Amendments
@@ -166,7 +166,7 @@ const DashBoardPage: React.FC = () => {
               </div>
             ) : (
               <div className="sm:flex gap-3 smooth-slide-in-right ">
-              <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent rounded hover:border-[1px] hover:border-[#013642] slide-in-right ">
+              <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent  hover:border-[1px] hover:border-[#013642] slide-in-right  hover:bg-[#e6f3f1]">
                   <CardHeader className="p-[1rem] xl:p-[1.5rem]">
                     <CardTitle className=" text-[0.8rem] xl:text-[1rem]">
                       Total Leads
@@ -176,7 +176,7 @@ const DashBoardPage: React.FC = () => {
                     {userTotalOrderData.totalLeads}
                   </CardContent>
                 </Card>
-                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent rounded hover:border-[1px] hover:border-[#013642]">
+                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent  hover:border-[1px] hover:border-[#013642]">
                   <CardHeader className="p-[1rem] xl:p-[1.5rem]">
                     <CardTitle className=" text-[0.8rem] xl:text-[1rem]">
                       Total Customers
@@ -186,7 +186,7 @@ const DashBoardPage: React.FC = () => {
                   {userTotalOrderData.totalCustomers}
                   </CardContent>
                 </Card>
-                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent rounded hover:border-[1px] hover:border-[#013642]">
+                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent  hover:border-[1px] hover:border-[#013642]">
                   <CardHeader className="p-[1rem] xl:p-[1.5rem]">
                     <CardTitle className=" text-[0.8rem] xl:text-[1rem]">
                       Total Orders
@@ -196,7 +196,7 @@ const DashBoardPage: React.FC = () => {
                   {userTotalOrderData.totalOrders}
                   </CardContent>
                 </Card>
-                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent rounded hover:border-[1px] hover:border-[#013642]">
+                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent  hover:border-[1px] hover:border-[#013642]">
                   <CardHeader className="p-[1rem] xl:p-[1.5rem]">
                     <CardTitle className=" text-[0.8rem] xl:text-[1rem]">
                       Total Amendments
@@ -206,7 +206,7 @@ const DashBoardPage: React.FC = () => {
                   {userTotalOrderData.totalAmendments}
                   </CardContent>
                 </Card>
-                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent rounded hover:border-[1px] hover:border-[#013642]">
+                <Card className="sm:w-[20%] h-[100px] xl:h-[120px] mb-7 transition-all duration-500 ease-in-out border border-transparent  hover:border-[1px] hover:border-[#013642]">
                   <CardHeader className="p-[1rem] xl:p-[1.5rem]">
                     <CardTitle className=" text-[0.8rem] xl:text-[1rem]">
                       Total Users
@@ -221,7 +221,7 @@ const DashBoardPage: React.FC = () => {
             {/* #e6f3f1 */}
             <div className="sm:grid sm:grid-cols-3 gap-4 mb-4  fade-in-up">
               {/* latest Leads  */}
-              <div className="flex flex-col items-center  bg-[#ffffff] dark:bg-gray-800  my-3 sm:my-0 border-0 rounded shadow-[0_5px_5px_#523f690d] hover:shadow-[0_1rem_2rem_rgba(0,0,0,0.2)]">
+              <div className="flex flex-col items-center  bg-[#ffffff] dark:bg-gray-800  my-3 sm:my-0 border-0 shadow-[0_5px_5px_#523f690d] hover:shadow-[0_1rem_2rem_rgba(0,0,0,0.2)]  hover:bg-[#e6f3f1]">
                 <p className="mt-5  bg-gray-100 p-6 rounded-full  hover:border-[1px] hover:border-[#013642]  transition-all duration-300 ease-in-out hover:bg-[#e6f3f1]">
                   <LatestLeadsUIconSVG />
                 </p>
@@ -286,7 +286,7 @@ const DashBoardPage: React.FC = () => {
               </div>
 
               {/* New Orders  */}
-              <div className="flex flex-col items-center bg-[#ffffff] dark:bg-gray-800 my-3 sm:my-0 border-0 rounded shadow-[0_5px_5px_#523f690d] hover:shadow-[0_1rem_2rem_rgba(0,0,0,0.2)]">
+              <div className="flex flex-col items-center bg-[#ffffff] dark:bg-gray-800 my-3 sm:my-0 border-0  shadow-[0_5px_5px_#523f690d] hover:shadow-[0_1rem_2rem_rgba(0,0,0,0.2)]  hover:bg-[#e6f3f1]">
                 <p className="mt-5  bg-gray-100 p-6 rounded-full  transition-all duration-300 ease-in-out hover:bg-[#e6f3f1]  hover:border-[1px] hover:border-[#013642] ">
                   <LatestOrdersUIconSVG />
                 </p>
@@ -349,7 +349,7 @@ const DashBoardPage: React.FC = () => {
               </div>
 
               {/* New Amendments  */}
-              <div className="flex flex-col items-center bg-[#ffffff] dark:bg-gray-800 border-0 rounded shadow-[0_5px_5px_#523f690d] hover:shadow-[0_1rem_2rem_rgba(0,0,0,0.2)] my-3 sm:my-0">
+              <div className="flex flex-col items-center bg-[#ffffff] dark:bg-gray-800 border-0  shadow-[0_5px_5px_#523f690d] hover:shadow-[0_1rem_2rem_rgba(0,0,0,0.2)] my-3 sm:my-0  hover:bg-[#e6f3f1]">
                 <p className="mt-5 bg-gray-100 p-6 rounded-full  transition-all duration-300 ease-in-out hover:bg-[#e6f3f1]  hover:border-[1px] hover:border-[#013642] ">
                   <LatestAmendmentsUIconSVG />
                 </p>
