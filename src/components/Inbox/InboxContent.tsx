@@ -201,8 +201,8 @@ const InboxContent: React.FC = () => {
         <InfiniteScroll
           dataLength={notificationList.length}
           next={() => {
-            setPage(page + 1); // Increase page number and trigger a fetch for more data
-            fetchNotifications(page + 1); // Fetch data for the next page
+            setPage(page + 1); 
+            fetchNotifications(page + 1); 
           }}
           hasMore={hasMore}
           loader={
@@ -219,7 +219,7 @@ const InboxContent: React.FC = () => {
             style={{ maxHeight: "750px" }}
             id="scrollable-table-container"
           >
-            <Table className="shadow-md border-gray-300 ">
+            <Table className="shadow-md border-gray-300 slide-in">
               <TableHeader className="">
                 {/* fixed */}
                 <TableRow className="bg-gray-100 ">
