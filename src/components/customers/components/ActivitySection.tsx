@@ -38,37 +38,47 @@ const ActivitySection = ({ activityDetails,loading }: any) => {
   return (
     <div className="overflow-x-hidden border bg-[#fff] px-1 mt-1 py-1 boxShadow w-full h-[70vh]">
       <div className="font-bold ml-3 bg-[#fff] w-fit px-3">Activity</div>
-      <div className="h-[64vh] overflow-y-auto">
+      <div className="">
         {activityDetails && (
           <div className="relative">
-            <table className="border border-collapse w-full mt-2">
-              {/* Sticky header */}
-              {/* <thead className="bg-[#013642] sticky top-0 z-10 text-white">
-              <tr className="border text-white">
-                <th className="border px-4 py-2 h-10">Date</th>
-                <th className="border px-4 py-2 h-10">Full Name</th>
-                <th className="border px-4 py-2 h-10">Description</th>
-                <th className="border px-4 py-2 h-10">Related Entity</th>
+            {/* <table className="border border-collapse w-full mt-2">
+          
+              <thead className=" bg-gradient-to-t from-[#013642] to-[#006f6c] sticky top-0 z-10 text-white">
+              <tr className=" text-white">
+                <th className=" px-4 py-2 h-12">Date</th>
+                <th className=" px-4 py-2 h-12">Full Name</th>
+                <th className=" px-4 py-2 h-12">Description</th>
+                <th className=" px-4 py-2 h-12">Update</th>
+                <th className=" px-4 py-2 h-12">Related Entity</th>
               </tr>
-            </thead> */}
-            </table>
+            </thead>
+            </table> */}
 
             {/* Scrollable body */}
             <div className="h-[60vh] overflow-y-auto">
               <table className="border border-collapse w-full mt-2">
+              <thead className=" bg-gradient-to-t from-[#013642] to-[#006f6c] sticky top-[-1px] z-10 text-white">
+              <tr className=" text-white">
+                <th className=" px-4 py-2 h-12 text-start">Date</th>
+                <th className=" px-4 py-2 h-12 text-start">Full Name</th>
+                <th className=" px-4 py-2 h-12 text-start">Description</th>
+                <th className=" px-4 py-2 h-12 text-start">Update</th>
+                <th className=" px-4 py-2 h-12 text-start">Related Entity</th>
+              </tr>
+            </thead>
                 <tbody>
-                  {activityDetails?.map((activity: any) => (
-                    <tr key={activity?._id} className="border">
-                      <td className="border py-1 px-4 h-10">
+                  {activityDetails?.map((activity: any,index: number) => (
+                    <tr key={activity?._id}  className={`border ${index % 2 === 0 ? "bg-[#D8F4F3]" : "bg-[#A7D8D2]"}`} >
+                      <td className="border py-1 px-4 h-12">
                         {formatDateOfSlash(activity?.createdAt) || "N/A"}
                       </td>
-                      <td className="border py-1 px-4 h-10">
+                      <td className="border py-1 px-4 h-12">
                         {activity?.createdBy?.fullName || "N/A"}
                       </td>
-                      <td className="border py-1 px-4 h-10">
+                      <td className="border py-1 px-4 h-12">
                         {activity?.description || "N/A"}
                       </td>
-                      <td className="border py-1 px-4 h-10">
+                      <td className="border py-1 px-4 h-12">
                         <SideDrawer
                           length={
                             activity?.relatedEntityId?.updates?.length || 0
@@ -117,7 +127,7 @@ const ActivitySection = ({ activityDetails,loading }: any) => {
                           }}
                         />
                       </td>
-                      <td className="border py-1 px-4 h-10">
+                      <td className="border py-1 px-4 h-12">
                         {activity?.relatedEntity || "N/A"}
                       </td>
                     </tr>

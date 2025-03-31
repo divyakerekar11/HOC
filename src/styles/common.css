@@ -168,10 +168,36 @@
   color: black;
 }
 
+.widget-stat .media {
+  padding: 0px 0   !important;;
+  align-items: center   !important;;
+}
 
+.media {
+  display: flex
+;
+  /* align-items: flex-start; */
+}
 
-
-
+.ddd > span {
+  height: 85px !important;
+  width: 85px  !important;
+  border-radius: 50px  !important;
+  padding: 10px 12px  !important;
+  font-size: 32px !important;
+  display: flex  !important;
+  justify-content: center  !important;
+  align-items: center  !important;
+  color: #464a53  !important;
+  min-width: 85px  !important;
+  /* background: #929490   !important; */
+    border-color: #ecfae4  !important;
+}
+.widget-stat .media .media-body p {
+  text-transform: uppercase   !important;;
+  font-weight: 500   !important;;
+  font-size: 14px   !important;;
+}
 
 /* Control styles for the input field */
 .react-select-custom-styling__container .react-select-custom-styling__control {
