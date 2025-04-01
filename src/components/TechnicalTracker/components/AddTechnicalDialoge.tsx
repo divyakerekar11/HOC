@@ -31,7 +31,7 @@ const AddTechnicalDialoge = ({ getAllTechnical }: AddTechnicalDialogeProps) => {
       <DialogTrigger asChild>
         <Button
           variant="outline"
-          className="text-[0.8rem] text-white bg-[#013642] hover:bg-[#fff] hover:text-[#013642]"
+          className="text-[0.8rem] text-white bg-gradient-to-t from-[#013642] to-[#006f6c] hover:bg-gradient-to-r hover:from-[#fff] hover:to-[#fff]hover:text-[#013642] hover:text-[#013642]"
         >
           New Technical
         </Button>

@@ -328,8 +328,8 @@ const EmployeeLeaveContent: React.FC = () => {
           )}
           <Button
             variant="outline"
-            className={`text-[0.9rem] text-white border-0  hover:bg-[#fff] hover:text-[#013642]  ${
-              isShow ? "bg-slate-500" : "bg-[#013642]"
+            className={`text-[0.9rem] text-white border-0 bg-gradient-to-t from-[#013642] to-[#006f6c] hover:bg-gradient-to-r hover:from-[#fff] hover:to-[#fff]hover:text-[#013642] hover:text-[#013642]  ${
+              isShow ? "bg-slate-500" : "bg-gradient-to-t from-[#013642] to-[#006f6c] hover:bg-gradient-to-r hover:from-[#fff] hover:to-[#fff]hover:text-[#013642]"
             }`}
             onClick={showTable}
           >
@@ -340,7 +340,7 @@ const EmployeeLeaveContent: React.FC = () => {
             <Link href={"/employeeLeaveManagement/addEmployeeLeave"}>
               <Button
                 variant="outline"
-                className=" text-[0.9rem] text-white bg-[#013642] hover:bg-[#fff] hover:text-[#013642] border-0 "
+                className=" text-[0.9rem] text-white bg-gradient-to-t from-[#013642] to-[#006f6c] hover:bg-gradient-to-r hover:from-[#fff] hover:to-[#fff]hover:text-[#013642] hover:text-[#013642] border-0 "
               >
                 New Leave
               </Button>
