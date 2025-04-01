@@ -56,7 +56,7 @@ const ActivitySection = ({ activityDetails,loading }: any) => {
 
             {/* Scrollable body */}
             <div className="h-[60vh] overflow-y-auto">
-              <table className="border border-collapse w-full mt-2">
+              <table className="border border-collapse w-full mt-2 slide-in ">
               <thead className=" bg-gradient-to-t from-[#013642] to-[#006f6c] sticky top-[-1px] z-10 text-white">
               <tr className=" text-white">
                 <th className=" px-4 py-2 h-12 text-start">Date</th>
